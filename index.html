@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Company Name - Engineering, consulting, procurement, and project execution solutions." />
+    <title>Company Name | Engineering, Consulting &amp; Solutions</title>
+    <!-- Google Fonts: Montserrat (for bold brand geometry) & Inter (for crisp interface typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Top Navigation Header -->
+    <header class="site-header" id="home">
+      <div class="header-container">
+        <!-- Header Left: Brand Logo & Tagline -->
+        <div class="header-left">
+          <a class="brand" href="#home" aria-label="Company Name - Home">
+            <span class="brand-symbol">
+              <img class="brand-image" src="assets/logo.png" alt="Company Name logo" />
+            </span>
+          </a>
+        </div>
+
+        <!-- Header Center: Navigation Menu Centered -->
+        <nav class="nav-menu header-center" id="primary-nav" aria-label="Main menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item has-dropdown">
+              <a class="nav-link nav-link-dropdown" href="#services" aria-haspopup="true" aria-expanded="false">
+                <span>Our Services</span>
+                <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 1l4 4 4-4" />
+                </svg>
+              </a>
+              <ul class="dropdown-list" aria-label="Our Services dropdown">
+                <li><a href="#services">Engineering Consultancy</a></li>
+                <li><a href="#services">Project Management</a></li>
+                <li><a href="#services">Procurement Support</a></li>
+                <li><a href="#services">Manufacturing Consultancy</a></li>
+                <li><a href="#services">Logistics &amp; Supply Chain</a></li>
+                <li><a href="#services">Project Execution</a></li>
+                <li><a href="#services">Business Process Optimization</a></li>
+                <li><a href="#services">Technical Advisory</a></li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <a class="nav-link nav-link-dropdown" href="#industries" aria-haspopup="true" aria-expanded="false">
+                <span>Industries</span>
+                <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 1l4 4 4-4" />
+                </svg>
+              </a>
+              <ul class="dropdown-list" aria-label="Industries dropdown">
+                <li><a href="#industries">Oil &amp; Gas / Petrochemicals</a></li>
+                <li><a href="#industries">Energy &amp; Renewable Power</a></li>
+                <li><a href="#industries">Heavy Industrial Manufacturing</a></li>
+                <li><a href="#industries">Infrastructure &amp; Civil Engineering</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#careers">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#knowledge">Knowledge Center</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+
+          <!-- Mobile Only CTA inside Drawer -->
+          <div class="mobile-nav-cta">
+            <a class="btn-touch mobile-btn-touch" href="#contact">
+              <span>Get in Touch</span>
+              <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+              </svg>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Header Right: CTA Button & Mobile Hamburger -->
+        <div class="header-right">
+          <a class="btn-touch header-btn-touch" href="#contact">
+            <span>Get in Touch</span>
+            <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+            </svg>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Video Hero Banner -->
+    <main class="hero-banner" id="heroBanner">
+      <div class="video-wrapper">
+        <video
+          class="hero-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          id="bgVideo"
+        >
+          <source src="assets/gemini_generated_video_fa356316.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="tag-pulse"></span>
+            <span>Engineering | Consulting | Solutions</span>
+          </div>
+
+          <h1 class="hero-title">
+            Turning Vision Into<br /><span class="text-gradient">Smarter, Safer</span> &amp; <span class="text-gradient">Sustainable</span><br />Projects
+          </h1>
+
+          <p class="hero-subtitle">
+            An integrated engineering and management consultancy delivering innovative solutions across engineering, project management, procurement and project execution.
+          </p>
+
+          <div class="hero-proof-row" aria-label="Our core strengths">
+            <div class="hero-proof-item">
+              <span class="hero-proof-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 2.7 3.2.7-2.2 2.4.4 3.2-3.1-1.4-3.1 1.4.4-3.2-2.2-2.4 3.2-.7L12 3Z"/><path d="M5 17h14M7 20h10"/></svg>
+              </span>
+              <span>Expert<br />Consultation</span>
+            </div>
+            <div class="hero-proof-divider" aria-hidden="true"></div>
+            <div class="hero-proof-item">
+              <span class="hero-proof-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="m4 12 8 4.5 8-4.5M4 16.5l8 4.5 8-4.5"/></svg>
+              </span>
+              <span>Customized<br />Solutions</span>
+            </div>
+            <div class="hero-proof-divider" aria-hidden="true"></div>
+            <div class="hero-proof-item">
+              <span class="hero-proof-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+              </span>
+              <span>On-Time<br />Delivery</span>
+            </div>
+            <div class="hero-proof-divider" aria-hidden="true"></div>
+            <div class="hero-proof-item">
+              <span class="hero-proof-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V12M10 19V8M16 19V4M22 19H2"/><path d="m14 7 3-3 3 3"/></svg>
+              </span>
+              <span>Long-Term<br />Partnership</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a class="btn-hero-primary" href="#contact">
+              <span>Get in Touch</span>
+              <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+              </svg>
+            </a>
+            <a class="btn-hero-secondary" href="#services">
+              <span>Our Services</span>
+              <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
+            </a>
+            <button type="button" class="btn-video-toggle" id="btnVideoToggle" aria-label="Pause or play background video">
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="display: none;">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <span class="video-btn-text">Pause Video</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Key Highlights & Performance Stats Section (Directly Below Banner) -->
+    <!-- Key Highlights & Performance Stats Section (Clean, Compact & Image-Free) -->
+    <section class="stats-overview-section" id="stats">
+      <div class="stats-wrapper">
+        <div class="stats-card">
+          <!-- 5 Stats Columns -->
+          <div class="stats-grid">
+            <!-- Stat 1: Projects Completed -->
+            <div class="stat-box" data-count="2000" data-suffix="+" data-prefix="">
+              <div class="stat-icon-wrapper">
+                <svg class="stat-svg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M11 5.5H22L27 10.5V30.5H11C9.9 30.5 9 29.6 9 28.5V7.5C9 6.4 9.9 5.5 11 5.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M22 5.5V10.5H27M14 16H22M14 20H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 25L17 28L23 22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="stat-figure"><span class="stat-num">2,000</span>+</span>
+              <span class="stat-caption">Projects Completed</span>
+            </div>
+
+            <div class="stat-sep" aria-hidden="true"></div>
+
+            <!-- Stat 2: Consultants -->
+            <div class="stat-box" data-count="16" data-suffix="" data-prefix="">
+              <div class="stat-icon-wrapper">
+                <svg class="stat-svg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="18" cy="10" r="3.5" stroke="currentColor" stroke-width="2"/>
+                  <path d="M11.5 27C11.5 22.8 14.4 19.5 18 19.5C21.6 19.5 24.5 22.8 24.5 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="8.5" cy="13" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M3.8 26C4.2 22.7 6 20.8 8.7 20.8C10.2 20.8 11.5 21.5 12.4 22.7M27.5 13C27.5 11.6 28.6 10.5 30 10.5C31.4 10.5 32.5 11.6 32.5 13C32.5 14.4 31.4 15.5 30 15.5C28.6 15.5 27.5 14.4 27.5 13Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M23.6 22.7C24.5 21.5 25.8 20.8 27.3 20.8C30 20.8 31.8 22.7 32.2 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="stat-figure highlight-blue"><span class="stat-num">16</span></span>
+              <span class="stat-caption">Consultants</span>
+            </div>
+
+            <div class="stat-sep" aria-hidden="true"></div>
+
+            <!-- Stat 3: Global Clients -->
+            <div class="stat-box" data-count="70" data-suffix="+" data-prefix="">
+              <div class="stat-icon-wrapper">
+                <svg class="stat-svg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 18H30M18 6C21.2 9.3 22.8 13.3 22.8 18C22.8 22.7 21.2 26.7 18 30C14.8 26.7 13.2 22.7 13.2 18C13.2 13.3 14.8 9.3 18 6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M8.5 11.5C11.1 13 14.3 13.8 18 13.8C21.7 13.8 24.9 13 27.5 11.5M8.5 24.5C11.1 23 14.3 22.2 18 22.2C21.7 22.2 24.9 23 27.5 24.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="stat-figure"><span class="stat-num">70</span>+</span>
+              <span class="stat-caption">Global Clients</span>
+            </div>
+
+            <div class="stat-sep" aria-hidden="true"></div>
+
+            <!-- Stat 4: Area Managed -->
+            <div class="stat-box" data-count="50000" data-suffix=" m²" data-prefix="">
+              <div class="stat-icon-wrapper">
+                <svg class="stat-svg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M7 30V15L13 19V15L19 19V10H29V30H7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M23 30V22H27V30M23 14H25M23 18H25M13 23H15M13 27H15M18 23H20M18 27H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M25 7V3M22.5 5.5L25 3L27.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="stat-figure"><span class="stat-num">50,000</span> m²</span>
+              <span class="stat-caption">Area Managed</span>
+            </div>
+
+            <div class="stat-sep" aria-hidden="true"></div>
+
+            <!-- Stat 5: Savings Up To -->
+            <div class="stat-box" data-count="120" data-suffix="M" data-prefix="$">
+              <div class="stat-icon-wrapper">
+                <svg class="stat-svg-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M7 29V22H12V29M15.5 29V16H20.5V29M24 29V10H29V29" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 10L13 15L19 10L25 13L30 6M25 6H30V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="stat-figure">$<span class="stat-num">120</span>M</span>
+              <span class="stat-caption">Savings Up To</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section" id="why-choose">
+      <div class="why-choose-container">
+        <div class="why-choose-content">
+          <div class="why-choose-eyebrow"><span></span><b>WHY CHOOSE US</b><span></span></div>
+          <h2 class="why-choose-title">Your Trusted Partner<br /><em>for a Better Tomorrow</em></h2>
+          <p class="why-choose-description">We combine deep industry expertise, technical excellence and a client-centric approach to deliver sustainable and successful outcomes across every project.</p>
+
+          <div class="why-feature-grid">
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c.6-3.2 2.6-4.8 6-4.8s5.4 1.6 6 4.8M15 15c3.3-.1 5.2 1.3 6 4"/></svg></div>
+              <div><h3>Experienced<br />Professionals</h3><p>A team of highly qualified engineers, consultants and project managers with proven industry experience.</p><span></span></div>
+            </article>
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2 2-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.8v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2-2 .1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H5.8v-2.8h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9L7 8.1l2-2 .1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.1h2.8V5a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 2 2-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.8h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
+              <div><h3>End-to-End<br />Solutions</h3><p>From concept and design to execution and handover, we provide complete and integrated solutions.</p><span></span></div>
+            </article>
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 21h4M8.5 14.5C7.5 13.6 7 12.4 7 11a5 5 0 0 1 10 0c0 1.4-.5 2.6-1.5 3.5-.7.6-1.1 1.2-1.3 2h-4.4c-.2-.8-.6-1.4-1.3-2z"/><path d="M12 2v2M4.9 4.9l1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></div>
+              <div><h3>Customized<br />Approach</h3><p>Tailored solutions to meet your specific business needs, industry requirements and project goals.</p><span></span></div>
+            </article>
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/><path d="m8.5 12 2.3 2.3 4.7-5"/></svg></div>
+              <div><h3>Quality &amp; Safety<br />Commitment</h3><p>We adhere to the highest standards of quality, safety and regulatory compliance in all our projects.</p><span></span></div>
+            </article>
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 5-7"/><path d="M16 6h3v3"/></svg></div>
+              <div><h3>Cost &amp; Time<br />Efficiency</h3><p>Optimized planning, efficient resource management and disciplined execution to ensure on-time delivery.</p><span></span></div>
+            </article>
+            <article class="why-feature-card">
+              <div class="why-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 12.5 5.5 15a3 3 0 0 0 4.2 4.2l2.1-2.1M16 11.5l2.5-2.5a3 3 0 0 0-4.2-4.2l-2.1 2.1M8.5 15.5l7-7"/></svg></div>
+              <div><h3>Long-Term<br />Partnership</h3><p>We build lasting relationships by delivering consistent value, reliability and ongoing support.</p><span></span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="why-choose-visual">
+          <div class="why-image-frame">
+            <img src="assets/why-choose-refinery.png" alt="Modern petrochemical refinery at sunset" loading="lazy" />
+            <div class="why-image-wash" aria-hidden="true"></div>
+          </div>
+          <div class="why-choose-badge">
+            <div class="why-badge-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11h16M6 11V8l6-4 6 4v3M8 11v7M12 11v7M16 11v7M4 18h16"/><path d="M3 20h18"/></svg></div>
+            <span>Engineering<br />Today for a<br />Sustainable<br />Tomorrow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us-section" id="about">
+      <div class="about-container">
+        <!-- Left Column: Industrial Engineers Showcase -->
+        <div class="about-media-col">
+          <div class="about-image-card">
+            <img
+              src="assets/about-engineers-hd.jpg"
+              alt="Experienced industrial project engineers reviewing plant blueprints on site"
+              class="about-engineers-img"
+              loading="lazy"
+            />
+            <div class="about-image-gradient" aria-hidden="true"></div>
+
+            <!-- Single Elegant Floating Credibility Badge -->
+            <div class="about-floating-badge">
+              <div class="floating-badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                </svg>
+              </div>
+              <div class="floating-badge-text">
+                <span class="floating-badge-eyebrow">Proven Leadership Pedigree</span>
+                <strong class="floating-stat-pedigree">Ex-Reliance • L&amp;T • Deloitte</strong>
+                <span class="floating-label">Senior consultants across 15+ industrial sectors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Content & Core Strengths -->
+        <div class="about-content-col">
+          <!-- Eyebrow Tag -->
+          <div class="about-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-text">ABOUT OUR CONSULTANCY</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h2 class="about-heading">
+            Transforming Engineering Ideas Into <span class="highlight-blue">Efficient Realities</span>
+          </h2>
+
+          <!-- Descriptive Body Text -->
+          <p class="about-description">
+            We are an integrated engineering and project management consultancy delivering end-to-end industrial solutions. Combining deep technical expertise with commercial intelligence, we bridge the gap between design concepts and turnkey site execution.
+          </p>
+
+          <!-- 4 Core Pillars (Streamlined 2x2 grid) -->
+          <div class="about-pillars-grid">
+            <!-- Pillar 1: Technical Excellence -->
+            <div class="about-pillar-card">
+              <div class="pillar-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <strong class="pillar-title">Technical Excellence</strong>
+                <p class="pillar-desc">Accurate, code-compliant &amp; constructible designs.</p>
+              </div>
+            </div>
+
+            <!-- Pillar 2: Integrated Execution -->
+            <div class="about-pillar-card">
+              <div class="pillar-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <strong class="pillar-title">Integrated Execution</strong>
+                <p class="pillar-desc">One unified team aligning engineering &amp; site work.</p>
+              </div>
+            </div>
+
+            <!-- Pillar 3: Commercial Intelligence -->
+            <div class="about-pillar-card">
+              <div class="pillar-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <strong class="pillar-title">Commercial Value</strong>
+                <p class="pillar-desc">Disciplined cost tracking &amp; lifecycle optimization.</p>
+              </div>
+            </div>
+
+            <!-- Pillar 4: Total Accountability -->
+            <div class="about-pillar-card">
+              <div class="pillar-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <strong class="pillar-title">Total Accountability</strong>
+                <p class="pillar-desc">Transparent reporting until safe commissioning.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons Group -->
+          <div class="about-cta-group">
+            <a class="btn-about" href="#contact">
+              <span>Schedule a Consultation</span>
+              <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Our Core Services Section (Exact Match to User Mockup)
+         ========================================================================== -->
+    <section class="core-services-section" id="services">
+      <div class="services-container">
+        <!-- Section Header -->
+        <div class="services-header">
+          <div class="services-eyebrow">
+            <span class="eyebrow-dash" aria-hidden="true"></span>
+            <span class="eyebrow-text">OUR CORE SERVICES</span>
+            <span class="eyebrow-dash" aria-hidden="true"></span>
+          </div>
+
+          <h2 class="services-title">
+            Integrated Engineering Solutions for a <span class="highlight-blue">Stronger Tomorrow</span>
+          </h2>
+
+          <p class="services-subtitle">
+            We provide end-to-end engineering and management consultancy services to help businesses plan, design, execute and operate their industrial projects with greater efficiency and long-term value.
+          </p>
+        </div>
+
+        <!-- 6 Core Services Cards Grid (3x2) -->
+        <div class="services-grid">
+          <!-- Card 01: Mechanical Engineering (Blue) -->
+          <article class="service-card card-blue">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/mechanical-engineering.png" alt="Mechanical Engineering piping and equipment" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Mechanical Engineering</h3>
+              <p class="card-desc">Process design, equipment selection and detailed engineering solutions for industrial projects.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Mechanical Engineering">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 02: Project Management (Blue) -->
+          <article class="service-card card-blue">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/project-management.png" alt="Industrial project management construction site" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/>
+                <path d="M10 10V5a2 2 0 0 1 4 0v5"/>
+                <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Project Management</h3>
+              <p class="card-desc">End-to-end project planning, coordination and execution support for successful delivery.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Project Management">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 03: Electrical Engineering (Blue) -->
+          <article class="service-card card-blue">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/electrical-engineering.png" alt="Electrical substation power distribution switchgear panels" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Electrical Engineering</h3>
+              <p class="card-desc">Power distribution, electrical systems and infrastructure design.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Electrical Engineering">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 04: Instrumentation & Control (Green) -->
+          <article class="service-card card-green">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/instrumentation-control.png" alt="Instrumentation & Control pressure transmitter" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v2"/>
+                <path d="M7 12h2"/>
+                <path d="M17 12h2"/>
+                <path d="M12 12l3.5-3.5"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Instrumentation &amp; Control</h3>
+              <p class="card-desc">Process automation, control systems and instrumentation engineering.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Instrumentation & Control">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 05: Procurement Support (Green) -->
+          <article class="service-card card-green">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/procurement-support.png" alt="Industrial procurement yard and material storage" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+                <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+                <path d="M1 2h3.5l2.6 12.2a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 6H5.5"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Procurement Support</h3>
+              <p class="card-desc">Strategic sourcing, vendor management and cost optimization.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Procurement Support">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 06: Industrial Consultancy (Green) -->
+          <article class="service-card card-green">
+            <div class="card-image-wrap">
+              <img src="assets/services-generated/industrial-consultancy.png" alt="Industrial chemical refinery plant towers" loading="lazy" />
+            </div>
+            <div class="card-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20"/>
+                <path d="M3 20V9l5 3V9l5 3V4h7v16H3z"/>
+                <line x1="17" y1="8" x2="17" y2="8.01"/>
+                <line x1="17" y1="12" x2="17" y2="12.01"/>
+                <line x1="17" y1="16" x2="17" y2="16.01"/>
+              </svg>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Industrial Consultancy</h3>
+              <p class="card-desc">Feasibility studies, process optimization and operational improvement.</p>
+              <a href="#contact" class="card-action-btn" aria-label="Explore Industrial Consultancy">
+                <span>EXPLORE SERVICES</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Industries We Serve Section (Exact Match to User Mockup)
+         ========================================================================== -->
+    <section class="industries-section" id="industries">
+      <div class="industries-container">
+        <!-- Section Header -->
+        <div class="industries-header">
+          <div class="industries-eyebrow">
+            <span class="eyebrow-dash" aria-hidden="true"></span>
+            <span class="eyebrow-text">INDUSTRIES WE SERVE</span>
+            <span class="eyebrow-dash" aria-hidden="true"></span>
+          </div>
+
+          <h2 class="industries-title">
+            Delivering Expertise Across <span class="highlight-blue">Key Industries</span>
+          </h2>
+
+          <p class="industries-subtitle">
+            Our engineering and management consultancy services cater to a wide range of industries, helping businesses achieve operational excellence, and sustainable growth.
+          </p>
+        </div>
+
+        <!-- 6 Industries Cards Grid (3x2) -->
+        <div class="industries-grid">
+          <!-- Card 01: Oil & Gas (Blue) -->
+          <article class="industry-card card-oil">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">01 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 21h16"/>
+                    <path d="M6 21l3-10"/>
+                    <path d="M14 21l-3-10"/>
+                    <path d="M6 11h8"/>
+                    <path d="M10 11V6l7-2v5"/>
+                    <path d="M17 9v12"/>
+                    <circle cx="10" cy="6" r="1.5" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Oil &amp; Gas</h3>
+                <p class="industry-desc">Engineering and project solutions for upstream, midstream and downstream operations.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Oil & Gas">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/oil-gas.png" alt="Oil & Gas refinery facility" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 02: Petrochemical & Chemical (Deep Navy Blue) -->
+          <article class="industry-card card-petro">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">02 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 7V2"/>
+                    <path d="M8.5 2h7"/>
+                    <path d="M7 15h10"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Petrochemical &amp; Chemical</h3>
+                <p class="industry-desc">Process design, engineering and execution support for chemical and petrochemical plants.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Petrochemical & Chemical">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/petrochemical-chemical.png" alt="Petrochemical distillation towers" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 03: Power & Energy (Green) -->
+          <article class="industry-card card-power">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">03 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Power &amp; Energy</h3>
+                <p class="industry-desc">Solutions for conventional and renewable power generation and distribution.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Power & Energy">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/power-energy.png" alt="Power plant cooling towers" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 04: Pharmaceutical & Life Sciences (Orange) -->
+          <article class="industry-card card-pharma">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">04 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.5 13.5L4.8 7.8a4.2 4.2 0 1 1 6-6l5.7 5.7"/>
+                    <path d="M13.5 10.5l5.7 5.7a4.2 4.2 0 1 1-6 6l-5.7-5.7"/>
+                    <line x1="8.5" y1="15.5" x2="15.5" y2="8.5"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Pharmaceutical &amp; Life Sciences</h3>
+                <p class="industry-desc">Compliant and efficient engineering solutions for pharmaceutical and biotechnology industries.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Pharmaceutical & Life Sciences">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/pharmaceutical-life-sciences.png" alt="Pharmaceutical cleanroom bioreactors" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 05: Food & Beverage (Purple) -->
+          <article class="industry-card card-food">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">05 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2v20"/>
+                    <path d="M18 2a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3"/>
+                    <path d="M6 2v20"/>
+                    <path d="M3 2v6a3 3 0 0 0 6 0V2"/>
+                    <path d="M6 2v6"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Food &amp; Beverage</h3>
+                <p class="industry-desc">End-to-end solutions for food processing, packaging and beverage production.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Food & Beverage">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/food-beverage.png" alt="Automated bottle filling conveyor line" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 06: Water & Wastewater (Cyan) -->
+          <article class="industry-card card-water">
+            <div class="industry-card-content">
+              <div class="industry-card-top">
+                <div class="industry-num">06 <span class="num-dash">—</span></div>
+                <div class="industry-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                  </svg>
+                </div>
+                <h3 class="industry-name">Water &amp; Wastewater</h3>
+                <p class="industry-desc">Engineering support for water treatment, wastewater management and utilities.</p>
+              </div>
+              <a href="#contact" class="industry-btn" aria-label="Learn more about Water & Wastewater">
+                <span>Learn More</span>
+                <svg class="btn-arrow" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+                </svg>
+              </a>
+            </div>
+            <div class="industry-card-media" aria-hidden="true">
+              <img src="assets/industries-generated/water-wastewater.png" alt="Wastewater treatment circular clarifiers" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <div class="faq-heading">
+          <div class="faq-eyebrow"><span></span><b>FREQUENTLY ASKED QUESTIONS</b><span></span></div>
+          <h2>Have Questions? <em>We Have Answers.</em></h2>
+          <p>Find quick answers to common questions about our engineering, project management, procurement and consultancy services.</p>
+        </div>
+
+        <div class="faq-layout">
+          <div class="faq-support-card">
+            <img src="assets/about-engineers-hd.jpg" alt="Engineering team working at an industrial facility" loading="lazy" />
+            <div class="faq-support-shade" aria-hidden="true"></div>
+            <div class="faq-support-copy">
+              <div class="faq-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="24" cy="15" r="6" />
+                  <path d="M13 35c0-6.4 4.9-11 11-11s11 4.6 11 11" />
+                  <circle cx="10" cy="21" r="4" />
+                  <path d="M3.5 35c.5-4.5 3-7 6.5-7 2.2 0 4.1 1 5.3 2.7M38 21c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4ZM33 30.7c1.2-1.7 3.1-2.7 5.3-2.7 3.5 0 6 2.5 6.5 7" />
+                </svg>
+              </div>
+              <div class="faq-support-text">
+                <h3>Still have questions?</h3>
+                <p>Our team is happy to help you with the right engineering solution.</p>
+              </div>
+              <a href="#contact" class="faq-contact-button">
+                <span class="faq-contact-icon" aria-hidden="true">▰</span>
+                <strong>CONTACT US</strong>
+                <span class="faq-contact-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item is-open">
+              <button class="faq-question" type="button" aria-expanded="true">
+                <span class="faq-number">01</span>
+                <span class="faq-question-text">What types of projects does Dynamic Strategys handle?</span>
+                <span class="faq-chevron" aria-hidden="true">⌃</span>
+              </button>
+              <div class="faq-answer"><p>We handle a wide range of industrial and infrastructure projects including conceptual design, engineering, procurement, project management, construction support and commissioning across sectors such as oil &amp; gas, chemicals, power, manufacturing and more.</p></div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span class="faq-number">02</span>
+                <span class="faq-question-text">Do you provide end-to-end project management?</span>
+                <span class="faq-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="faq-answer"><p>Yes. We coordinate planning, engineering, procurement, construction support, commissioning and handover so every project phase stays connected and accountable.</p></div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span class="faq-number">03</span>
+                <span class="faq-question-text">Can you support procurement and vendor management?</span>
+                <span class="faq-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="faq-answer"><p>Our procurement support covers sourcing, technical evaluations, vendor coordination, logistics planning and delivery tracking for critical project materials and equipment.</p></div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span class="faq-number">04</span>
+                <span class="faq-question-text">Which industries do you serve?</span>
+                <span class="faq-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="faq-answer"><p>We support oil and gas, petrochemicals, energy, heavy manufacturing, infrastructure, pharmaceuticals, food processing and water treatment projects.</p></div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span class="faq-number">05</span>
+                <span class="faq-question-text">How do you ensure quality, safety and timely delivery?</span>
+                <span class="faq-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="faq-answer"><p>We use structured reviews, documented quality controls, safety-first site practices and milestone tracking to keep delivery reliable from concept through handover.</p></div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span class="faq-number">06</span>
+                <span class="faq-question-text">Do you offer consultancy for process optimization?</span>
+                <span class="faq-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <div class="faq-answer"><p>Yes. We assess processes, identify efficiency opportunities and recommend practical improvements that support safer operations, lower cost and long-term performance.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="testimonials-bg" aria-hidden="true"></div>
+      <div class="testimonials-shell">
+        <div class="testimonials-heading">
+          <div class="testimonials-eyebrow"><span></span><b>CLIENT TESTIMONIALS</b><span></span></div>
+          <h2>What Our <em>Clients Say</em></h2>
+          <p>Trusted by leading businesses worldwide for our reliable packaging solutions and professional support.</p>
+        </div>
+
+        <div class="testimonials-viewport">
+          <button class="testimonial-arrow testimonial-arrow-prev" type="button" aria-label="Previous testimonials">‹</button>
+          <div class="testimonials-track">
+            <article class="testimonial-card">
+              <div class="testimonial-image"><img src="assets/refinery-towers.png" alt="Industrial refinery at sunset" loading="lazy" /></div>
+              <span class="testimonial-quote-mark">“</span>
+              <p class="testimonial-copy">We are very satisfied with the juice filling and packaging line supplied by IntraPack Global. The equipment performance is outstanding and their after-sales support has been truly commendable.</p>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="testimonial-rule"></div>
+              <div class="testimonial-person"><span class="testimonial-avatar avatar-rajesh">ER</span><div><strong>Ms. Elena Rodriguez</strong><span>Procurement Manager<br /><b>FreshSip Foods</b></span></div><span class="testimonial-country">🇪🇸 <small>Spain</small></span></div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-image"><img src="assets/about-engineers-hd.jpg" alt="Engineering team collaborating at an industrial site" loading="lazy" /></div>
+              <span class="testimonial-quote-mark">“</span>
+              <p class="testimonial-copy">IntraPack Global delivered a customized packaging solution for our edible oil production plant. Their technical expertise and global sourcing network made the entire process smooth and efficient.</p>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="testimonial-rule"></div>
+              <div class="testimonial-person"><span class="testimonial-avatar avatar-neha">AA</span><div><strong>Mr. Ahmed Al Mansoori</strong><span>Plant Manager<br /><b>Golden Oil Industries</b></span></div><span class="testimonial-country">🇦🇪 <small>UAE</small></span></div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-image"><img src="assets/service-mechanical.jpg" alt="Industrial construction and mechanical work" loading="lazy" /></div>
+              <span class="testimonial-quote-mark">“</span>
+              <p class="testimonial-copy">IntraPack Global helped us modernize our production workflow with dependable equipment and responsive technical guidance from start to finish.</p>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="testimonial-rule"></div>
+              <div class="testimonial-person"><span class="testimonial-avatar avatar-amit">PS</span><div><strong>Ms. Priya Shah</strong><span>Production Head<br /><b>PureChem Solutions</b></span></div><span class="testimonial-country">🇮🇳 <small>India</small></span></div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-image"><img src="assets/card-project-mgmt.jpg" alt="Industrial project construction site" loading="lazy" /></div>
+              <span class="testimonial-quote-mark">“</span>
+              <p class="testimonial-copy">“Professional, proactive and highly knowledgeable team. Dynamic Strategys has been instrumental in the successful completion of our critical projects.”</p>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="testimonial-rule"></div>
+              <div class="testimonial-person"><span class="testimonial-avatar avatar-sandeep">SM</span><div><strong>Sandeep Mehta</strong><span>VP - Projects<br />TechBuild Solutions Pvt. Ltd.</span></div></div>
+            </article>
+          </div>
+          <button class="testimonial-arrow testimonial-arrow-next" type="button" aria-label="Next testimonials">›</button>
+        </div>
+        <div class="testimonial-dots" aria-label="Testimonial pages"><button class="is-active" type="button" aria-label="Page 1"></button><button type="button" aria-label="Page 2"></button><button type="button" aria-label="Page 3"></button><button type="button" aria-label="Page 4"></button></div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Our Working Process Section (Exact Match to User Mockup)
+         ========================================================================== -->
+    <section class="working-process-section" id="working-process">
+      <div id="why-choose-us" class="section-anchor" aria-hidden="true"></div>
+      <div class="process-container">
+        
+        <!-- Desktop process layout recreated from the reference design -->
+        <div class="process-desktop-layout">
+          <div class="process-intro">
+            <div class="process-eyebrow">
+              <span class="eyebrow-text">OUR WORKING PROCESS</span>
+              <span class="eyebrow-dash" aria-hidden="true"></span>
+            </div>
+            <h2 class="process-desktop-title">From Concept<br /><span>to Completion</span></h2>
+            <p class="process-desktop-subtitle">
+              A structured and collaborative approach to deliver efficient, reliable and sustainable solutions for your business growth.
+            </p>
+          </div>
+
+          <div class="process-orbit" aria-hidden="true">
+            <span class="orbit-ring orbit-ring-outer"></span>
+            <span class="orbit-ring orbit-ring-inner"></span>
+            <span class="process-arrow process-arrow-1">↗</span>
+            <span class="process-arrow process-arrow-2">↘</span>
+            <span class="process-arrow process-arrow-3">↙</span>
+            <span class="process-arrow process-arrow-4">↖</span>
+          </div>
+
+          <div class="process-desktop-hub">
+            <img src="assets/working-process/center-refinery-clear.png" alt="Industrial refinery project delivery" loading="lazy" decoding="async" />
+            <div class="process-hub-copy" aria-label="EPC End-to-End Project Delivery">
+              <strong>EPC</strong>
+              <span>End-to-End<br />Project Delivery</span>
+            </div>
+          </div>
+
+          <article class="process-node process-node-01">
+            <div class="process-node-photo">
+              <img src="assets/working-process/engineering-clear.png" alt="Engineering design and planning" loading="lazy" />
+              <span>01</span>
+            </div>
+            <div class="process-info-card">
+              <div class="process-info-icon icon-blue">⚙</div>
+              <div><h3>ENGINEERING</h3><p>Design. Plan. Optimize.</p><ul><li>Concept &amp; Design</li><li>Engineering &amp; Analysis</li><li>Planning &amp; Scheduling</li></ul></div>
+            </div>
+          </article>
+
+          <article class="process-node process-node-02">
+            <div class="process-node-photo">
+              <img src="assets/working-process/procurement-clear.png" alt="Procurement and supply chain" loading="lazy" />
+              <span>02</span>
+            </div>
+            <div class="process-info-card">
+              <div class="process-info-icon icon-blue">🛒</div>
+              <div><h3>PROCUREMENT</h3><p>Source. Manage. Deliver.</p><ul><li>Sourcing &amp; Purchasing</li><li>Vendor Management</li><li>Logistics &amp; Supply Chain</li></ul></div>
+            </div>
+          </article>
+
+          <article class="process-node process-node-03">
+            <div class="process-node-photo">
+              <img src="assets/working-process/construction-clear.png" alt="Industrial construction execution" loading="lazy" />
+              <span>03</span>
+            </div>
+            <div class="process-info-card">
+              <div class="process-info-icon icon-blue">⌂</div>
+              <div><h3>CONSTRUCTION</h3><p>Build. Execute. Deliver.</p><ul><li>Construction &amp; Execution</li><li>Quality &amp; Safety</li><li>Testing &amp; Handover</li></ul></div>
+            </div>
+          </article>
+
+          <article class="process-node process-node-04">
+            <div class="process-node-photo">
+              <img src="assets/working-process/commissioning-clear.png" alt="Commissioning and system testing" loading="lazy" />
+              <span>04</span>
+            </div>
+            <div class="process-info-card">
+              <div class="process-info-icon icon-blue">▥</div>
+              <div><h3>COMMISSIONING</h3><p>Test. Validate. Operate.</p><ul><li>System Testing</li><li>Performance Validation</li><li>Final Handover</li></ul></div>
+            </div>
+          </article>
+
+          <article class="process-node process-node-05">
+            <div class="process-node-photo">
+              <img src="assets/working-process/delivery-clear.png" alt="Project delivery and ongoing support" loading="lazy" />
+              <span>05</span>
+            </div>
+            <div class="process-info-card">
+              <div class="process-info-icon icon-green">✓</div>
+              <div><h3>PROJECT DELIVERY</h3><p>Operate. Support. Grow.</p><ul><li>Commissioning &amp; Handover</li><li>Ongoing Support</li><li>Long-term Success</li></ul></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Mobile & Tablet Responsive Flow (Optimized for small screens) -->
+        <div class="process-mobile-flow">
+          <!-- Section Header for Mobile -->
+          <div class="process-mobile-header">
+            <div class="process-eyebrow">
+              <span class="eyebrow-text">OUR WORKING PROCESS</span>
+              <span class="eyebrow-dash" aria-hidden="true"></span>
+            </div>
+            <h2 class="process-title">
+              From Concept<br />
+              <span class="highlight-blue">to Completion</span>
+            </h2>
+            <p class="process-subtitle">
+              A structured and collaborative approach to deliver efficient, reliable and sustainable solutions for your business growth.
+            </p>
+          </div>
+
+          <!-- EPC Central Badge Mobile -->
+          <div class="process-mobile-epc">
+            <div class="epc-badge-inner">
+              <img src="assets/working-process/center-refinery-clear.png" alt="Industrial refinery project delivery" class="epc-mobile-img" />
+              <div class="process-hub-copy" aria-hidden="true">
+                <strong>EPC</strong>
+                <span>End-to-End<br />Project Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 1: Engineering -->
+          <div class="process-step-card step-01">
+            <div class="step-card-header">
+              <span class="step-pill-num">01</span>
+              <div class="step-icon-badge badge-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </div>
+              <div class="step-header-text">
+                <h3 class="step-title">ENGINEERING</h3>
+                <span class="step-tagline">Design. Plan. Optimize.</span>
+              </div>
+            </div>
+            <ul class="step-bullet-list">
+              <li>Concept &amp; Design</li>
+              <li>Engineering &amp; Analysis</li>
+              <li>Planning &amp; Scheduling</li>
+            </ul>
+          </div>
+
+          <!-- Step 2: Procurement -->
+          <div class="process-step-card step-02">
+            <div class="step-card-header">
+              <span class="step-pill-num">02</span>
+              <div class="step-icon-badge badge-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"/>
+                  <circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+              </div>
+              <div class="step-header-text">
+                <h3 class="step-title">PROCUREMENT</h3>
+                <span class="step-tagline">Source. Manage. Deliver.</span>
+              </div>
+            </div>
+            <ul class="step-bullet-list">
+              <li>Sourcing &amp; Purchasing</li>
+              <li>Vendor Management</li>
+              <li>Logistics &amp; Supply Chain</li>
+            </ul>
+          </div>
+
+          <!-- Step 3: Construction -->
+          <div class="process-step-card step-03">
+            <div class="step-card-header">
+              <span class="step-pill-num">03</span>
+              <div class="step-icon-badge badge-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 18h20"/>
+                  <path d="M4 18v-2a8 8 0 0 1 16 0v2"/>
+                  <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
+                </svg>
+              </div>
+              <div class="step-header-text">
+                <h3 class="step-title">CONSTRUCTION</h3>
+                <span class="step-tagline">Build. Execute. Deliver.</span>
+              </div>
+            </div>
+            <ul class="step-bullet-list">
+              <li>Construction &amp; Execution</li>
+              <li>Quality &amp; Safety</li>
+              <li>Testing &amp; Handover</li>
+            </ul>
+          </div>
+
+          <!-- Step 4: Commissioning -->
+          <div class="process-step-card step-04">
+            <div class="step-card-header">
+              <span class="step-pill-num">04</span>
+              <div class="step-icon-badge badge-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="14" width="3.5" height="7" rx="0.5"/>
+                  <rect x="10.5" y="10" width="3.5" height="11" rx="0.5"/>
+                  <rect x="17" y="6" width="3.5" height="15" rx="0.5"/>
+                  <path d="M4 10l5.5-5.5 4.5 4.5 6.5-6.5"/>
+                  <path d="M16 2.5h4.5v4.5"/>
+                </svg>
+              </div>
+              <div class="step-header-text">
+                <h3 class="step-title">COMMISSIONING</h3>
+                <span class="step-tagline">Test. Validate. Operate.</span>
+              </div>
+            </div>
+            <ul class="step-bullet-list">
+              <li>System Testing</li>
+              <li>Performance Validation</li>
+              <li>Final Handover</li>
+            </ul>
+          </div>
+
+          <!-- Step 5: Project Delivery -->
+          <div class="process-step-card step-05">
+            <div class="step-card-header">
+              <span class="step-pill-num">05</span>
+              <div class="step-icon-badge badge-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+              <div class="step-header-text">
+                <h3 class="step-title">PROJECT DELIVERY</h3>
+                <span class="step-tagline">Operate. Support. Grow.</span>
+              </div>
+            </div>
+            <ul class="step-bullet-list">
+              <li>Commissioning &amp; Handover</li>
+              <li>Ongoing Support</li>
+              <li>Long-term Success</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Premium call-to-action banner -->
+    <section class="cta-section cta-banner-section" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <div class="cta-panel-inner">
+          <div class="cta-copy">
+            <div class="cta-eyebrow"><span></span><b>LET'S BUILD TOGETHER</b><span></span></div>
+            <h2 id="cta-title">Partner with Us for Better Projects</h2>
+            <p>Practical engineering expertise from concept to completion.</p>
+          </div>
+          <a class="cta-button" href="#contact">
+            <span>CONTACT US</span>
+            <svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 7h15M10.5 1.5L16 7l-5.5 5.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Navy Corporate Footer with Illuminated Industrial Refinery Backdrop -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-body">
+        <!-- Night refinery photographic backdrop on the right -->
+        <div class="footer-backdrop" aria-hidden="true"></div>
+
+        <div class="footer-container">
+          <!-- Column 1: Company Logo & Description -->
+          <div class="footer-col col-about">
+            <a class="brand brand-footer" href="#home" aria-label="Company Name - Home">
+              <span class="brand-symbol">
+                <img class="brand-image" src="assets/logo.png" alt="Company Name logo" />
+              </span>
+            </a>
+            <p class="about-text">
+              An engineering and management consultancy providing integrated solutions across engineering, project management, procurement and project execution. We help businesses transform ideas into sustainable, efficient and successful projects.
+            </p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col col-quick-links">
+            <h2 class="col-title">Quick Links</h2>
+            <ul class="footer-nav-list">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Our Services</a></li>
+              <li><a href="#working-process">Working Process</a></li>
+              <li><a href="#industries">Industries</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#knowledge">Knowledge Center</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Our Services -->
+          <div class="footer-col col-services">
+            <h2 class="col-title">Our Services</h2>
+            <ul class="footer-nav-list">
+              <li><a href="#services">Engineering Consultancy</a></li>
+              <li><a href="#services">Project Management</a></li>
+              <li><a href="#services">Procurement Support</a></li>
+              <li><a href="#services">Manufacturing Consultancy</a></li>
+              <li><a href="#services">Logistics &amp; Supply Chain</a></li>
+              <li><a href="#services">Project Execution</a></li>
+              <li><a href="#services">Business Process Optimization</a></li>
+              <li><a href="#services">Technical Advisory</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Us -->
+          <div class="footer-col col-contact">
+            <h2 class="col-title">Contact Us</h2>
+            <ul class="contact-details-list">
+              <!-- Address -->
+              <li class="contact-item">
+                <span class="contact-icon-circle" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <span class="contact-text">
+                  Plot No. 123, Industrial Area,<br />
+                  Jaipur, Rajasthan, India
+                </span>
+              </li>
+
+              <!-- Phone -->
+              <li class="contact-item">
+                <span class="contact-icon-circle" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
+                  </svg>
+                </span>
+                <span class="contact-text">
+                  <a href="tel:+919876543210">+91 98765 43210</a>
+                </span>
+              </li>
+
+              <!-- Email -->
+              <li class="contact-item">
+                <span class="contact-icon-circle" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+                <span class="contact-text">
+                  <a href="mailto:info@companyname.com">info@companyname.com</a>
+                </span>
+              </li>
+
+              <!-- Website -->
+              <li class="contact-item">
+                <span class="contact-icon-circle" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 7.027a6.002 6.002 0 018.73-2.905c-.287.49-.624.962-1.009 1.408a11.164 11.164 0 00-4.08 1.497H4.332zm-1.07 4.148A6.027 6.027 0 013.04 10c0-.348.03-.688.087-1.018l2.678.966c-.035.344-.055.694-.055 1.052 0 .425.029.84.084 1.243l-2.572-1.095zm1.758 2.656l2.39-1.018a11.17 11.17 0 003.58 1.954 6.003 6.003 0 01-5.97-1.936zm8.647-1.472a11.196 11.196 0 00-3.155-1.745 9.176 9.176 0 00.32-1.614l3.19.988a6.022 6.022 0 01-.355 2.371zm1.264-3.523l-3.328-1.03c.123-.62.298-1.218.52-1.78a6.002 6.002 0 012.808 2.81zm-4.708-3.92a9.18 9.18 0 00-.737 1.632 11.18 11.18 0 00-4.06-1.503 6.004 6.004 0 014.797-.129zm-2.03 3.65c.34-.087.693-.15 1.054-.187.164.56.297 1.144.394 1.743-1.066.38-2.062.883-2.97 1.49-.074-.593-.118-1.203-.118-1.823 0-.416.02-.824.057-1.223h1.583zm2.593 1.94c-.114-.658-.26-1.298-.44-1.91 1.082-.36 2.096-.838 3.023-1.417.065.556.102 1.124.102 1.704 0 .438-.023.868-.066 1.29l-2.619.333z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <span class="contact-text">
+                  <a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Legal Copyright Bar -->
+      <div class="footer-bottom">
+        <div class="bottom-container">
+          <p class="copyright-text">
+            &copy; <span id="current-year">2025</span> Company Name. All Rights Reserved.
+          </p>
+          <nav class="legal-nav" aria-label="Legal links">
+            <a href="#privacy">Privacy Policy</a>
+            <span class="legal-divider" aria-hidden="true">|</span>
+            <a href="#terms">Terms &amp; Conditions</a>
+            <span class="legal-divider" aria-hidden="true">|</span>
+            <a href="#sitemap">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
