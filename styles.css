@@ -5331,6 +5331,65 @@ ul {
   background: linear-gradient(90deg, #0aa99d, #7bdfd1);
 }
 
+/* Blue divider above the footer. */
+.site-footer {
+  border-top: 5px solid #0878e8;
+}
+
+/* Refined border palette for the industry cards. */
+.industry-card.card-oil { --industry-accent: #1688ef; border-color: #b9daf7; }
+.industry-card.card-petro { --industry-accent: #245fc4; border-color: #b9cff0; }
+.industry-card.card-power { --industry-accent: #08ae78; border-color: #b8e5d5; }
+.industry-card.card-pharma { --industry-accent: #f28a22; border-color: #f2d2b7; }
+.industry-card.card-food { --industry-accent: #7951df; border-color: #d8caf6; }
+.industry-card.card-water { --industry-accent: #08a5bb; border-color: #b9e4ea; }
+
+.industry-card::before {
+  background: var(--industry-accent);
+  box-shadow: 0 1px 8px color-mix(in srgb, var(--industry-accent) 42%, transparent);
+}
+
+.industry-card:hover {
+  border-color: var(--industry-accent);
+  box-shadow: 0 22px 42px rgba(31, 91, 133, 0.17), 0 0 0 2px color-mix(in srgb, var(--industry-accent) 14%, transparent);
+}
+
+/* Remove the numbered labels from industry cards. */
+.industry-card .industry-num { display: none; }
+
+/* Final balance pass: wider copy column and calmer, more premium cards. */
+@media (min-width: 861px) {
+  .why-choose-container {
+    grid-template-columns: minmax(0, 1.18fr) minmax(500px, .82fr);
+    gap: 44px;
+  }
+
+  .why-feature-grid { gap: 16px; }
+
+  .why-feature-card {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 13px;
+    min-height: 164px;
+    padding: 18px 16px 15px;
+    border-radius: 20px;
+  }
+
+  .why-feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .why-feature-icon svg { width: 27px; height: 27px; }
+  .why-feature-card h3 { font-size: 17px; line-height: 1.05; }
+  .why-feature-card p { font-size: 12px; line-height: 1.36; }
+
+  .why-choose-visual { min-height: 590px; }
+  .why-image-frame { inset: 4% 0 4% 6%; }
+  .why-choose-badge { left: 31%; bottom: 8%; width: 142px; height: 142px; border-radius: 20px; }
+  .why-choose-badge span { font-size: 11px; }
+  .why-badge-icon svg { width: 36px; height: 36px; }
+}
+
 /* Give the real logo more visual presence in the header. */
 .site-header .brand-symbol {
   width: 204px;
