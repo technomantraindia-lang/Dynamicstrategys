@@ -252,12 +252,163 @@ document.addEventListener('DOMContentLoaded', () => {
   const workingProcessSection = document.getElementById('working-process');
   const whyChooseSection = document.getElementById('why-choose');
   const testimonialsSection = document.getElementById('testimonials');
+  const valuedClientsSection = document.getElementById('clients');
   const faqSection = document.getElementById('faq');
   if (workingProcessSection && whyChooseSection) {
     workingProcessSection.before(whyChooseSection);
   }
 
-  if (workingProcessSection && testimonialsSection && faqSection) {
-    workingProcessSection.after(testimonialsSection, faqSection);
+  if (workingProcessSection && testimonialsSection && valuedClientsSection && faqSection) {
+    workingProcessSection.after(testimonialsSection, valuedClientsSection, faqSection);
+  }
+
+  // Auto-move the client-logo rail from right to left like a marquee carousel.
+  const clientLogoRail = document.querySelector('.client-logo-row');
+  if (clientLogoRail) {
+    const originalClientCards = Array.from(clientLogoRail.children);
+    originalClientCards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clientLogoRail.appendChild(clone);
+    });
+
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragScrollLeft = 0;
+
+    clientLogoRail.addEventListener('pointerdown', (event) => {
+      isDragging = true;
+      dragStartX = event.clientX;
+      dragScrollLeft = clientLogoRail.scrollLeft;
+      clientLogoRail.classList.add('is-dragging');
+      clientLogoRail.setPointerCapture?.(event.pointerId);
+    });
+
+    clientLogoRail.addEventListener('pointermove', (event) => {
+      if (!isDragging) return;
+      clientLogoRail.scrollLeft = dragScrollLeft - (event.clientX - dragStartX);
+    });
+
+    const stopDragging = () => {
+      isDragging = false;
+      clientLogoRail.classList.remove('is-dragging');
+    };
+
+    clientLogoRail.addEventListener('pointerup', stopDragging);
+    clientLogoRail.addEventListener('pointercancel', stopDragging);
+    clientLogoRail.addEventListener('pointerleave', stopDragging);
+
+    let previousFrameTime = performance.now();
+    const autoMove = (frameTime) => {
+      const elapsed = Math.min(frameTime - previousFrameTime, 64);
+      previousFrameTime = frameTime;
+
+      if (!isDragging && !document.hidden) {
+        const moveBy = 42 * (elapsed / 1000);
+        clientLogoRail.scrollLeft += moveBy;
+        const loopWidth = clientLogoRail.scrollWidth / 2;
+        if (loopWidth > 0 && clientLogoRail.scrollLeft >= loopWidth) {
+          clientLogoRail.scrollLeft -= loopWidth;
+        }
+      }
+
+      window.requestAnimationFrame(autoMove);
+    };
+
+    window.requestAnimationFrame(autoMove);
+  }
+
+  // Dynamic calculation for Working Process ("From Concept to Completion") dotted connector lines
+  const updateConceptConnectors = () => {
+    const stage = document.getElementById('conceptStage');
+    const svg = document.getElementById('conceptConnectorsSvg');
+    const hub = document.getElementById('conceptHub');
+    if (!stage || !svg || !hub) return;
+    if (window.innerWidth < 1024) return;
+
+    const stageRect = stage.getBoundingClientRect();
+    const hubRect = hub.getBoundingClientRect();
+
+    // Hub center and radius in stage coordinates
+    const hx = hubRect.left + hubRect.width / 2 - stageRect.left;
+    const hy = hubRect.top + hubRect.height / 2 - stageRect.top;
+    const hr = hubRect.width / 2 + 1; // outer ring perimeter
+
+    // Hub connection angles (radians)
+    // Card 1: Top-Left (-142°), Card 2: Left (180°), Card 3: Bottom-Left (142°)
+    // Card 4: Top-Right (-38°), Card 5: Right (0°), Card 6: Bottom-Right (38°)
+    const hubAngles = {
+      card1: -142 * (Math.PI / 180),
+      card2: Math.PI,
+      card3: 142 * (Math.PI / 180),
+      card4: -38 * (Math.PI / 180),
+      card5: 0,
+      card6: 38 * (Math.PI / 180)
+    };
+
+    const cards = [
+      { id: 'conceptCard1', key: 'card1', isLeft: true, pathId: 'conceptPath1', cardDotId: 'conceptCardDot1', hubDotId: 'conceptHubDot1', midDotId: 'conceptMidDot1' },
+      { id: 'conceptCard2', key: 'card2', isLeft: true, pathId: 'conceptPath2', cardDotId: 'conceptCardDot2', hubDotId: 'conceptHubDot2', midDotId: 'conceptMidDot2' },
+      { id: 'conceptCard3', key: 'card3', isLeft: true, pathId: 'conceptPath3', cardDotId: 'conceptCardDot3', hubDotId: 'conceptHubDot3', midDotId: 'conceptMidDot3' },
+      { id: 'conceptCard4', key: 'card4', isLeft: false, pathId: 'conceptPath4', cardDotId: 'conceptCardDot4', hubDotId: 'conceptHubDot4', midDotId: 'conceptMidDot4' },
+      { id: 'conceptCard5', key: 'card5', isLeft: false, pathId: 'conceptPath5', cardDotId: 'conceptCardDot5', hubDotId: 'conceptHubDot5', midDotId: 'conceptMidDot5' },
+      { id: 'conceptCard6', key: 'card6', isLeft: false, pathId: 'conceptPath6', cardDotId: 'conceptCardDot6', hubDotId: 'conceptHubDot6', midDotId: 'conceptMidDot6' },
+    ];
+
+    cards.forEach(item => {
+      const cardEl = document.getElementById(item.id);
+      const pathEl = document.getElementById(item.pathId);
+      const cardDotEl = document.getElementById(item.cardDotId);
+      const hubDotEl = document.getElementById(item.hubDotId);
+      const midDotEl = document.getElementById(item.midDotId);
+
+      if (!cardEl || !pathEl || !cardDotEl || !hubDotEl) return;
+
+      const cRect = cardEl.getBoundingClientRect();
+      const cx = item.isLeft ? (cRect.right - stageRect.left) : (cRect.left - stageRect.left);
+      const cy = cRect.top + cRect.height / 2 - stageRect.top;
+
+      const angle = hubAngles[item.key];
+      const hxPoint = hx + hr * Math.cos(angle);
+      const hyPoint = hy + hr * Math.sin(angle);
+
+      let d = '';
+      let midX = (cx + hxPoint) / 2;
+      let midY = (cy + hyPoint) / 2;
+
+      if (item.key === 'card2' || item.key === 'card5') {
+        d = `M ${cx} ${cy} L ${hxPoint} ${hyPoint}`;
+        midX = (cx + hxPoint) / 2;
+        midY = cy;
+      } else {
+        const cp1x = cx + (hxPoint - cx) * 0.52;
+        const cp1y = cy;
+        const cp2x = hxPoint - (hxPoint - cx) * 0.15;
+        const cp2y = hyPoint;
+        d = `M ${cx} ${cy} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${hxPoint} ${hyPoint}`;
+        midX = cx + (hxPoint - cx) * 0.44;
+        midY = cy + (hyPoint - cy) * 0.32;
+      }
+
+      pathEl.setAttribute('d', d);
+      cardDotEl.setAttribute('cx', cx);
+      cardDotEl.setAttribute('cy', cy);
+      hubDotEl.setAttribute('cx', hxPoint);
+      hubDotEl.setAttribute('cy', hyPoint);
+
+      if (midDotEl) {
+        midDotEl.setAttribute('cx', midX);
+        midDotEl.setAttribute('cy', midY);
+      }
+    });
+  };
+
+  updateConceptConnectors();
+  window.addEventListener('resize', updateConceptConnectors);
+  window.addEventListener('load', updateConceptConnectors);
+
+  const conceptStage = document.getElementById('conceptStage');
+  if (conceptStage && window.ResizeObserver) {
+    new ResizeObserver(updateConceptConnectors).observe(conceptStage);
   }
 });
