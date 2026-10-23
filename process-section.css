@@ -1,6 +1,6 @@
 /* ==========================================================================
    Our Working Process Section — "From Concept to Completion"
-   Pixel-perfect replica of the reference design
+   Blue & Orange Palette (Exact match to reference mockup)
    ========================================================================== */
 
 .working-process-section {
@@ -51,12 +51,12 @@
   display: block;
   width: 48px;
   height: 2px;
-  background: #087ced;
+  background: #0066cc;
   border-radius: 2px;
 }
 
 .concept-eyebrow-text {
-  color: #087ced;
+  color: #0066cc;
   font-family: var(--font-body, "Inter", sans-serif);
   font-size: 14px;
   font-weight: 800;
@@ -75,7 +75,7 @@
 }
 
 .concept-title-accent {
-  color: #087ced;
+  color: #0066cc;
 }
 
 .concept-subtitle {
@@ -108,24 +108,36 @@
   z-index: 3;
 }
 
-/* Two-tone ring: Top Half Blue (#0072ff), Bottom Half Green (#00ba68) */
-.concept-hub-ring {
+/* 4-Segment Two-Tone Ring SVG */
+.concept-hub-segmented-ring {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(from -90deg, #0072ff 0deg 180deg, #00ba68 180deg 360deg);
-  padding: 13px;
-  box-shadow: 0 16px 36px rgba(0, 80, 160, 0.16);
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 28px rgba(0, 60, 140, 0.14));
+}
+
+.ring-arc {
+  fill: none;
+  stroke-width: 17;
+  stroke-linecap: butt;
+}
+
+.arc-blue {
+  stroke: #0066cc;
+}
+
+.arc-orange {
+  stroke: #f37021;
 }
 
 .concept-hub-inner {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 19px;
   border-radius: 50%;
-  border: 5px solid #ffffff;
+  border: 4px solid #ffffff;
   overflow: hidden;
-  position: relative;
   background: #0d2847;
   box-sizing: border-box;
 }
@@ -137,51 +149,22 @@
   display: block;
 }
 
-/* Concentric outer dashed orbit track */
-.concept-hub-orbit {
-  position: absolute;
-  inset: -28px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(0, 114, 234, 0.32);
-  pointer-events: none;
-}
-
-.concept-orbit-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #50bfe6;
-  transform: translate(-50%, -50%);
-}
-
-.orbit-dot-top {
-  top: 0;
-  left: 50%;
-}
-
-.orbit-dot-bottom {
-  bottom: -8px;
-  left: 50%;
-  background: #3ac78e;
-}
-
 /* Cards */
 .concept-card {
   position: absolute;
   z-index: 4;
-  width: clamp(310px, 24vw, 370px);
+  width: clamp(310px, 24vw, 375px);
   min-height: 124px;
   background: #ffffff;
   border-radius: 24px;
-  border: 2px solid #0072ff;
+  border: 1.5px solid #0066cc;
   padding: 20px 22px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
   box-shadow: 0 10px 28px rgba(0, 45, 90, 0.06);
   box-sizing: border-box;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .concept-card:hover {
@@ -194,12 +177,20 @@
   transform: translateY(calc(-50% - 3px));
 }
 
-.concept-theme-green {
-  border-color: #00ba68;
+.concept-theme-blue {
+  border-color: #8ac3fa;
 }
 
-.concept-theme-blue {
-  border-color: #0072ff;
+.concept-theme-orange {
+  border-color: #fdb686;
+}
+
+.concept-theme-blue:hover {
+  border-color: #0066cc;
+}
+
+.concept-theme-orange:hover {
+  border-color: #f37021;
 }
 
 /* Desktop positioning */
@@ -235,30 +226,66 @@
   right: 0;
 }
 
-/* Card Icon Wrap */
-.concept-card-icon {
-  flex: 0 0 56px;
-  width: 56px;
+/* Card Icon + Overlapping Number Badge Area */
+.concept-card-icon-container {
+  position: relative;
+  flex: 0 0 68px;
+  width: 68px;
   height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.concept-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease;
+}
+
+.concept-theme-blue .concept-card-icon {
+  background: #eaf3fd;
+  color: #0066cc;
+}
+
+.concept-theme-orange .concept-card-icon {
+  background: #fef0e6;
+  color: #f37021;
+}
+
+.concept-card-icon svg {
+  width: 27px;
+  height: 27px;
+  display: block;
+}
+
+/* Overlapping Number Badge */
+.concept-card-badge {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: #ffffff;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+  border: 2px solid #ffffff;
 }
 
-.concept-theme-green .concept-card-icon {
-  background: #00ba68;
+.concept-theme-blue .concept-card-badge {
+  background: #0066cc;
 }
 
-.concept-theme-blue .concept-card-icon {
-  background: #0072ff;
-}
-
-.concept-card-icon svg {
-  width: 28px;
-  height: 28px;
-  display: block;
+.concept-theme-orange .concept-card-badge {
+  background: #f37021;
 }
 
 /* Card Content */
@@ -304,12 +331,12 @@
   stroke-dasharray: 6 6;
 }
 
-.path-green {
-  stroke: #00ba68;
+.path-blue {
+  stroke: #0066cc;
 }
 
-.path-blue {
-  stroke: #0072ff;
+.path-orange {
+  stroke: #f37021;
 }
 
 .concept-node-ring {
@@ -317,24 +344,24 @@
   stroke-width: 3;
 }
 
-.node-ring-green {
-  stroke: #00ba68;
+.node-ring-blue {
+  stroke: #0066cc;
 }
 
-.node-ring-blue {
-  stroke: #0072ff;
+.node-ring-orange {
+  stroke: #f37021;
 }
 
 .concept-dot-solid {
   stroke: none;
 }
 
-.dot-green {
-  fill: #00ba68;
+.dot-blue {
+  fill: #0066cc;
 }
 
-.dot-blue {
-  fill: #0072ff;
+.dot-orange {
+  fill: #f37021;
 }
 
 /* Tablet & Mobile responsive fallback */
