@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Auto Dynamic Year in Footer
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) {
-    yearSpan.textContent = '2025';
+    yearSpan.textContent = '2026';
   }
 
   // 4. Smooth Animated Count-Up for Key Performance Stats
@@ -329,14 +329,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const stageRect = stage.getBoundingClientRect();
     const hubRect = hub.getBoundingClientRect();
 
+    // Keep SVG user coordinates identical to the responsive stage pixels.
+    // Without an explicit viewBox, some browsers scale the connector paths
+    // differently from the cards, leaving a visible gap at the card edges.
+    svg.setAttribute('viewBox', `0 0 ${stageRect.width} ${stageRect.height}`);
+    svg.setAttribute('width', stageRect.width);
+    svg.setAttribute('height', stageRect.height);
+
     // Hub center and radius in stage coordinates
     const hx = hubRect.left + hubRect.width / 2 - stageRect.left;
     const hy = hubRect.top + hubRect.height / 2 - stageRect.top;
     const hr = hubRect.width / 2 + 1; // outer ring perimeter
 
     // Hub connection angles (radians)
-    // Card 1: Top-Left (-142°), Card 2: Left (180°), Card 3: Bottom-Left (142°)
-    // Card 4: Top-Right (-38°), Card 5: Right (0°), Card 6: Bottom-Right (38°)
     const hubAngles = {
       card1: -142 * (Math.PI / 180),
       card2: Math.PI,
@@ -379,15 +384,28 @@ document.addEventListener('DOMContentLoaded', () => {
       if (item.key === 'card2' || item.key === 'card5') {
         d = `M ${cx} ${cy} L ${hxPoint} ${hyPoint}`;
         midX = (cx + hxPoint) / 2;
-        midY = cy;
+        midY = (cy + hyPoint) / 2;
       } else {
         const cp1x = cx + (hxPoint - cx) * 0.52;
         const cp1y = cy;
         const cp2x = hxPoint - (hxPoint - cx) * 0.15;
         const cp2y = hyPoint;
         d = `M ${cx} ${cy} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${hxPoint} ${hyPoint}`;
-        midX = cx + (hxPoint - cx) * 0.44;
-        midY = cy + (hyPoint - cy) * 0.32;
+
+        // Place the middle dot on the actual Bezier curve, not on a linear
+        // approximation, so it stays aligned at every viewport size.
+        const t = 0.5;
+        const mt = 1 - t;
+        midX =
+          (mt ** 3 * cx) +
+          (3 * mt ** 2 * t * cp1x) +
+          (3 * mt * t ** 2 * cp2x) +
+          (t ** 3 * hxPoint);
+        midY =
+          (mt ** 3 * cy) +
+          (3 * mt ** 2 * t * cp1y) +
+          (3 * mt * t ** 2 * cp2y) +
+          (t ** 3 * hyPoint);
       }
 
       pathEl.setAttribute('d', d);

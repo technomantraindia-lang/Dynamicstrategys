@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Technomantra India for engineering consultancy, project management and industrial solutions." />
+  <title>Contact Us | Technomantra India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../process-section.css" />
+  <link rel="stylesheet" href="contact-page.css" />
+</head>
+
+<body class="contact-page">
+  <!-- Same header as the home page -->
+  <header class="site-header" id="home">
+    <div class="header-container">
+      <div class="header-left">
+        <a class="brand" href="../index.html#home" aria-label="Technomantra India - Home">
+          <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+        </a>
+      </div>
+
+      <nav class="nav-menu header-center" id="primary-nav" aria-label="Main menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#about">About Us</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link nav-link-dropdown" href="../index.html#services" aria-haspopup="true" aria-expanded="false">
+              <span>Our Services</span>
+              <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4" /></svg>
+            </a>
+            <ul class="dropdown-list" aria-label="Our Services dropdown">
+              <li><a href="../index.html#services">Engineering Consultancy</a></li>
+              <li><a href="../index.html#services">Project Management</a></li>
+              <li><a href="../index.html#services">Procurement Support</a></li>
+              <li><a href="../index.html#services">Manufacturing Consultancy</a></li>
+              <li><a href="../index.html#services">Logistics &amp; Supply Chain</a></li>
+              <li><a href="../index.html#services">Project Execution</a></li>
+              <li><a href="../index.html#services">Business Process Optimization</a></li>
+              <li><a href="../index.html#services">Technical Advisory</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link nav-link-dropdown" href="../index.html#industries" aria-haspopup="true" aria-expanded="false">
+              <span>Industries</span>
+              <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4" /></svg>
+            </a>
+            <ul class="dropdown-list" aria-label="Industries dropdown">
+              <li><a href="../index.html#industries">Oil &amp; Gas / Petrochemicals</a></li>
+              <li><a href="../index.html#industries">Energy &amp; Renewable Power</a></li>
+              <li><a href="../index.html#industries">Heavy Industrial Manufacturing</a></li>
+              <li><a href="../index.html#industries">Infrastructure &amp; Civil Engineering</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#knowledge">Knowledge Center</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact Us</a></li>
+        </ul>
+
+        <div class="mobile-nav-cta">
+          <a class="btn-touch mobile-btn-touch" href="#contact-form">
+            <span>Get in Touch</span>
+            <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" /></svg>
+          </a>
+        </div>
+      </nav>
+
+      <div class="header-right">
+        <a class="btn-touch header-btn-touch" href="#contact-form">
+          <span>Get in Touch</span>
+          <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" /></svg>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+          <span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <img class="contact-hero-image" src="../assets/bannera/contact.png" alt="Contact Us industrial engineering banner" />
+      <div class="contact-hero-inner">
+        <div class="contact-eyebrow">LET'S BUILD TOGETHER</div>
+        <h1 id="contact-title">Contact <span>Us</span></h1>
+        <h2>Let's Build a Stronger Tomorrow Together</h2>
+        <p>Get in touch with our team for inquiries, project discussions or any support you need. We look forward to hearing from you.</p>
+      </div>
+    </section>
+
+    <section class="contact-main" aria-label="Contact information and enquiry form">
+      <div class="contact-work-grid">
+        <section class="contact-form-card" id="contact-form" aria-labelledby="form-title">
+          <div class="contact-section-kicker">SEND US A MESSAGE</div>
+          <h2 id="form-title">Get in Touch</h2>
+          <p>Fill out the form and our team will get back to you shortly.</p>
+          <form class="contact-form" id="contactForm">
+            <div class="contact-field"><label for="fullName">Full Name *</label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Your full name" required /></div>
+            <div class="contact-field"><label for="company">Company Name</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Your company" /></div>
+            <div class="contact-field"><label for="email">Email Address *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required /></div>
+            <div class="contact-field"><label for="phone">Phone Number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required /></div>
+            <div class="contact-field full"><label for="service">Subject *</label><select id="service" name="service" required><option value="">Select a service</option><option>Engineering Consultancy</option><option>Project Management</option><option>Procurement Support</option><option>Industrial Consultancy</option><option>Process Optimization</option></select></div>
+            <div class="contact-field full"><label for="message">Your Message *</label><textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea></div>
+            <p class="contact-success" id="contactSuccess" role="status">Thank you! Your enquiry has been received. Our team will contact you shortly.</p>
+            <div class="contact-form-actions"><button class="contact-submit" type="submit">Send Message <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+
+        <aside class="contact-side">
+          <div class="contact-why-card">
+            <img src="../assets/about-engineers-hd.jpg" alt="Engineering team at an industrial facility" />
+            <div class="contact-why-panel"><h3>Why Contact Us?</h3><ul><li>Expert Consultation</li><li>Quick Response</li><li>Customized Solutions</li><li>End-to-End Support</li></ul></div>
+          </div>
+          <div class="contact-office-card">
+            <div class="contact-section-kicker">OUR OFFICE DETAILS</div><h2>Our Office Details</h2>
+            <div class="office-details-grid"><div data-icon="&#8984;"><b>Address</b><span>Plot No. 123, Industrial Area,<br />Jaipur, Rajasthan, India</span></div><div data-icon="&#9742;"><b>Phone</b><a href="tel:+919876543210">+91 98765 43210</a></div><div data-icon="&#9716;"><b>Working Hours</b><span>Monday - Saturday<br />9:00 AM - 6:00 PM</span></div><div data-icon="&#64;"><b>Email</b><a href="mailto:info@companyname.com">info@companyname.com</a></div></div>
+          </div>
+          <div class="contact-next-step">
+            <span class="next-step-number">01</span>
+            <div><b>One partner, end to end</b><p>From planning and engineering to execution, our team keeps every project phase connected.</p></div>
+            <a href="#contact-form" aria-label="Start your project enquiry">&#8594;</a>
+          </div>
+        </aside>
+      </div>
+
+      <section class="contact-map-section" aria-labelledby="map-title">
+        <div class="contact-map-copy"><div class="contact-section-kicker">OUR LOCATION</div><h2 id="map-title">Find Us <span>on Map</span></h2><p>Visit our office or get in touch with us. We are always happy to meet you and discuss your project requirements.</p><div class="map-contact-list"><a data-icon="&#64;" href="mailto:info@companyname.com"><b>Email</b><span>info@companyname.com</span></a><a data-icon="&#9742;" href="tel:+919876543210"><b>Phone</b><span>+91 98765 43210</span></a><div data-icon="&#9716;"><b>Office Hours</b><span>Mon - Sat, 9:00 AM - 6:00 PM</span></div></div></div>
+        <div class="contact-map-visual">
+          <iframe
+            title="Google Map showing our office in Jaipur, Rajasthan"
+            src="https://www.google.com/maps?q=Plot%20No.%20123%2C%20Industrial%20Area%2C%20Jaipur%2C%20Rajasthan%2C%20India&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <!-- Same CTA component used on the home page -->
+      <section class="cta-section cta-banner-section" aria-labelledby="cta-title">
+        <div class="cta-panel">
+          <div class="cta-panel-inner">
+            <div class="cta-copy">
+              <div class="cta-eyebrow"><span></span><b>LET'S BUILD TOGETHER</b><span></span></div>
+              <h2 id="cta-title">Partner with Us for Better Projects</h2>
+              <p>Practical engineering expertise from concept to completion.</p>
+            </div>
+            <a class="cta-button" href="#contact-form">
+              <span>CONTACT US</span>
+              <svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 7h15M10.5 1.5L16 7l-5.5 5.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Same footer as the home page -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-body">
+      <div class="footer-backdrop" aria-hidden="true"></div>
+      <div class="footer-container">
+        <div class="footer-col col-about">
+          <a class="brand brand-footer" href="../index.html#home" aria-label="Technomantra India - Home">
+            <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+          </a>
+          <p class="about-text">An engineering and management consultancy providing integrated solutions across engineering, project management, procurement and project execution. We help businesses transform ideas into sustainable, efficient and successful projects.</p>
+        </div>
+
+        <div class="footer-col col-quick-links">
+          <h2 class="col-title">Quick Links</h2>
+          <ul class="footer-nav-list">
+            <li><a href="../index.html#home">Home</a></li><li><a href="../index.html#about">About Us</a></li><li><a href="../index.html#services">Our Services</a></li><li><a href="../index.html#working-process">Working Process</a></li><li><a href="../index.html#industries">Industries</a></li><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#knowledge">Knowledge Center</a></li><li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col col-services">
+          <h2 class="col-title">Our Services</h2>
+          <ul class="footer-nav-list">
+            <li><a href="../index.html#services">Engineering Consultancy</a></li><li><a href="../index.html#services">Project Management</a></li><li><a href="../index.html#services">Procurement Support</a></li><li><a href="../index.html#services">Manufacturing Consultancy</a></li><li><a href="../index.html#services">Logistics &amp; Supply Chain</a></li><li><a href="../index.html#services">Project Execution</a></li><li><a href="../index.html#services">Business Process Optimization</a></li><li><a href="../index.html#services">Technical Advisory</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col col-contact">
+          <h2 class="col-title">Contact Us</h2>
+          <ul class="contact-details-list">
+            <li class="contact-item"><span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg></span><span class="contact-text">Plot No. 123, Industrial Area,<br />Jaipur, Rajasthan, India</span></li>
+            <li class="contact-item"><span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" /></svg></span><span class="contact-text"><a href="tel:+919876543210">+91 98765 43210</a></span></li>
+            <li class="contact-item"><span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg></span><span class="contact-text"><a href="mailto:info@companyname.com">info@companyname.com</a></span></li>
+            <li class="contact-item"><span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 7.027a6.002 6.002 0 018.73-2.905c-.287.49-.624.962-1.009 1.408a11.164 11.164 0 00-4.08 1.497H4.332zm-1.07 4.148A6.027 6.027 0 013.04 10c0-.348.03-.688.087-1.018l2.678.966c-.035.344-.055.694-.055 1.052 0 .425.029.84.084 1.243l-2.572-1.095zm1.758 2.656l2.39-1.018a11.17 11.17 0 003.58 1.954 6.003 6.003 0 01-5.97-1.936zm8.647-1.472a11.196 11.196 0 00-3.155-1.745 9.176 9.176 0 00.32-1.614l3.19.988a6.022 6.022 0 01-.355 2.371zm1.264-3.523l-3.328-1.03c.123-.62.298-1.218.52-1.78a6.002 6.002 0 012.808 2.81zm-4.708-3.92a9.18 9.18 0 00-.737 1.632 11.18 11.18 0 00-4.06-1.503 6.004 6.004 0 014.797-.129zm-2.03 3.65c.34-.087.693-.15 1.054-.187.164.56.297 1.144.394 1.743-1.066.38-2.062.883-2.97 1.49-.074-.593-.118-1.203-.118-1.823 0-.416.02-.824.057-1.223h1.583zm2.593 1.94c-.114-.658-.26-1.298-.44-1.91 1.082-.36 2.096-.838 3.023-1.417.065.556.102 1.124.102 1.704 0 .438-.023.868-.066 1.29l-2.619.333z" clip-rule="evenodd" /></svg></span><span class="contact-text"><a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="bottom-container"><p class="copyright-text">&copy; <span id="current-year">2026</span> Technomantra India. All Rights Reserved.</p></div></div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const contactSuccess = document.getElementById('contactSuccess');
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      contactSuccess.classList.add('is-visible');
+      contactForm.reset();
+      contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</body>
+
+</html>
