@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="about-page.css?v=17.0" />
+  <link rel="stylesheet" href="about-page.css?v=19.0" />
 </head>
 
 <body class="about-page">
@@ -77,17 +77,14 @@
             <a class="nav-link" href="../index.html#projects">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.html#knowledge">Knowledge Center</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
         </ul>
 
         <!-- Mobile Only CTA inside Drawer -->
         <div class="mobile-nav-cta">
-          <a class="btn-touch mobile-btn-touch" href="contact.html">
-            <span>Get in Touch</span>
+          <a class="btn-touch mobile-btn-touch open-enquiry-modal" href="#enquiryModal">
+            <span>Enquire Now</span>
             <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
@@ -98,8 +95,8 @@
 
       <!-- Header Right: CTA Button & Mobile Hamburger -->
       <div class="header-right">
-        <a class="btn-touch header-btn-touch" href="contact.html">
-          <span>Get in Touch</span>
+        <a class="btn-touch header-btn-touch open-enquiry-modal" href="#enquiryModal">
+          <span>Enquire Now</span>
           <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
@@ -699,72 +696,119 @@
       </div>
     </section>
 
-    <!-- 7. WHY CLIENTS CHOOSE US (Direct from Excel Sheet: About Us) -->
+    <!-- 7. WHY INDUSTRY LEADERS CHOOSE US (Executive Master Showcase Card) -->
     <section class="ab-why-section" id="why-us" aria-labelledby="why-title">
       <div class="ab-container">
-        <div class="ab-section-header">
-          <div class="ab-kicker">
-            <span></span>
-            <b>PROVEN DIFFERENTIATORS</b>
-            <span></span>
-          </div>
-          <h2 id="why-title">Why Industry Leaders <span>Choose Technomantra</span></h2>
-          <p>We combine elite corporate consulting rigor with practical on-site engineering execution under a single accountable roof.</p>
-        </div>
+        <!-- Master Executive White Card Container -->
+        <div class="why-master-card">
+          <div class="ab-why-split">
+            <!-- Left Column: Content & 6 Cards Grid -->
+            <div class="ab-why-left">
+              <div class="ab-why-kicker">
+                <span class="why-kicker-dash" aria-hidden="true">—</span>
+                <span>PROVEN DIFFERENTIATORS</span>
+              </div>
+              
+              <h2 class="ab-why-heading" id="why-title">
+                Why Industry Leaders<br />
+                <span class="text-orange">Choose Dynamic Strategys</span>
+              </h2>
+              
+              <p class="ab-why-lead">
+                We combine elite corporate consulting rigor with practical on-site engineering execution under a single accountable roof.
+              </p>
 
-        <div class="ab-why-grid">
-          <!-- 1 -->
-          <div class="ab-why-card theme-blue">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <h3>One Team, Full Lifecycle</h3>
-            <p>Multidisciplinary engineering, business strategy, capital procurement, schedule planning, and site execution managed completely under one roof.</p>
-          </div>
+              <!-- 6 Compact Differentiator Cards (3 cols x 2 rows) -->
+              <div class="ab-why-cards-grid">
+                <!-- Card 1 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-sky" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">One Team, Full Lifecycle</h4>
+                  <p class="why-card-desc">Multidisciplinary team across engineering, procurement and execution.</p>
+                </div>
 
-          <!-- 2 -->
-          <div class="ab-why-card theme-orange">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3>Corporate Caliber &amp; Site Experience</h3>
-            <p>Senior leadership backgrounds in tier-1 organizations (Reliance, L&amp;T, Accenture, Deloitte) paired with agile, on-the-ground project delivery.</p>
-          </div>
+                <!-- Card 2 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-amber" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">Corporate Caliber &amp; Site Experience</h4>
+                  <p class="why-card-desc">Senior leadership background with on-ground delivery expertise.</p>
+                </div>
 
-          <!-- 3 -->
-          <div class="ab-why-card theme-emerald">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
-            </div>
-            <h3>Industry-Specific Depth</h3>
-            <p>Demonstrated cross-sector knowledge across 15 industrial segments, including strictly audited and regulated GMP / FDA environments.</p>
-          </div>
+                <!-- Card 3 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-teal" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">Industry-Specific Depth</h4>
+                  <p class="why-card-desc">Domain knowledge across 16+ industries and regulated environments.</p>
+                </div>
 
-          <!-- 4 -->
-          <div class="ab-why-card theme-purple">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            </div>
-            <h3>Fewer Interface Gaps</h3>
-            <p>Seamlessly coordinated electrical, instrumentation, mechanical, and civil deliverables eliminating on-site clashes, rework, and costly delays.</p>
-          </div>
+                <!-- Card 4 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-purple" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                      <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                      <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                      <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">Fewer Interface Gaps</h4>
+                  <p class="why-card-desc">Seamless coordination across disciplines, reducing delays and risks.</p>
+                </div>
 
-          <!-- 5 -->
-          <div class="ab-why-card theme-cyan">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <h3>Rigorous Cost &amp; Risk Control</h3>
-            <p>Defensible financial modeling, structured CAPEX/OPEX milestone tracking, early issue mitigation, and complete audit-ready documentation.</p>
-          </div>
+                <!-- Card 5 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-cyan" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <circle cx="12" cy="11" r="2.5" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">Rigorous Cost &amp; Risk Control</h4>
+                  <p class="why-card-desc">Structured planning, forecasting and mitigation for predictable outcomes.</p>
+                </div>
 
-          <!-- 6 -->
-          <div class="ab-why-card theme-amber">
-            <div class="ab-why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <!-- Card 6 -->
+                <div class="ab-why-feature-box">
+                  <div class="why-icon-badge badge-orange" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="4" width="16" height="16" rx="2" />
+                      <line x1="8" y1="9" x2="16" y2="9" />
+                      <line x1="8" y1="13" x2="16" y2="13" />
+                      <line x1="8" y1="17" x2="12" y2="17" />
+                    </svg>
+                  </div>
+                  <h4 class="why-card-title">Dependable Governance</h4>
+                  <p class="why-card-desc">Transparent reporting and dedicated post-commissioning support.</p>
+                </div>
+              </div>
             </div>
-            <h3>Dependable Governance</h3>
-            <p>Single accountable point of contact, disciplined responsibilities, transparent progress reporting, and dedicated post-commissioning follow-through.</p>
+
+            <!-- Right Column: Vertical Showcase Refinery & Engineers Photo Frame -->
+            <div class="ab-why-right">
+              <div class="why-showcase-frame">
+                <img src="../assets/why-leaders-showcase.png" alt="Two engineering consultants overlooking petrochemical refinery plant" class="why-showcase-img" />
+                <!-- Bottom Right Geometric Accent -->
+                <div class="why-accent-curve" aria-hidden="true"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -913,6 +957,265 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       ENQUIRE NOW POPUP MODAL (Exact Match to User Reference Mockup)
+       ========================================================================== -->
+  <div class="enquiry-modal-backdrop" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle" aria-hidden="true">
+    <div class="enquiry-modal-overlay" data-close-modal></div>
+    
+    <div class="enquiry-modal-container">
+      <!-- Close Button (X) -->
+      <button type="button" class="enquiry-modal-close" data-close-modal aria-label="Close Enquiry Form">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div class="enquiry-modal-layout">
+        <!-- Left Visual & Value Proposition Column -->
+        <div class="enquiry-modal-left">
+          <div class="enquiry-left-overlay"></div>
+          <div class="enquiry-left-content">
+            <div class="enquiry-left-kicker">
+              <span class="enquiry-dash">—</span>
+              <span>LET'S DISCUSS</span>
+            </div>
+            
+            <h3 class="enquiry-left-title">
+              Enquire Now<br />
+              for Your<br />
+              <span class="text-orange">Project Needs</span>
+            </h3>
+            
+            <p class="enquiry-left-desc">
+              Share your requirements and our team will get back to you with the right solution for your business.
+            </p>
+
+            <!-- Bottom Floating Trust Card -->
+            <div class="enquiry-trust-card">
+              <!-- Item 1 -->
+              <div class="enquiry-trust-item">
+                <div class="enquiry-trust-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="enquiry-trust-meta">
+                  <b>Quick Response</b>
+                  <span>We usually respond within 24 hours</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="enquiry-trust-item">
+                <div class="enquiry-trust-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                <div class="enquiry-trust-meta">
+                  <b>Expert Consultation</b>
+                  <span>Tailored solutions for your project</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="enquiry-trust-item">
+                <div class="enquiry-trust-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                  </svg>
+                </div>
+                <div class="enquiry-trust-meta">
+                  <b>Confidential Inquiry</b>
+                  <span>Your information is always secure</span>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="enquiry-trust-item">
+                <div class="enquiry-trust-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <div class="enquiry-trust-meta">
+                  <b>Trusted by Industry Leaders</b>
+                  <span>Proven expertise across 15+ industries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Interactive Form Column -->
+        <div class="enquiry-modal-right">
+          <div class="enquiry-right-kicker">
+            <span class="enquiry-dash">—</span>
+            <span>GET IN TOUCH</span>
+          </div>
+
+          <h2 class="enquiry-right-title" id="enquiryModalTitle">Enquire Now</h2>
+          <p class="enquiry-right-desc">
+            Fill out the form and our team will get back to you shortly with the best solution for your requirements.
+          </p>
+
+          <form class="enquiry-modal-form" id="enquiryModalForm">
+            <div class="enquiry-form-grid">
+              <!-- Full Name -->
+              <div class="enquiry-field-group">
+                <label for="eqFullName">Full Name <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </span>
+                  <input type="text" id="eqFullName" name="fullName" placeholder="Enter your full name" required />
+                </div>
+              </div>
+
+              <!-- Company Name -->
+              <div class="enquiry-field-group">
+                <label for="eqCompanyName">Company Name <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15" y2="22.01"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="9" y2="18.01"/><line x1="15" y1="18" x2="15" y2="18.01"/></svg>
+                  </span>
+                  <input type="text" id="eqCompanyName" name="companyName" placeholder="Enter company name" required />
+                </div>
+              </div>
+
+              <!-- Email Address -->
+              <div class="enquiry-field-group">
+                <label for="eqEmail">Email Address <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </span>
+                  <input type="email" id="eqEmail" name="email" placeholder="Enter your email address" required />
+                </div>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="enquiry-field-group">
+                <label for="eqPhone">Phone Number <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </span>
+                  <input type="tel" id="eqPhone" name="phone" placeholder="Enter your phone number" required />
+                </div>
+              </div>
+
+              <!-- Project Type -->
+              <div class="enquiry-field-group">
+                <label for="eqProjectType">Project Type <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap enquiry-select-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                  </span>
+                  <select id="eqProjectType" name="projectType" required>
+                    <option value="" disabled selected>Select project type</option>
+                    <option value="feed-engineering">FEED &amp; Detailed Engineering</option>
+                    <option value="project-governance">Disciplined Project Governance (PMC)</option>
+                    <option value="procurement-support">Procurement &amp; Vendor Management</option>
+                    <option value="site-supervision">Site Supervision &amp; Commissioning</option>
+                    <option value="plant-revamp">Plant Revamp &amp; Debottlenecking</option>
+                    <option value="safety-audit">Process Safety &amp; Hazop Studies</option>
+                    <option value="turnkey-consultancy">Turnkey Strategic Consultancy</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Industry -->
+              <div class="enquiry-field-group">
+                <label for="eqIndustry">Industry <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap enquiry-select-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                  </span>
+                  <select id="eqIndustry" name="industry" required>
+                    <option value="" disabled selected>Select industry</option>
+                    <option value="oil-gas">Oil &amp; Gas / Petrochemicals</option>
+                    <option value="chemicals">Chemicals &amp; Specialty Process</option>
+                    <option value="pharma">Pharmaceuticals &amp; Life Sciences</option>
+                    <option value="energy">Power &amp; Renewable Energy</option>
+                    <option value="water">Water &amp; Industrial Wastewater</option>
+                    <option value="food-beverage">Food &amp; Beverage Processing</option>
+                    <option value="manufacturing">Heavy Industrial Manufacturing</option>
+                    <option value="infrastructure">Infrastructure &amp; Civil Engineering</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Project Requirements (Full width) -->
+              <div class="enquiry-field-group full-width">
+                <label for="eqRequirements">Project Requirements <span class="required-star">*</span></label>
+                <div class="enquiry-input-wrap textarea-wrap">
+                  <span class="enquiry-input-icon textarea-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </span>
+                  <textarea id="eqRequirements" name="requirements" rows="3" placeholder="Tell us about your project requirements..." required></textarea>
+                </div>
+              </div>
+
+              <!-- Project Location -->
+              <div class="enquiry-field-group">
+                <label for="eqLocation">Project Location</label>
+                <div class="enquiry-input-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </span>
+                  <input type="text" id="eqLocation" name="location" placeholder="Enter project location" />
+                </div>
+              </div>
+
+              <!-- Expected Timeline -->
+              <div class="enquiry-field-group">
+                <label for="eqTimeline">Expected Timeline</label>
+                <div class="enquiry-input-wrap enquiry-select-wrap">
+                  <span class="enquiry-input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </span>
+                  <select id="eqTimeline" name="timeline">
+                    <option value="" disabled selected>Select timeline</option>
+                    <option value="immediate">Immediate (&lt; 1 month)</option>
+                    <option value="1-3-months">1 – 3 Months</option>
+                    <option value="3-6-months">3 – 6 Months</option>
+                    <option value="planning">6+ Months (Planning Stage)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agreement Checkbox -->
+            <div class="enquiry-checkbox-row">
+              <label class="enquiry-checkbox-label">
+                <input type="checkbox" name="consent" required checked />
+                <span class="checkbox-text">I agree to be contacted by Dynamic Strategys regarding my inquiry.</span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-enquiry-submit">
+              <span>Submit Enquiry</span>
+              <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="../script.js"></script>
 </body>

@@ -442,4 +442,68 @@ document.addEventListener('DOMContentLoaded', () => {
   if (conceptStage && window.ResizeObserver) {
     new ResizeObserver(updateConceptConnectors).observe(conceptStage);
   }
+
+  // ==========================================================================
+  // ENQUIRE NOW POPUP MODAL CONTROLLER
+  // ==========================================================================
+  const enquiryModal = document.getElementById('enquiryModal');
+  const openEnquiryBtns = document.querySelectorAll('.header-btn-touch, .mobile-btn-touch, .open-enquiry-modal, a[href="#enquiryModal"]');
+
+  const openEnquiry = (e) => {
+    if (e) e.preventDefault();
+    if (!enquiryModal) return;
+    enquiryModal.classList.add('is-active');
+    enquiryModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const firstInput = enquiryModal.querySelector('#eqFullName');
+    if (firstInput) setTimeout(() => firstInput.focus(), 150);
+  };
+
+  const closeEnquiry = () => {
+    if (!enquiryModal) return;
+    enquiryModal.classList.remove('is-active');
+    enquiryModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  openEnquiryBtns.forEach((btn) => {
+    btn.addEventListener('click', openEnquiry);
+  });
+
+  if (enquiryModal) {
+    enquiryModal.querySelectorAll('[data-close-modal]').forEach((el) => {
+      el.addEventListener('click', closeEnquiry);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && enquiryModal.classList.contains('is-active')) {
+        closeEnquiry();
+      }
+    });
+
+    const enquiryForm = document.getElementById('enquiryModalForm');
+    if (enquiryForm) {
+      enquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = enquiryForm.querySelector('.btn-enquiry-submit');
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<span>Submitting...</span>';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.innerHTML = '<span>✓ Enquiry Sent Successfully!</span>';
+          btn.style.background = '#10b981';
+          setTimeout(() => {
+            closeEnquiry();
+            enquiryForm.reset();
+            btn.innerHTML = originalContent;
+            btn.style.background = '';
+            btn.disabled = false;
+            alert('Thank you! Your enquiry has been received. Our team will get back to you shortly.');
+          }, 1200);
+        }, 800);
+      });
+    }
+  }
 });
+

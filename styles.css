@@ -8855,3 +8855,418 @@ body { background: #f3f5f7 !important; }
     letter-spacing: -0.7px !important;
   }
 }
+
+/* ==========================================================================
+   ENQUIRE NOW POPUP MODAL (Executive Dual-Column Modal System)
+   ========================================================================== */
+.enquiry-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(14px, 2.5vw, 32px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+
+.enquiry-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.enquiry-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 16, 36, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.enquiry-modal-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1040px;
+  max-height: 92vh;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 32px 85px rgba(0, 15, 45, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+  transform: scale(0.94) translateY(12px);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-modal-backdrop.is-active .enquiry-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.enquiry-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 20;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 114, 234, 0.12);
+  display: grid;
+  place-items: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.enquiry-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.enquiry-modal-close:hover {
+  background: #e2e8f0;
+  color: #0b2545;
+  transform: rotate(90deg);
+}
+
+.enquiry-modal-layout {
+  display: grid;
+  grid-template-columns: 375px 1fr;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* Left Visual & Value Proposition Column */
+.enquiry-modal-left {
+  position: relative;
+  background: #021a38 url('assets/why-leaders-showcase.png') center top / cover no-repeat;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  min-height: 580px;
+}
+
+.enquiry-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 22, 50, 0.88) 0%, rgba(2, 22, 50, 0.62) 42%, rgba(1, 14, 32, 0.96) 100%);
+  z-index: 1;
+}
+
+.enquiry-left-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.enquiry-left-kicker,
+.enquiry-right-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.enquiry-left-kicker {
+  color: #ffffff;
+}
+
+.enquiry-dash {
+  color: #f7941d;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.enquiry-left-title {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: clamp(28px, 2.5vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: #ffffff;
+  margin: 0 0 14px;
+}
+
+.enquiry-left-title .text-orange {
+  color: #f7941d;
+  background: linear-gradient(135deg, #f7941d 0%, #ff5722 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.enquiry-left-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 32px;
+}
+
+/* Bottom Floating Trust Card */
+.enquiry-trust-card {
+  background: rgba(0, 22, 50, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  backdrop-filter: blur(12px);
+}
+
+.enquiry-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.enquiry-trust-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(247, 148, 29, 0.6);
+  color: #f7941d;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.enquiry-trust-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.enquiry-trust-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-trust-meta b {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.enquiry-trust-meta span {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.4;
+}
+
+/* Right Interactive Form Column */
+.enquiry-modal-right {
+  padding: 38px 42px 34px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-right-kicker {
+  color: #0b2545;
+}
+
+.enquiry-right-title {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 32px;
+  font-weight: 800;
+  color: #0b2545;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+
+.enquiry-right-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #64748b;
+  margin: 0 0 24px;
+}
+
+.enquiry-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.enquiry-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-field-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.enquiry-field-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b2545;
+  margin-bottom: 6px;
+}
+
+.required-star {
+  color: #ea580c;
+  font-weight: 900;
+}
+
+.enquiry-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.enquiry-input-icon {
+  position: absolute;
+  left: 12px;
+  color: #94a3b8;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.enquiry-input-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.enquiry-input-wrap input,
+.enquiry-input-wrap select,
+.enquiry-input-wrap textarea {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 38px;
+  border: 1.5px solid #d0dbe7;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: #0f172a;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.enquiry-input-wrap select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.enquiry-input-wrap textarea {
+  height: auto;
+  min-height: 78px;
+  padding: 10px 14px 10px 38px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.enquiry-input-wrap.textarea-wrap .textarea-icon {
+  top: 12px;
+}
+
+.enquiry-input-wrap input:focus,
+.enquiry-input-wrap select:focus,
+.enquiry-input-wrap textarea:focus {
+  border-color: #0072ea;
+  box-shadow: 0 0 0 3px rgba(0, 114, 234, 0.12);
+  outline: none;
+}
+
+.enquiry-checkbox-row {
+  margin-bottom: 20px;
+}
+
+.enquiry-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.enquiry-checkbox-label input {
+  width: 16px;
+  height: 16px;
+  accent-color: #f7941d;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: 12.5px;
+  color: #475569;
+}
+
+/* Submit Button */
+.btn-enquiry-submit {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #f7941d 0%, #ff5722 100%);
+  color: #ffffff;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(247, 148, 29, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-enquiry-submit svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.btn-enquiry-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(247, 148, 29, 0.5);
+}
+
+.btn-enquiry-submit:hover svg {
+  transform: translateX(3px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 860px) {
+  .enquiry-modal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .enquiry-modal-left {
+    min-height: auto;
+    padding: 30px 22px;
+  }
+
+  .enquiry-trust-card {
+    display: none;
+  }
+
+  .enquiry-modal-right {
+    padding: 28px 22px 30px;
+  }
+
+  .enquiry-form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
