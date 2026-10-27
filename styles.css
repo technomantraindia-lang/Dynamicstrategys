@@ -8947,7 +8947,7 @@ body { background: #f3f5f7 !important; }
 /* Left Visual & Value Proposition Column */
 .enquiry-modal-left {
   position: relative;
-  background: #021a38 url('assets/why-leaders-showcase.png') center top / cover no-repeat;
+  background: #021a38 url('assets/about-refinery-engineers.jpg') center top / cover no-repeat;
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
@@ -8988,15 +8988,22 @@ body { background: #f3f5f7 !important; }
 }
 
 .enquiry-dash {
-  color: #f7941d;
-  font-size: 15px;
-  font-weight: 900;
+  display: inline-block;
+  width: 26px;
+  height: 3px;
+  background: #f7941d;
+  background: linear-gradient(90deg, #f7941d 0%, #ff5722 100%);
+  border-radius: 3px;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  flex-shrink: 0;
 }
 
 .enquiry-left-title {
-  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-family: var(--font-heading, "Lora", Georgia, serif);
   font-size: clamp(28px, 2.5vw, 36px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.6px;
   color: #ffffff;
@@ -9084,9 +9091,9 @@ body { background: #f3f5f7 !important; }
 }
 
 .enquiry-right-title {
-  font-family: var(--font-brand, "Montserrat", sans-serif);
-  font-size: 32px;
-  font-weight: 800;
+  font-family: var(--font-heading, "Lora", Georgia, serif);
+  font-size: 34px;
+  font-weight: 700;
   color: #0b2545;
   margin: 0 0 6px;
   letter-spacing: -0.5px;
@@ -9165,7 +9172,13 @@ body { background: #f3f5f7 !important; }
 
 .enquiry-input-wrap select {
   cursor: pointer;
-  appearance: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
 }
 
 .enquiry-input-wrap textarea {

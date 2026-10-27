@@ -1379,25 +1379,13 @@ body.about-page .ab-why-section .ab-container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: 50% 35%;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .why-showcase-frame:hover .why-showcase-img {
   transform: scale(1.03);
-}
-
-.why-accent-curve {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle at bottom right, rgba(247, 148, 29, 0.85) 0%, rgba(255, 87, 34, 0.6) 40%, transparent 70%);
-  pointer-events: none;
-  z-index: 2;
-  border-bottom-right-radius: 22px;
 }
 
 /* ==========================================================================
