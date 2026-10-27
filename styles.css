@@ -853,8 +853,8 @@ ul {
 
 .video-overlay {
   background:
-    linear-gradient(180deg, rgba(0, 25, 52, 0.58) 0%, rgba(0, 25, 57, 0.72) 58%, rgba(0, 20, 50, 0.86) 100%),
-    linear-gradient(90deg, rgba(0, 23, 52, 0.72), rgba(0, 64, 116, 0.2) 55%, rgba(0, 23, 52, 0.72));
+    linear-gradient(180deg, rgba(0, 25, 52, 0.30) 0%, rgba(0, 25, 57, 0.43) 58%, rgba(0, 20, 50, 0.62) 100%),
+    linear-gradient(90deg, rgba(0, 23, 52, 0.42), rgba(0, 64, 116, 0.08) 55%, rgba(0, 23, 52, 0.40));
   backdrop-filter: none;
 }
 
@@ -947,9 +947,9 @@ ul {
 
 .stats-wrapper {
   width: 100%;
-  max-width: 1220px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 2.5vw, 28px);
+  padding: 0 clamp(16px, 2.5vw, 32px);
 }
 
 .stats-card {
@@ -8221,12 +8221,12 @@ body { background: #f3f5f7 !important; }
 .hero-banner { background: linear-gradient(135deg, #eef8fd 0%, #dceef8 100%) !important; color: #0b2f68 !important; }
 .hero-video {
   opacity: 1;
-  filter: saturate(0.9) contrast(1.04) brightness(0.86);
+  filter: saturate(0.95) contrast(1.02) brightness(1.02);
 }
 .video-overlay {
   background:
-    linear-gradient(180deg, rgba(0, 27, 68, 0.56) 0%, rgba(0, 27, 68, 0.74) 52%, rgba(0, 11, 42, 0.9) 100%),
-    linear-gradient(90deg, rgba(0, 20, 58, 0.78), rgba(0, 91, 170, 0.14) 54%, rgba(0, 16, 52, 0.78)) !important;
+    linear-gradient(180deg, rgba(0, 27, 68, 0.20) 0%, rgba(0, 27, 68, 0.30) 52%, rgba(0, 11, 42, 0.45) 100%),
+    linear-gradient(90deg, rgba(0, 20, 58, 0.30), rgba(0, 91, 170, 0.04) 54%, rgba(0, 16, 52, 0.28)) !important;
   backdrop-filter: none !important;
 }
 .hero-content {

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Detailed engineering and management consultancy service information." />
+  <title>Service Detail | Technomantra India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="service-detail.css?v=3.1" />
+</head>
+
+<body class="service-detail-page">
+  <!-- Top Navigation Header -->
+  <header class="site-header" id="home">
+    <div class="header-container">
+      <div class="header-left">
+        <a class="brand" href="../index.html#home" aria-label="Technomantra India - Home">
+          <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+        </a>
+      </div>
+      <nav class="nav-menu header-center" id="primary-nav" aria-label="Main menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link nav-link-dropdown active" href="services.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+              <span>Our Services</span>
+              <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4" /></svg>
+            </a>
+            <ul class="dropdown-list" aria-label="Our Services dropdown">
+              <li><a href="service-detail.html?service=electrical-engineering">Electrical Engineering</a></li>
+              <li><a href="service-detail.html?service=instrumentation-engineering">Instrumentation &amp; Control</a></li>
+              <li><a href="service-detail.html?service=mechanical-engineering">Mechanical Engineering</a></li>
+              <li><a href="service-detail.html?service=procurement-support">Procurement Support</a></li>
+              <li><a href="service-detail.html?service=detailed-project-reports">Detailed Project Reports (DPR)</a></li>
+              <li><a href="service-detail.html?service=project-management">Project Management</a></li>
+              <li><a href="service-detail.html?service=logistics-planning">Logistics Planning</a></li>
+              <li><a href="service-detail.html?service=manufacturing-consultancy">Manufacturing Consultancy</a></li>
+              <li><a href="service-detail.html?service=labour-planning">Labour Planning &amp; Sourcing</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown"><a class="nav-link nav-link-dropdown" href="../index.html#industries" aria-haspopup="true" aria-expanded="false"><span>Industries</span><svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l4 4 4-4" /></svg></a><ul class="dropdown-list"><li><a href="../index.html#industries">Oil &amp; Gas / Petrochemicals</a></li><li><a href="../index.html#industries">Energy &amp; Renewable Power</a></li><li><a href="../index.html#industries">Heavy Industrial Manufacturing</a></li></ul></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#knowledge">Knowledge Center</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta"><a class="btn-touch mobile-btn-touch" href="contact.html"><span>Get in Touch</span><span>→</span></a></div>
+      </nav>
+      <div class="header-right"><a class="btn-touch header-btn-touch" href="contact.html"><span>Get in Touch</span><span>→</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span></button></div>
+    </div>
+  </header>
+
+  <main class="detail-main">
+    <!-- HERO SECTION -->
+    <section class="detail-hero" aria-labelledby="detail-title">
+      <div class="detail-hero-image">
+        <img id="detail-image" src="../assets/refinery-pure.png" alt="" />
+      </div>
+      <div class="detail-hero-overlay" aria-hidden="true"></div>
+      <div class="detail-hero-ambient-glow" aria-hidden="true"></div>
+      <div class="detail-hero-container">
+        <div class="detail-hero-content">
+          <div class="detail-breadcrumb">
+            <a href="../index.html#home">Home</a>
+            <span class="breadcrumb-arrow">›</span>
+            <a href="services.html">Our Services</a>
+            <span class="breadcrumb-arrow">›</span>
+            <span id="detail-breadcrumb-title" class="breadcrumb-current">Service</span>
+          </div>
+          <h1 id="detail-title">Service Detail</h1>
+          <p class="detail-hero-lead" id="detail-lead"></p>
+          <div class="detail-feature-strip" id="detail-features"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: OVERVIEW -->
+    <section class="detail-overview-section" id="overview" aria-labelledby="detail-overview-heading">
+      <div class="detail-section-container">
+        <div class="detail-overview-grid">
+          <div class="detail-overview-media">
+            <div class="media-image-frame">
+              <img id="detail-overview-image" src="../assets/refinery-pure.png" alt="Engineering Overview" />
+              <div class="media-floating-tag">
+                <span class="tag-pulse-dot"></span>
+                <span id="detail-media-tag-text">Industrial Engineering Excellence</span>
+              </div>
+              <div class="media-stat-glass-badge">
+                <div class="stat-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+                </div>
+                <div class="stat-badge-text">
+                  <b id="detail-media-stat-title">100% Code-Compliant</b>
+                  <span id="detail-media-stat-sub">Verified Technical Standard</span>
+                </div>
+              </div>
+            </div>
+            <div class="detail-overview-media-labels" id="detail-media-chips">
+              <!-- Dynamically populated by service-detail.js per service -->
+            </div>
+          </div>
+          <div class="detail-overview-text">
+            <div class="detail-section-kicker"><span></span><b>SERVICE OVERVIEW</b><span></span></div>
+            <h2 id="detail-overview-heading">Comprehensive <span id="detail-overview-title">Engineering Solutions</span></h2>
+            <article class="detail-copy-card" id="detail-intro"></article>
+            <div class="detail-summary-card">
+              <ul class="detail-summary-list" id="detail-summary"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SERVICES / DELIVERABLES GRID -->
+    <section class="detail-services-section" id="services" aria-labelledby="coverage-title">
+      <div class="detail-section-container">
+        <div class="detail-section-heading">
+          <div class="detail-section-kicker"><span></span><b>DETAILED DELIVERABLES</b><span></span></div>
+          <h2 id="coverage-title">Service <span>Details</span></h2>
+          <p id="detail-services-subtitle">We offer a complete range of services to support your project at every stage.</p>
+        </div>
+        <div class="detail-service-grid" id="detail-services"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: APPROACH / PROCESS (EXACT MATCH TO HOME PAGE WORKING PROCESS) -->
+    <section class="detail-approach-section" id="approach" aria-labelledby="approach-title">
+      <div class="detail-section-container">
+        <div class="detail-approach-header">
+          <div class="concept-eyebrow">
+            <span class="concept-eyebrow-line"></span>
+            <span class="concept-eyebrow-text">OUR WORKING PROCESS</span>
+            <span class="concept-eyebrow-line"></span>
+          </div>
+          <h2 id="approach-title" class="concept-title">From Concept to <span class="concept-title-accent">Commissioning</span></h2>
+          <p id="detail-approach-subtitle" class="concept-subtitle">A structured engineering methodology to deliver safe, cost-effective and dependable industrial systems.</p>
+        </div>
+        <div class="detail-approach-timeline">
+          <ul class="detail-approach-list" id="detail-approach-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WHY CHOOSE US (PREMIUM INDUSTRIAL SHOWCASE) -->
+    <section class="detail-why-section" id="why-choose" aria-labelledby="why-title">
+      <div class="detail-section-container">
+        <!-- Section Header: Centered & Balanced -->
+        <div class="detail-why-header">
+          <div class="concept-eyebrow">
+            <span class="concept-eyebrow-line"></span>
+            <span class="concept-eyebrow-text">WHY CHOOSE TECHNOMANTRA</span>
+            <span class="concept-eyebrow-line"></span>
+          </div>
+          <h2 id="why-title" class="detail-why-h2">Reliable <strong id="detail-why-service-title">Engineering Solutions</strong> for <span>Every Project</span></h2>
+          <p class="detail-why-lead">We integrate multidisciplinary technical rigor, proactive site safety, and vendor-neutral procurement to ensure projects are delivered on-schedule and compliant with global standards.</p>
+        </div>
+
+        <!-- 2-Column Balanced Grid: 4 Cards (Left) + Visual Showcase (Right) -->
+        <div class="detail-why-layout">
+          <div class="detail-why-grid" id="detail-why"></div>
+          <div class="detail-why-visual">
+            <div class="why-showcase-frame">
+              <img id="detail-why-image" src="../assets/about-engineers-hd.jpg" alt="Engineers inspecting industrial facility" loading="lazy" />
+              <div class="why-frame-overlay" aria-hidden="true"></div>
+              
+              <!-- Top Left: Multidisciplinary Chip -->
+              <div class="why-top-floating-chip">
+                <span class="why-chip-dot" aria-hidden="true"></span>
+                <span>MULTIDISCIPLINARY EXPERTISE</span>
+              </div>
+
+              <!-- Top Right: Standards Compliance Chip -->
+              <div class="why-standards-chip">
+                <span class="why-standards-icon" aria-hidden="true">✓</span>
+                <span>GLOBAL STANDARDS</span>
+              </div>
+
+              <!-- Sleek Bottom KPI Floating Card -->
+              <div class="why-bottom-kpi-panel">
+                <div class="why-kpi-icon-bubble" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                </div>
+                <div class="why-kpi-copy">
+                  <div class="why-kpi-headline">100% Turnkey Execution Support</div>
+                  <p class="why-kpi-sub">Feasibility &bull; Detailed SLDs &bull; Site Commissioning</p>
+                </div>
+                <span class="why-kpi-pill-tag">VERIFIED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FAQ ACCORDION WITH DEDICATED SUPPORT PANEL -->
+    <section class="detail-faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="detail-section-container">
+        <div class="detail-section-heading">
+          <div class="concept-eyebrow">
+            <span class="concept-eyebrow-line"></span>
+            <span class="concept-eyebrow-text">FREQUENTLY ASKED QUESTIONS</span>
+            <span class="concept-eyebrow-line"></span>
+          </div>
+          <h2 id="faq-title">Common <span>Questions</span> &amp; Answers</h2>
+          <p class="faq-lead">Get clear, practical technical answers regarding project deliverables, technical standards compliance, and scope boundaries.</p>
+        </div>
+
+        <div class="detail-faq-layout">
+          <div class="detail-faq-support-panel">
+            <div class="detail-faq-support-media">
+              <img id="detail-faq-image" src="../assets/faq-generated/faq-refinery-support.png" alt="Industrial engineers working at a facility" loading="lazy" />
+              <div class="detail-faq-media-overlay" aria-hidden="true"></div>
+              <div class="detail-faq-top-chip">
+                <span class="chip-glow-dot" aria-hidden="true"></span>
+                <span>TECHNICAL ADVISORY</span>
+              </div>
+            </div>
+            <div class="detail-faq-card-content">
+              <div class="detail-faq-header-row">
+                <div class="detail-faq-bubble" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="detail-faq-header-title">
+                  <span class="faq-sub-label">Direct Consultation</span>
+                  <h3>Still Have Questions?</h3>
+                </div>
+              </div>
+              <p>Speak directly with our senior multidisciplinary engineering consultants for technical reviews, SLD evaluations, and feasibility assessments.</p>
+              <a href="contact.html" class="detail-faq-cta-btn">
+                <span>TALK TO AN ENGINEER</span>
+                <span class="detail-faq-arrow" aria-hidden="true">→</span>
+              </a>
+              <div class="detail-faq-trust-note">
+                <span class="trust-check-icon" aria-hidden="true">✓</span>
+                <span>Fast response &bull; Direct technical leads</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-faq-accordion-wrapper">
+            <div class="detail-faq-accordion" id="detail-faq"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CTA BANNER -->
+    <section class="detail-cta" id="cta" aria-labelledby="cta-title">
+      <div class="detail-section-container">
+        <div class="cta-panel">
+          <div class="cta-panel-inner">
+            <div class="cta-copy">
+              <div class="cta-eyebrow"><span></span><b>LET'S BUILD TOGETHER</b><span></span></div>
+              <h2 id="cta-title">Partner with Us for Better Projects</h2>
+              <p>Practical engineering expertise from concept to completion.</p>
+            </div>
+            <a class="cta-button" href="contact.html">
+              <span>GET IN TOUCH</span>
+              <svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 7h15M10.5 1.5L16 7l-5.5 5.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-body">
+      <div class="footer-backdrop" aria-hidden="true"></div>
+      <div class="footer-container">
+        <div class="footer-col col-about">
+          <a class="brand brand-footer" href="../index.html#home">
+            <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+          </a>
+          <p class="about-text">An engineering and management consultancy providing integrated solutions across engineering, project management, procurement and project execution. We help businesses transform ideas into sustainable, efficient and successful projects.</p>
+        </div>
+        <div class="footer-col col-quick-links">
+          <h2 class="col-title">Quick Links</h2>
+          <ul class="footer-nav-list">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="../index.html#working-process">Working Process</a></li>
+            <li><a href="../index.html#industries">Industries</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#knowledge">Knowledge Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col col-services">
+          <h2 class="col-title">Our Services</h2>
+          <ul class="footer-nav-list">
+            <li><a href="service-detail.html?service=electrical-engineering">Electrical Engineering</a></li>
+            <li><a href="service-detail.html?service=instrumentation-engineering">Instrumentation Engineering</a></li>
+            <li><a href="service-detail.html?service=mechanical-engineering">Mechanical Engineering</a></li>
+            <li><a href="service-detail.html?service=project-management">Project Management</a></li>
+            <li><a href="service-detail.html?service=logistics-planning">Logistics Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col col-contact">
+          <h2 class="col-title">Contact Us</h2>
+          <ul class="contact-details-list">
+            <li class="contact-item"><span class="contact-icon-circle">⌖</span><span class="contact-text">Plot No. 123, Industrial Area,<br />Jaipur, Rajasthan, India</span></li>
+            <li class="contact-item"><span class="contact-icon-circle">☎</span><span class="contact-text"><a href="tel:+919876543210">+91 98765 43210</a></span></li>
+            <li class="contact-item"><span class="contact-icon-circle">✉</span><span class="contact-text"><a href="mailto:info@companyname.com">info@companyname.com</a></span></li>
+            <li class="contact-item"><span class="contact-icon-circle">◎</span><span class="contact-text"><a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="bottom-container">
+        <p class="copyright-text">&copy; <span id="current-year">2026</span> Technomantra India. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="service-detail.js?v=3.1"></script>
+  <script src="../script.js"></script>
+</body>
+
+</html>

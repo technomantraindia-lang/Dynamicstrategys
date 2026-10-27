@@ -1,0 +1,1443 @@
+/* ==========================================================================
+   Technomantra India - About Us Page Stylesheet
+   Corporate Engineering & Management Consultancy Design System
+   Matches User Reference Mockup with Floating Stats Pill & Who We Are Showcase
+   ========================================================================== */
+
+:root {
+  --ab-primary-blue: #0072ea;
+  --ab-primary-hover: #005ec4;
+  --ab-accent-orange: #f7941d;
+  --ab-accent-dark-orange: #ea580c;
+  --ab-navy-deep: #001935;
+  --ab-navy-dark: #001328;
+  --ab-navy-mid: #0a2548;
+  --ab-navy-light: #16365f;
+  --ab-text-dark: #0b2f68;
+  --ab-text-body: #3e5875;
+  --ab-text-muted: #5d748f;
+  --ab-bg-page: #f6f9fd;
+  --ab-card-bg: #ffffff;
+  --ab-border-subtle: #dce8f5;
+  --ab-radius-card: 20px;
+}
+
+/* Base Body Overrides */
+body.about-page {
+  background-color: var(--ab-bg-page) !important;
+  color: var(--ab-text-dark) !important;
+  font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+body.about-page * {
+  box-sizing: border-box;
+}
+
+/* Isolation Container (Overrides any styles.css grid conflicts) */
+body.about-page .ab-container,
+body.about-page .about-container {
+  display: block !important;
+  grid-template-columns: none !important;
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(18px, 2.8vw, 44px) !important;
+}
+
+/* Wide Showcase Box for Who We Are Section (Matches 1600px Header) */
+body.about-page .who-we-are-section .ab-container {
+  max-width: 1600px !important;
+}
+
+/* Compact, Well-Proportioned Container for Purpose (Vision, Mission, Commitment) */
+body.about-page .purpose-section .ab-container {
+  max-width: 1220px !important;
+}
+
+/* ==========================================================================
+   1. HERO BANNER
+   ========================================================================== */
+.ab-hero-banner {
+  position: relative;
+  width: 100%;
+  background: var(--ab-navy-dark, #001328);
+  overflow: visible;
+  z-index: 1;
+}
+
+.ab-hero-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 19, 40, 0.15);
+}
+
+.ab-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 380px;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ab-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 19, 40, 0.08) 0%, rgba(0, 19, 40, 0.28) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   2. FLOATING STATS PILL PANEL (Seamless High-End Transition)
+   ========================================================================== */
+.ab-stats-wrapper {
+  position: relative;
+  margin-top: -55px;
+  z-index: 10;
+  margin-bottom: 20px;
+}
+
+.ab-stats-pill-panel {
+  position: relative;
+  z-index: 10;
+  margin-top: -55px;
+  margin-bottom: 70px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 26px 42px;
+  box-shadow: 0 20px 50px rgba(0, 32, 75, 0.14), 0 4px 16px rgba(0, 114, 234, 0.08);
+  border: 1.5px solid rgba(180, 215, 245, 0.95);
+  backdrop-filter: blur(16px);
+}
+
+.ab-stats-pill-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+
+.ab-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.ab-stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(0, 114, 234, 0.02) 0%, rgba(0, 114, 234, 0.22) 50%, rgba(0, 114, 234, 0.02) 100%);
+}
+
+.ab-stat-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ab-stat-item:hover .ab-stat-circle {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ab-stat-circle.circle-blue {
+  background: linear-gradient(135deg, #0072ea, #00b4d8);
+}
+
+.ab-stat-circle.circle-orange {
+  background: linear-gradient(135deg, #f7941d, #ff5722);
+}
+
+.ab-stat-circle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ab-stat-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-stat-number {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: clamp(21px, 1.8vw, 25px);
+  font-weight: 800;
+  color: #0b2f68;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.ab-stat-label {
+  font-size: 11.5px;
+  color: #5d748f;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   3. "WHO WE ARE" MAIN SECTION (Seamless Atmospheric Corporate Blue)
+   ========================================================================== */
+.who-we-are-section {
+  position: relative;
+  z-index: 2;
+  display: flow-root;
+  padding: 0 0 110px;
+  isolation: isolate;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.95) 0 12%, transparent 38%),
+    radial-gradient(circle at 80% 12%, rgba(187, 222, 244, 0.85) 0 16%, transparent 44%),
+    radial-gradient(circle at 90% 80%, rgba(255, 231, 214, 0.55) 0 10%, transparent 34%),
+    linear-gradient(115deg, #e1effa 0%, #f4f9fd 48%, #d5e9f7 100%) !important;
+}
+
+.who-we-are-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(28, 91, 132, 0.18) 0.7px, transparent 0.7px),
+    radial-gradient(rgba(255, 255, 255, 0.85) 0.7px, transparent 0.7px);
+  background-position: 0 0, 1px 1px;
+  background-size: 4px 4px, 5px 5px;
+}
+
+/* Executive Showcase Box Container (Separate Below Stats Pill) */
+.who-main-box {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 50px 56px;
+  box-shadow: 
+    0 24px 60px rgba(0, 32, 75, 0.08),
+    0 4px 18px rgba(0, 114, 234, 0.04);
+  border: 1.5px solid rgba(185, 216, 245, 0.85);
+}
+
+.who-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.who-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.who-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ab-primary-blue);
+}
+
+.who-kicker .kicker-line {
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #f7941d, #ff5722);
+}
+
+.who-title {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: clamp(32px, 3.2vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  color: #0b2545;
+  margin: 0 0 18px;
+}
+
+.who-title .text-orange {
+  color: #f7941d;
+  background: linear-gradient(135deg, #f7941d, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: inherit;
+  font-style: normal;
+}
+
+.who-lead-p {
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.74;
+  color: #1a365d;
+  margin: 0 0 24px;
+  padding-left: 18px;
+  border-left: 3.5px solid #f7941d;
+  border-radius: 2px;
+}
+
+/* Modern Executive Feature Cards */
+.who-feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.who-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f6fafe;
+  border: 1px solid rgba(190, 218, 245, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 32, 75, 0.03);
+  backdrop-filter: blur(8px);
+  transition: all 0.28s ease;
+}
+
+.who-feature-card:hover {
+  background: #ffffff;
+  transform: translateX(4px);
+  border-color: rgba(0, 114, 234, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 32, 75, 0.08);
+}
+
+.who-fc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.who-fc-icon.blue {
+  background: linear-gradient(135deg, #0072ea, #00b4d8);
+  color: #ffffff;
+}
+
+.who-fc-icon.orange {
+  background: linear-gradient(135deg, #f7941d, #ff5722);
+  color: #ffffff;
+}
+
+.who-fc-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.who-fc-content {
+  flex: 1;
+}
+
+.who-fc-heading {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b2f68;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.who-fc-text {
+  font-size: 13.5px;
+  line-height: 1.58;
+  color: #4a627a;
+  margin: 0;
+}
+
+/* Executive Clientele Strip */
+.who-clients-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px dashed rgba(0, 114, 234, 0.25);
+  border-radius: 16px;
+}
+
+.who-clients-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #0b2f68;
+}
+
+.who-clients-title svg {
+  width: 15px;
+  height: 15px;
+  color: #f7941d;
+  flex-shrink: 0;
+}
+
+.who-clients-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.who-client-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid rgba(190, 218, 245, 0.9);
+  border-radius: 999px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0b2545;
+  box-shadow: 0 2px 8px rgba(0, 32, 75, 0.04);
+  transition: all 0.2s ease;
+}
+
+.who-client-tag:hover {
+  transform: translateY(-2px);
+  border-color: #0072ea;
+  box-shadow: 0 6px 16px rgba(0, 114, 234, 0.12);
+}
+
+.tag-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tag-indicator.blue {
+  background: #0072ea;
+  box-shadow: 0 0 6px rgba(0, 114, 234, 0.5);
+}
+
+.tag-indicator.orange {
+  background: #f7941d;
+  box-shadow: 0 0 6px rgba(247, 148, 29, 0.5);
+}
+
+/* Media Showcase with Dark Navy Floating Card (Exact Match) */
+.who-media {
+  position: relative;
+  padding-bottom: 30px;
+  z-index: 1;
+}
+
+.who-media::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 148, 29, 0.1) 0%, rgba(0, 114, 234, 0.06) 50%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.who-image-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 26px;
+  overflow: hidden;
+  height: 510px;
+  box-shadow: 0 24px 60px rgba(0, 25, 53, 0.16);
+  border: 1px solid rgba(0, 114, 234, 0.15);
+  background: #021a38;
+}
+
+.who-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.who-image-frame:hover img {
+  transform: scale(1.04);
+}
+
+.who-floating-card {
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  right: 18px;
+  z-index: 2;
+  background: #001935;
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: 0 18px 45px rgba(0, 15, 35, 0.42);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.who-media:hover .who-floating-card {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px rgba(0, 15, 35, 0.5);
+}
+
+.who-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f7941d, #ea580c);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(247, 148, 29, 0.35);
+}
+
+.who-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.who-card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.who-card-text b {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.who-card-text span {
+  font-size: 12px;
+  color: #9cbddf;
+  line-height: 1.35;
+}
+
+.who-card-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f7941d, #ea580c);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(247, 148, 29, 0.35);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.who-card-arrow-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(247, 148, 29, 0.5);
+}
+
+.who-card-arrow-btn svg {
+  width: 18px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   3.5 WHAT WE BELIEVE SECTION (4 Core Operational Pillars)
+   ========================================================================== */
+.ab-beliefs-strip-section {
+  position: relative;
+  padding: 55px 0 95px;
+  background: #f8fbfe;
+  border-top: 1px solid rgba(0, 114, 234, 0.08);
+  border-bottom: 1px solid rgba(0, 114, 234, 0.08);
+}
+
+.ab-beliefs-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+
+.ab-beliefs-section-title {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 700;
+  color: #0b2f68;
+  margin: 10px 0 0;
+  letter-spacing: -0.5px;
+}
+
+.ab-beliefs-section-title span {
+  color: var(--ab-primary-blue);
+  background: linear-gradient(135deg, #0072ea, #00b4d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ab-beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.ab-belief-card {
+  background: #f8fbfe;
+  border: 1.5px solid var(--ab-border-subtle);
+  border-radius: 18px;
+  padding: 26px 22px;
+  box-shadow: 0 6px 18px rgba(0, 40, 90, 0.04);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-belief-card:hover {
+  background: #ffffff;
+  transform: translateY(-4px);
+  border-color: rgba(0, 114, 234, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 40, 90, 0.1);
+}
+
+.ab-belief-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #eaf3fc;
+  color: var(--ab-primary-blue);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  transition: all 0.25s ease;
+}
+
+.ab-belief-card:hover .ab-belief-icon {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #0072ea, #0099ff);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 114, 234, 0.3);
+}
+
+.ab-belief-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ab-belief-card h4 {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #0b2f68;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.ab-belief-card p {
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--ab-text-body);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .ab-beliefs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .ab-beliefs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. OUR PURPOSE: VISION, MISSION & COMMITMENT (Matches Reference Mockup Exactly)
+   ========================================================================== */
+.purpose-section {
+  position: relative;
+  padding: 85px 0 105px;
+  background: #ffffff;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(215, 235, 255, 0.6) 0%, transparent 55%),
+    radial-gradient(circle at 15% 30%, rgba(0, 114, 234, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 85% 70%, rgba(247, 148, 29, 0.045) 0%, transparent 45%),
+    linear-gradient(180deg, #f9fbfe 0%, #ffffff 55%, #f6faff 100%);
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 114, 234, 0.08);
+}
+
+.purpose-bg-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.purpose-curved-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px;
+  opacity: 0.9;
+}
+
+.purpose-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.purpose-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: #0b2545;
+}
+
+.purpose-eyebrow .eyebrow-line {
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #f7941d, #ea580c);
+}
+
+.purpose-title {
+  font-family: var(--font-serif, "Lora", Georgia, serif);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  color: #0b2545;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.purpose-title .text-orange {
+  color: #f7941d;
+  font-family: inherit;
+  font-style: normal;
+}
+
+.purpose-subtitle {
+  font-size: 15px;
+  line-height: 1.68;
+  color: #556c84;
+  margin: 0 auto;
+  max-width: 680px;
+  text-align: center;
+}
+
+/* 3 Cards Grid (Compact & Well-Proportioned) */
+.purpose-cards-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.purpose-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 30, 65, 0.08);
+  border: 1.5px solid rgba(215, 230, 245, 0.85);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.purpose-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 30, 65, 0.15);
+  border-color: rgba(0, 114, 234, 0.25);
+}
+
+/* Slanted Media Header */
+.purpose-card-media {
+  position: relative;
+  background: #001328;
+  height: 155px;
+  padding: 10px 12px 14px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purpose-media-slant {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  transform: skewX(-5deg);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.purpose-media-slant img {
+  width: 115%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: skewX(5deg) translateX(-7%);
+  transition: transform 0.5s ease;
+}
+
+.purpose-card:hover .purpose-media-slant img {
+  transform: skewX(5deg) translateX(-7%) scale(1.08);
+}
+
+/* Center Bottom Circular Badge */
+.purpose-badge {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 20, 50, 0.22);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.purpose-card:hover .purpose-badge {
+  transform: translateX(-50%) scale(1.1);
+}
+
+.purpose-badge.badge-blue {
+  background: #001935;
+}
+
+.purpose-badge.badge-orange {
+  background: linear-gradient(135deg, #f7941d, #ea580c);
+}
+
+.purpose-badge.badge-green {
+  background: linear-gradient(135deg, #0b7a48, #055e34);
+}
+
+.purpose-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card Body */
+.purpose-card-body {
+  padding: 44px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.purpose-num-tag {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.num-text {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.num-text.num-blue {
+  color: #bfdbfe;
+}
+
+.num-text.num-orange {
+  color: #fed7aa;
+}
+
+.num-text.num-green {
+  color: #bbf7d0;
+}
+
+.num-bar {
+  display: block;
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+.num-bar.bar-blue {
+  background: #0072ea;
+}
+
+.num-bar.bar-orange {
+  background: #f7941d;
+}
+
+.num-bar.bar-green {
+  background: #0b7a48;
+}
+
+.purpose-card-title {
+  font-family: var(--font-serif, "Lora", Georgia, serif);
+  font-size: 23px;
+  font-weight: 700;
+  color: #001935;
+  margin: 0 0 14px;
+}
+
+.purpose-card-title .highlight-blue {
+  color: #0072ea;
+}
+
+.purpose-card-title .highlight-orange {
+  color: #f7941d;
+}
+
+.purpose-card-title .highlight-green {
+  color: #0b7a48;
+}
+
+.purpose-card-desc {
+  font-size: 14.5px;
+  line-height: 1.74;
+  color: #556c84;
+  margin: 0;
+  text-align: center;
+}
+
+/* Bottom Right Folded Corner Accent */
+.purpose-corner-fold {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 0 0 20px 0;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  pointer-events: none;
+}
+
+.corner-blue {
+  background: linear-gradient(135deg, #93c5fd 0%, #0072ea 100%);
+}
+
+.corner-orange {
+  background: linear-gradient(135deg, #fed7aa 0%, #f7941d 100%);
+}
+
+.corner-green {
+  background: linear-gradient(135deg, #bbf7d0 0%, #0b7a48 100%);
+}
+
+@media (max-width: 992px) {
+  .purpose-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+}
+
+/* 7 Values Row */
+.ab-values-strip {
+  background: #ffffff;
+  border: 1.5px solid var(--ab-border-subtle);
+  border-radius: 20px;
+  padding: 22px 30px;
+  box-shadow: 0 8px 24px rgba(0, 40, 90, 0.05);
+  width: 100%;
+}
+
+.ab-values-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ab-values-header h4 {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #0b2f68;
+  margin: 0;
+}
+
+.ab-values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ab-value-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: #f4f8fd;
+  border: 1px solid #d5e5f5;
+  border-radius: 30px;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2f68;
+  transition: all 0.2s ease;
+}
+
+.ab-value-pill:hover {
+  background: var(--ab-primary-blue);
+  color: #ffffff;
+  border-color: var(--ab-primary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 114, 234, 0.25);
+}
+
+.ab-value-pill svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ==========================================================================
+   5. 15 INDUSTRIES WE SERVE SECTION (From Excel)
+   ========================================================================== */
+.ab-industries-section {
+  padding: 95px 0 100px;
+  background: #ffffff;
+}
+
+.ab-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.ab-industry-card {
+  background: #f8fbfe;
+  border: 1.5px solid #dce8f5;
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-industry-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3.5px;
+  background: var(--ab-primary-blue);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ab-industry-card:hover {
+  background: #ffffff;
+  transform: translateY(-4px);
+  border-color: rgba(0, 114, 234, 0.45);
+  box-shadow: 0 14px 30px rgba(0, 45, 95, 0.08);
+}
+
+.ab-industry-card:hover::after {
+  opacity: 1;
+}
+
+.ab-sector-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eaf3fc;
+  color: var(--ab-primary-blue);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.ab-industry-card:hover .ab-sector-icon {
+  background: var(--ab-primary-blue);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.ab-sector-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ab-sector-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-sector-info h4 {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0b2f68;
+  margin: 0 0 3px;
+  line-height: 1.3;
+}
+
+.ab-sector-info span {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ab-text-muted);
+}
+
+/* ==========================================================================
+   6. WHY CLIENTS CHOOSE US (6 Pillars from Excel)
+   ========================================================================== */
+.ab-why-section {
+  padding: 95px 0 100px;
+  background: linear-gradient(180deg, #f6f9fd 0%, #edf4fc 100%);
+}
+
+.ab-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.ab-why-card {
+  background: #ffffff;
+  border: 1.5px solid var(--ab-border-subtle);
+  border-radius: 20px;
+  padding: 30px 26px;
+  box-shadow: 0 8px 24px rgba(0, 40, 90, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-why-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ab-why-card.theme-blue::before { background: linear-gradient(90deg, #0072ea, #00c6ff); }
+.ab-why-card.theme-orange::before { background: linear-gradient(90deg, #f7941d, #ff5722); }
+.ab-why-card.theme-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.ab-why-card.theme-purple::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.ab-why-card.theme-cyan::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.ab-why-card.theme-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.ab-why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 40, 90, 0.12);
+}
+
+.ab-why-card:hover::before {
+  opacity: 1;
+}
+
+.ab-why-card.theme-blue:hover { border-color: rgba(0, 114, 234, 0.45); }
+.ab-why-card.theme-orange:hover { border-color: rgba(247, 148, 29, 0.45); }
+.ab-why-card.theme-emerald:hover { border-color: rgba(16, 185, 129, 0.45); }
+.ab-why-card.theme-purple:hover { border-color: rgba(99, 102, 241, 0.45); }
+.ab-why-card.theme-cyan:hover { border-color: rgba(6, 182, 212, 0.45); }
+.ab-why-card.theme-amber:hover { border-color: rgba(245, 158, 11, 0.45); }
+
+.ab-why-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease;
+}
+
+.ab-why-card:hover .ab-why-icon {
+  transform: scale(1.08);
+}
+
+.ab-why-card.theme-blue .ab-why-icon {
+  background: linear-gradient(135deg, rgba(0, 114, 234, 0.12), rgba(0, 198, 255, 0.2));
+  color: var(--ab-primary-blue);
+  border: 1px solid rgba(0, 114, 234, 0.25);
+}
+
+.ab-why-card.theme-orange .ab-why-icon {
+  background: linear-gradient(135deg, rgba(247, 148, 29, 0.12), rgba(234, 88, 12, 0.2));
+  color: var(--ab-accent-orange);
+  border: 1px solid rgba(247, 148, 29, 0.25);
+}
+
+.ab-why-card.theme-emerald .ab-why-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(5, 150, 105, 0.2));
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.ab-why-card.theme-purple .ab-why-icon {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(79, 70, 229, 0.2));
+  color: #4f46e5;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.ab-why-card.theme-cyan .ab-why-icon {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(34, 211, 238, 0.2));
+  color: #0891b2;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.ab-why-card.theme-amber .ab-why-icon {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(217, 119, 6, 0.2));
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.ab-why-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ab-why-card h3 {
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #0b2f68;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.ab-why-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ab-text-body);
+  margin: 0;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .ab-stats-pill-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ab-industries-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ab-why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .who-main-box {
+    padding: 36px 30px;
+  }
+
+  .ab-stats-pill-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .who-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .who-image-frame {
+    height: 380px;
+  }
+
+  .ab-vm-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ab-stats-pill-panel {
+    margin-top: -30px;
+    margin-bottom: 45px;
+    padding: 18px 20px;
+  }
+
+  .ab-stats-pill-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .who-main-box {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .ab-stats-wrapper {
+    margin-top: -30px;
+  }
+
+  .ab-stat-item::after {
+    display: none;
+  }
+
+  .ab-hero-img {
+    min-height: 250px;
+    max-height: 350px;
+  }
+
+  .who-media-backdrop {
+    top: -8px;
+    right: -8px;
+    bottom: 14px;
+    left: 8px;
+  }
+
+  .ab-industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .who-image-frame {
+    height: 320px;
+  }
+
+  .who-floating-card {
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .who-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .who-card-text b {
+    font-size: 14px;
+  }
+
+  .who-card-arrow-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .who-box-stats-row,
+  .ab-stats-pill-row {
+    grid-template-columns: 1fr;
+  }
+
+  .who-feature-card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .who-fc-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .who-fc-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .who-floating-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: 14px;
+  }
+
+  .who-media {
+    padding-bottom: 0;
+  }
+}

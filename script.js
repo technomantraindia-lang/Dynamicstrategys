@@ -23,27 +23,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Video Play / Pause Control
+  // 2. Video Play / Pause & Slow Playback Speed Control
   const bgVideo = document.getElementById('bgVideo');
   const btnVideoToggle = document.getElementById('btnVideoToggle');
   const iconPause = btnVideoToggle?.querySelector('.icon-pause');
   const iconPlay = btnVideoToggle?.querySelector('.icon-play');
   const textVideo = btnVideoToggle?.querySelector('.video-btn-text');
 
-  if (bgVideo && btnVideoToggle) {
-    btnVideoToggle.addEventListener('click', () => {
-      if (bgVideo.paused) {
-        bgVideo.play();
-        if (iconPause) iconPause.style.display = 'block';
-        if (iconPlay) iconPlay.style.display = 'none';
-        if (textVideo) textVideo.textContent = 'Pause Video';
-      } else {
-        bgVideo.pause();
-        if (iconPause) iconPause.style.display = 'none';
-        if (iconPlay) iconPlay.style.display = 'block';
-        if (textVideo) textVideo.textContent = 'Play Video';
-      }
-    });
+  if (bgVideo) {
+    // Slow down playback to 0.7 for cinematic, smooth ambient background
+    const setSlowPlaybackSpeed = () => {
+      bgVideo.playbackRate = 0.7;
+    };
+
+    setSlowPlaybackSpeed();
+    bgVideo.addEventListener('loadedmetadata', setSlowPlaybackSpeed);
+    bgVideo.addEventListener('play', setSlowPlaybackSpeed);
+    bgVideo.addEventListener('canplay', setSlowPlaybackSpeed);
+
+    if (btnVideoToggle) {
+      btnVideoToggle.addEventListener('click', () => {
+        if (bgVideo.paused) {
+          bgVideo.play();
+          setSlowPlaybackSpeed();
+          if (iconPause) iconPause.style.display = 'block';
+          if (iconPlay) iconPlay.style.display = 'none';
+          if (textVideo) textVideo.textContent = 'Pause Video';
+        } else {
+          bgVideo.pause();
+          if (iconPause) iconPause.style.display = 'none';
+          if (iconPlay) iconPlay.style.display = 'block';
+          if (textVideo) textVideo.textContent = 'Play Video';
+        }
+      });
+    }
   }
 
   // 3. Auto Dynamic Year in Footer

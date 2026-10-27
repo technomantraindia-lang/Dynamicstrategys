@@ -38,7 +38,7 @@
             <a class="nav-link active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="pages/about.html">About Us</a>
           </li>
           <li class="nav-item has-dropdown">
             <a class="nav-link nav-link-dropdown" href="pages/services.html" aria-haspopup="true" aria-expanded="false">
@@ -49,15 +49,15 @@
               </svg>
             </a>
             <ul class="dropdown-list" aria-label="Our Services dropdown">
-              <li><a href="pages/services.html#electrical">Electrical Engineering</a></li>
-              <li><a href="pages/services.html#instrumentation">Instrumentation &amp; Control</a></li>
-              <li><a href="pages/services.html#mechanical">Mechanical Engineering</a></li>
-              <li><a href="pages/services.html#procurement">Procurement Support</a></li>
-              <li><a href="pages/services.html#dpr">Detailed Project Reports (DPR)</a></li>
-              <li><a href="pages/services.html#project-management">Project Management</a></li>
-              <li><a href="pages/services.html#logistics">Logistics Planning</a></li>
-              <li><a href="pages/services.html#manufacturing">Manufacturing Consultancy</a></li>
-              <li><a href="pages/services.html#labour">Labour Planning &amp; Sourcing</a></li>
+              <li><a href="pages/service-detail.html?service=electrical-engineering">Electrical Engineering</a></li>
+              <li><a href="pages/service-detail.html?service=instrumentation-engineering">Instrumentation &amp; Control</a></li>
+              <li><a href="pages/service-detail.html?service=mechanical-engineering">Mechanical Engineering</a></li>
+              <li><a href="pages/service-detail.html?service=procurement-support">Procurement Support</a></li>
+              <li><a href="pages/service-detail.html?service=detailed-project-reports">Detailed Project Reports (DPR)</a></li>
+              <li><a href="pages/service-detail.html?service=project-management">Project Management</a></li>
+              <li><a href="pages/service-detail.html?service=logistics-planning">Logistics Planning</a></li>
+              <li><a href="pages/service-detail.html?service=manufacturing-consultancy">Manufacturing Consultancy</a></li>
+              <li><a href="pages/service-detail.html?service=labour-planning">Labour Planning &amp; Sourcing</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
@@ -122,7 +122,7 @@
   <!-- Video Hero Banner -->
   <main class="hero-banner" id="heroBanner">
     <div class="video-wrapper">
-      <video class="hero-video" autoplay loop muted playsinline preload="auto" id="bgVideo">
+      <video class="hero-video" autoplay loop muted playsinline preload="auto" id="bgVideo" onloadedmetadata="this.playbackRate = 0.7;">
         <source src="assets/gemini_generated_video_fa356316.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
@@ -1464,7 +1464,7 @@
           <h2 class="col-title">Quick Links</h2>
           <ul class="footer-nav-list">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="pages/about.html">About Us</a></li>
             <li><a href="#services">Our Services</a></li>
             <li><a href="#working-process">Working Process</a></li>
             <li><a href="#industries">Industries</a></li>

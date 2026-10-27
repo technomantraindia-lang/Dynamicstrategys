@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="About Technomantra India - Integrated Engineering and Management Consultancy. Transforming concepts into sustainable, high-performance industrial projects." />
+  <title>About Us | Technomantra India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="about-page.css?v=17.0" />
+</head>
+
+<body class="about-page">
+  <!-- Top Navigation Header -->
+  <header class="site-header" id="home">
+    <div class="header-container">
+      <!-- Header Left: Brand Logo & Tagline -->
+      <div class="header-left">
+        <a class="brand" href="../index.html#home" aria-label="Technomantra India - Home">
+          <span class="brand-symbol">
+            <img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" />
+          </span>
+        </a>
+      </div>
+
+      <!-- Header Center: Navigation Menu Centered -->
+      <nav class="nav-menu header-center" id="primary-nav" aria-label="Main menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html" aria-current="page">About Us</a>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link nav-link-dropdown" href="services.html" aria-haspopup="true" aria-expanded="false">
+              <span>Our Services</span>
+              <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
+            </a>
+            <ul class="dropdown-list" aria-label="Our Services dropdown">
+              <li><a href="service-detail.html?service=electrical-engineering">Electrical Engineering</a></li>
+              <li><a href="service-detail.html?service=instrumentation-engineering">Instrumentation &amp; Control</a></li>
+              <li><a href="service-detail.html?service=mechanical-engineering">Mechanical Engineering</a></li>
+              <li><a href="service-detail.html?service=procurement-support">Procurement Support</a></li>
+              <li><a href="service-detail.html?service=detailed-project-reports">Detailed Project Reports (DPR)</a></li>
+              <li><a href="service-detail.html?service=project-management">Project Management</a></li>
+              <li><a href="service-detail.html?service=logistics-planning">Logistics Planning</a></li>
+              <li><a href="service-detail.html?service=manufacturing-consultancy">Manufacturing Consultancy</a></li>
+              <li><a href="service-detail.html?service=labour-planning">Labour Planning &amp; Sourcing</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link nav-link-dropdown" href="../index.html#industries" aria-haspopup="true" aria-expanded="false">
+              <span>Industries</span>
+              <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
+            </a>
+            <ul class="dropdown-list" aria-label="Industries dropdown">
+              <li><a href="../index.html#industries">Oil &amp; Gas / Petrochemicals</a></li>
+              <li><a href="../index.html#industries">Energy &amp; Renewable Power</a></li>
+              <li><a href="../index.html#industries">Heavy Industrial Manufacturing</a></li>
+              <li><a href="../index.html#industries">Infrastructure &amp; Civil Engineering</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#knowledge">Knowledge Center</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <!-- Mobile Only CTA inside Drawer -->
+        <div class="mobile-nav-cta">
+          <a class="btn-touch mobile-btn-touch" href="contact.html">
+            <span>Get in Touch</span>
+            <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Header Right: CTA Button & Mobile Hamburger -->
+      <div class="header-right">
+        <a class="btn-touch header-btn-touch" href="contact.html">
+          <span>Get in Touch</span>
+          <svg class="arrow-right" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 6h11M7.5 1.5L12 6l-4.5 4.5" />
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+          aria-label="Toggle navigation">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO BANNER -->
+    <section class="ab-hero-banner" aria-label="About Us Banner">
+      <div class="ab-hero-image-wrap">
+        <img class="ab-hero-img" src="../assets/bannera/about.png" alt="About Technomantra India - Engineering &amp; Management Consultancy" />
+        <div class="ab-hero-overlay" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 2. WHO WE ARE & STATS SHOWCASE SECTION (Seamless Unified Background) -->
+    <section class="who-we-are-section" id="who-we-are" aria-labelledby="who-title">
+      <div class="ab-container">
+        <!-- Floating Independent Stats Pill Panel (Overlaps Banner) -->
+        <div class="ab-stats-pill-panel" aria-label="Company Key Statistics">
+          <div class="ab-stats-pill-row">
+            <!-- Stat 1 -->
+            <div class="ab-stat-item">
+              <div class="ab-stat-circle circle-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <div class="ab-stat-meta">
+                <span class="ab-stat-number">2,000+</span>
+                <span class="ab-stat-label">Projects Completed<br />&amp; Counting</span>
+              </div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="ab-stat-item">
+              <div class="ab-stat-circle circle-orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18"/>
+                  <path d="M9 21V9"/>
+                </svg>
+              </div>
+              <div class="ab-stat-meta">
+                <span class="ab-stat-number">50,000+</span>
+                <span class="ab-stat-label">Project Area Executed<br />(sq m)</span>
+              </div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="ab-stat-item">
+              <div class="ab-stat-circle circle-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <div class="ab-stat-meta">
+                <span class="ab-stat-number">70+</span>
+                <span class="ab-stat-label">Industrial Clients<br />Worldwide</span>
+              </div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="ab-stat-item">
+              <div class="ab-stat-circle circle-orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"/>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+              </div>
+              <div class="ab-stat-meta">
+                <span class="ab-stat-number">16+</span>
+                <span class="ab-stat-label">Years of Engineering<br />Excellence</span>
+              </div>
+            </div>
+
+            <!-- Stat 5 -->
+            <div class="ab-stat-item">
+              <div class="ab-stat-circle circle-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <div class="ab-stat-meta">
+                <span class="ab-stat-number">$120M+</span>
+                <span class="ab-stat-label">Client Capital &amp;<br />OPEX Saved</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Who We Are Executive Showcase Box (Separate from Stats Pill) -->
+        <div class="who-main-box">
+          <div class="who-grid">
+            <!-- Left Column: Content -->
+            <div class="who-content">
+              <div class="who-kicker">
+                <span class="kicker-line"></span>
+                <span>WHO WE ARE</span>
+                <span class="kicker-line"></span>
+              </div>
+
+              <h1 class="who-title" id="who-title">
+                Your Trusted Engineering<br />
+                <span class="text-orange">&amp; Management</span> Consultancy
+              </h1>
+
+              <p class="who-lead-p">
+                Dynamic Strategys delivers integrated engineering and management consultancy solutions — combining technical rigor with practical execution to turn complex industrial concepts into bankable, high-performance reality.
+              </p>
+
+              <!-- Key Strategic Pillars (Modern Executive Cards) -->
+              <div class="who-feature-cards">
+                <div class="who-feature-card">
+                  <div class="who-fc-icon blue" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </div>
+                  <div class="who-fc-content">
+                    <h4 class="who-fc-heading">Integrated Engineering &amp; Design</h4>
+                    <p class="who-fc-text">From FEED to detailed engineering, process safety, piping, civil, and electrical schematics adhering to global codes.</p>
+                  </div>
+                </div>
+
+                <div class="who-feature-card">
+                  <div class="who-fc-icon orange" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                      <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                  </div>
+                  <div class="who-fc-content">
+                    <h4 class="who-fc-heading">Disciplined Project Governance (PMC)</h4>
+                    <p class="who-fc-text">Comprehensive procurement management, milestone tracking, and cost optimization ensuring zero interface gaps.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Proven Track Record / Clientele Strip -->
+              <div class="who-clients-strip">
+                <span class="who-clients-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Delivering Complex Projects For Industry Leaders:
+                </span>
+                <div class="who-clients-tags">
+                  <span class="who-client-tag">
+                    <span class="tag-indicator blue"></span>Reliance Industries
+                  </span>
+                  <span class="who-client-tag">
+                    <span class="tag-indicator orange"></span>L&amp;T
+                  </span>
+                  <span class="who-client-tag">
+                    <span class="tag-indicator blue"></span>Accenture
+                  </span>
+                  <span class="who-client-tag">
+                    <span class="tag-indicator orange"></span>Deloitte
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Media Frame with Overlapping Dark Navy Card -->
+            <div class="who-media">
+              <!-- Main Image Frame with Sunset Refinery Engineers Photo -->
+              <div class="who-image-frame">
+                <img src="../assets/about-refinery-engineers.jpg" alt="Dynamic Strategys senior engineers at petrochemical refinery plant" />
+              </div>
+
+              <!-- Overlapping Dark Navy Floating Card -->
+              <div class="who-floating-card">
+                <div class="who-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20"/>
+                    <path d="M5 20V8l5 4V4l10 8v8"/>
+                    <line x1="6" y1="12" x2="8" y2="12"/>
+                    <line x1="6" y1="16" x2="8" y2="16"/>
+                    <line x1="14" y1="16" x2="16" y2="16"/>
+                  </svg>
+                </div>
+                <div class="who-card-text">
+                  <b>From Concept to Commissioning</b>
+                  <span>Delivering measurable value through engineering excellence.</span>
+                </div>
+                <a href="services.html" class="who-card-arrow-btn" aria-label="Explore our full engineering and management services">
+                  <svg viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="1" y1="6" x2="15" y2="6"/><polyline points="10 1 15 6 10 11"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHAT WE BELIEVE (4 Direct Pillars from Excel) -->
+    <section class="ab-beliefs-strip-section" aria-label="What We Believe">
+      <div class="ab-container">
+        <div class="ab-beliefs-header">
+          <div class="who-kicker" style="justify-content: center;">
+            <span class="kicker-line"></span>
+            <span>OUR OPERATING PILLARS</span>
+            <span class="kicker-line"></span>
+          </div>
+          <h2 class="ab-beliefs-section-title">What We <span>Believe</span></h2>
+        </div>
+
+        <div class="ab-beliefs-grid">
+          <div class="ab-belief-card">
+            <div class="ab-belief-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h4>Technical Excellence</h4>
+            <p>Designs that are accurate, code-compliant, and practical to build and maintain over their working life.</p>
+          </div>
+
+          <div class="ab-belief-card">
+            <div class="ab-belief-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h4>Strong Coordination</h4>
+            <p>One unified team aligning engineering, procurement, and execution so zero interface gaps occur.</p>
+          </div>
+
+          <div class="ab-belief-card">
+            <div class="ab-belief-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M17 10l-5-4-5 4"/></svg>
+            </div>
+            <h4>Commercial Intelligence</h4>
+            <p>Decisions based on long-term value, not just lowest price, with costs transparently tracked from Day One.</p>
+          </div>
+
+          <div class="ab-belief-card">
+            <div class="ab-belief-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+            </div>
+            <h4>Accountability</h4>
+            <p>Clear ownership, honest milestone reporting, and dedicated follow-through until final project handover.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OUR PURPOSE: VISION, MISSION & COMMITMENT (Matches User Reference Mockup Exactly) -->
+    <section class="purpose-section" id="vision-mission" aria-labelledby="purpose-title">
+      <!-- Pure Executive Gradient Waves Background -->
+      <div class="purpose-bg-decor" aria-hidden="true">
+        <svg class="purpose-curved-lines" viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none">
+          <path d="M-100 200 C 240 50, 600 260, 980 90 C 1220 -20, 1420 160, 1650 70" stroke="url(#purposeGoldGrad1)" stroke-width="1.5" />
+          <path d="M-60 250 C 300 90, 680 300, 1060 130 C 1280 20, 1460 200, 1680 110" stroke="url(#purposeGoldGrad2)" stroke-width="1" />
+          <path d="M-20 300 C 360 140, 740 340, 1140 170 C 1340 60, 1500 240, 1720 150" stroke="url(#purposeGoldGrad3)" stroke-width="0.8" />
+          <defs>
+            <linearGradient id="purposeGoldGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f7941d" stop-opacity="0.1" />
+              <stop offset="50%" stop-color="#f7941d" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#ea580c" stop-opacity="0.15" />
+            </linearGradient>
+            <linearGradient id="purposeGoldGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0072ea" stop-opacity="0.08" />
+              <stop offset="60%" stop-color="#f7941d" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#f7941d" stop-opacity="0.05" />
+            </linearGradient>
+            <linearGradient id="purposeGoldGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f7941d" stop-opacity="0.05" />
+              <stop offset="70%" stop-color="#f7941d" stop-opacity="0.2" />
+              <stop offset="100%" stop-color="#0072ea" stop-opacity="0.08" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="ab-container">
+        <!-- Section Header -->
+        <div class="purpose-header">
+          <div class="purpose-eyebrow">
+            <span class="eyebrow-line"></span>
+            <span>OUR PURPOSE</span>
+            <span class="eyebrow-line"></span>
+          </div>
+
+          <h2 class="purpose-title" id="purpose-title">
+            Our Vision, Mission &amp;<br />
+            <span class="text-orange">Commitment</span>
+          </h2>
+
+          <p class="purpose-subtitle">
+            Guided by strong values and a long-term vision, we work towards creating sustainable growth, enduring partnerships and measurable impact for our clients.
+          </p>
+        </div>
+
+        <!-- 3 Purpose Cards Grid (Vision, Mission, Commitment) -->
+        <div class="purpose-cards-grid">
+          <!-- Card 1: Our Vision -->
+          <article class="purpose-card card-vision">
+            <!-- Slanted Media Header -->
+            <div class="purpose-card-media">
+              <div class="purpose-media-slant">
+                <img src="../assets/vm-vision.jpg" alt="Dynamic Strategys Vision - Industrial refinery plant at sunset" />
+              </div>
+              <!-- Center Bottom Circular Badge -->
+              <div class="purpose-badge badge-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3.2"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="purpose-card-body">
+              <div class="purpose-num-tag">
+                <span class="num-text num-blue">01</span>
+                <span class="num-bar bar-blue"></span>
+              </div>
+              <h3 class="purpose-card-title">
+                Our <span class="highlight-blue">Vision</span>
+              </h3>
+              <p class="purpose-card-desc">
+                To be a globally trusted engineering and management consultancy, recognized for transforming complex ideas into efficient, sustainable and successful projects across industries and markets.
+              </p>
+            </div>
+
+            <!-- Bottom Right Colored Fold Accent -->
+            <div class="purpose-corner-fold corner-blue" aria-hidden="true"></div>
+          </article>
+
+          <!-- Card 2: Our Mission -->
+          <article class="purpose-card card-mission">
+            <!-- Slanted Media Header -->
+            <div class="purpose-card-media">
+              <div class="purpose-media-slant">
+                <img src="../assets/vm-mission.jpg" alt="Dynamic Strategys Mission - Engineering blueprints and technical schematics" />
+              </div>
+              <!-- Center Bottom Circular Badge -->
+              <div class="purpose-badge badge-orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="purpose-card-body">
+              <div class="purpose-num-tag">
+                <span class="num-text num-orange">02</span>
+                <span class="num-bar bar-orange"></span>
+              </div>
+              <h3 class="purpose-card-title">
+                Our <span class="highlight-orange">Mission</span>
+              </h3>
+              <p class="purpose-card-desc">
+                To deliver integrated engineering, project management, procurement and execution solutions by combining technical expertise, commercial intelligence and practical execution to create long-term value for our clients.
+              </p>
+            </div>
+
+            <!-- Bottom Right Colored Fold Accent -->
+            <div class="purpose-corner-fold corner-orange" aria-hidden="true"></div>
+          </article>
+
+          <!-- Card 3: Our Commitment -->
+          <article class="purpose-card card-commitment">
+            <!-- Slanted Media Header -->
+            <div class="purpose-card-media">
+              <div class="purpose-media-slant">
+                <img src="../assets/vm-commitment-clean.jpg" alt="Dynamic Strategys Commitment - Professional business partnership agreement" />
+              </div>
+              <!-- Center Bottom Circular Badge -->
+              <div class="purpose-badge badge-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="purpose-card-body">
+              <div class="purpose-num-tag">
+                <span class="num-text num-green">03</span>
+                <span class="num-bar bar-green"></span>
+              </div>
+              <h3 class="purpose-card-title">
+                Our <span class="highlight-green">Commitment</span>
+              </h3>
+              <p class="purpose-card-desc">
+                To uphold the highest standards of quality, safety, integrity and accountability, while building long-term partnerships and delivering measurable value for every client we serve.
+              </p>
+            </div>
+
+            <!-- Bottom Right Colored Fold Accent -->
+            <div class="purpose-corner-fold corner-green" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 15 INDUSTRIES WE SERVE SECTION (Direct from Excel Sheet: About Us) -->
+    <section class="ab-industries-section" id="industries" aria-labelledby="industries-title">
+      <div class="ab-container">
+        <div class="ab-section-header">
+          <div class="ab-kicker">
+            <span></span>
+            <b>CROSS-SECTOR EXPERTISE</b>
+            <span></span>
+          </div>
+          <h2 id="industries-title">15 Specialized <span>Industries We Serve</span></h2>
+          <p>Our multidisciplinary team adapts engineering parameters, regulatory standards, and commercial strategies to the specific operational demands of each industry.</p>
+        </div>
+
+        <div class="ab-industries-grid">
+          <!-- 1 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Pharmaceuticals, API &amp; Chemicals</h4>
+              <span>Regulated Facilities &amp; Cleanrooms</span>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Food &amp; Beverages</h4>
+              <span>Hygienic Process &amp; Utilities</span>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>FMCG Manufacturing</h4>
+              <span>High-Speed Production Lines</span>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Yarns &amp; Textiles</h4>
+              <span>Spinning, Weaving &amp; Finishing</span>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Packaging &amp; Corrugation</h4>
+              <span>Flexible &amp; Rigid Packaging</span>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Fabrication &amp; Heavy Engineering</h4>
+              <span>Structural &amp; Pressure Vessels</span>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Automobile &amp; Auto Ancillary</h4>
+              <span>Assembly &amp; Component Plants</span>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Marine &amp; Complex Structures</h4>
+              <span>Offshore &amp; Heavy Civil Works</span>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Glass &amp; Ceramics</h4>
+              <span>Kiln &amp; High-Temperature Plants</span>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Pulp &amp; Paper Mills</h4>
+              <span>Continuous Process Engineering</span>
+            </div>
+          </div>
+
+          <!-- 11 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Logistics &amp; Warehousing</h4>
+              <span>Automated Fulfilment Centers</span>
+            </div>
+          </div>
+
+          <!-- 12 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Renewable Energy</h4>
+              <span>Solar, Wind &amp; Hybrid Storage</span>
+            </div>
+          </div>
+
+          <!-- 13 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Polymers &amp; Petro-Chemicals</h4>
+              <span>Resin, Extrusion &amp; Compounding</span>
+            </div>
+          </div>
+
+          <!-- 14 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Semiconductor &amp; Electronics</h4>
+              <span>Ultra-Pure Utilities &amp; Clean Facilities</span>
+            </div>
+          </div>
+
+          <!-- 15 -->
+          <div class="ab-industry-card">
+            <div class="ab-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="ab-sector-info">
+              <h4>Oil &amp; Gas Refineries</h4>
+              <span>Refining, Terminals &amp; Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. WHY CLIENTS CHOOSE US (Direct from Excel Sheet: About Us) -->
+    <section class="ab-why-section" id="why-us" aria-labelledby="why-title">
+      <div class="ab-container">
+        <div class="ab-section-header">
+          <div class="ab-kicker">
+            <span></span>
+            <b>PROVEN DIFFERENTIATORS</b>
+            <span></span>
+          </div>
+          <h2 id="why-title">Why Industry Leaders <span>Choose Technomantra</span></h2>
+          <p>We combine elite corporate consulting rigor with practical on-site engineering execution under a single accountable roof.</p>
+        </div>
+
+        <div class="ab-why-grid">
+          <!-- 1 -->
+          <div class="ab-why-card theme-blue">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h3>One Team, Full Lifecycle</h3>
+            <p>Multidisciplinary engineering, business strategy, capital procurement, schedule planning, and site execution managed completely under one roof.</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="ab-why-card theme-orange">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Corporate Caliber &amp; Site Experience</h3>
+            <p>Senior leadership backgrounds in tier-1 organizations (Reliance, L&amp;T, Accenture, Deloitte) paired with agile, on-the-ground project delivery.</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="ab-why-card theme-emerald">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+            </div>
+            <h3>Industry-Specific Depth</h3>
+            <p>Demonstrated cross-sector knowledge across 15 industrial segments, including strictly audited and regulated GMP / FDA environments.</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="ab-why-card theme-purple">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Fewer Interface Gaps</h3>
+            <p>Seamlessly coordinated electrical, instrumentation, mechanical, and civil deliverables eliminating on-site clashes, rework, and costly delays.</p>
+          </div>
+
+          <!-- 5 -->
+          <div class="ab-why-card theme-cyan">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3>Rigorous Cost &amp; Risk Control</h3>
+            <p>Defensible financial modeling, structured CAPEX/OPEX milestone tracking, early issue mitigation, and complete audit-ready documentation.</p>
+          </div>
+
+          <!-- 6 -->
+          <div class="ab-why-card theme-amber">
+            <div class="ab-why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Dependable Governance</h3>
+            <p>Single accountable point of contact, disciplined responsibilities, transparent progress reporting, and dedicated post-commissioning follow-through.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CALL TO ACTION SECTION -->
+    <section class="cta-section cta-banner-section" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <div class="cta-panel-inner">
+          <div class="cta-copy">
+            <div class="cta-eyebrow"><span></span><b>START YOUR PROJECT WITH CONFIDENCE</b><span></span></div>
+            <h2 id="cta-title">Partner with Our Engineering &amp; Management Consultants</h2>
+            <p>Get in touch today to discuss your plant feasibility, engineering design, or project execution requirements.</p>
+          </div>
+          <a class="cta-button" href="contact.html">
+            <span>GET IN TOUCH</span>
+            <svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 7h15M10.5 1.5L16 7l-5.5 5.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Deep Navy Corporate Footer with Illuminated Industrial Refinery Backdrop -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-body">
+      <!-- Night refinery photographic backdrop on the right -->
+      <div class="footer-backdrop" aria-hidden="true"></div>
+
+      <div class="footer-container">
+        <!-- Column 1: Company Logo & Description -->
+        <div class="footer-col col-about">
+          <a class="brand brand-footer" href="../index.html#home" aria-label="Technomantra India - Home">
+            <span class="brand-symbol">
+              <img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" />
+            </span>
+          </a>
+          <p class="about-text">
+            An engineering and management consultancy providing integrated solutions across engineering, project
+            management, procurement and project execution. We help businesses transform ideas into sustainable,
+            efficient and successful projects.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col col-quick-links">
+          <h2 class="col-title">Quick Links</h2>
+          <ul class="footer-nav-list">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="../index.html#working-process">Working Process</a></li>
+            <li><a href="../index.html#industries">Industries</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#knowledge">Knowledge Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Our Services -->
+        <div class="footer-col col-services">
+          <h2 class="col-title">Our Services</h2>
+          <ul class="footer-nav-list">
+            <li><a href="services.html">Engineering Consultancy</a></li>
+            <li><a href="service-detail.html?service=project-management">Project Management</a></li>
+            <li><a href="service-detail.html?service=procurement-support">Procurement Support</a></li>
+            <li><a href="service-detail.html?service=manufacturing-consultancy">Manufacturing Consultancy</a></li>
+            <li><a href="service-detail.html?service=logistics-planning">Logistics &amp; Supply Chain</a></li>
+            <li><a href="services.html">Project Execution</a></li>
+            <li><a href="services.html">Business Process Optimization</a></li>
+            <li><a href="services.html">Technical Advisory</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Us -->
+        <div class="footer-col col-contact">
+          <h2 class="col-title">Contact Us</h2>
+          <ul class="contact-details-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <span class="contact-icon-circle" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="contact-text">
+                Plot No. 123, Industrial Area,<br />
+                Jaipur, Rajasthan, India
+              </span>
+            </li>
+
+            <!-- Phone -->
+            <li class="contact-item">
+              <span class="contact-icon-circle" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
+                </svg>
+              </span>
+              <span class="contact-text">
+                <a href="tel:+919876543210">+91 98765 43210</a>
+              </span>
+            </li>
+
+            <!-- Email -->
+            <li class="contact-item">
+              <span class="contact-icon-circle" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              </span>
+              <span class="contact-text">
+                <a href="mailto:info@companyname.com">info@companyname.com</a>
+              </span>
+            </li>
+
+            <!-- Website -->
+            <li class="contact-item">
+              <span class="contact-icon-circle" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 7.027a6.002 6.002 0 018.73-2.905c-.287.49-.624.962-1.009 1.408a11.164 11.164 0 00-4.08 1.497H4.332zm-1.07 4.148A6.027 6.027 0 013.04 10c0-.348.03-.688.087-1.018l2.678.966c-.035.344-.055.694-.055 1.052 0 .425.029.84.084 1.243l-2.572-1.095zm1.758 2.656l2.39-1.018a11.17 11.17 0 003.58 1.954 6.003 6.003 0 01-5.97-1.936zm8.647-1.472a11.196 11.196 0 00-3.155-1.745 9.176 9.176 0 00.32-1.614l3.19.988a6.022 6.022 0 01-.355 2.371zm1.264-3.523l-3.328-1.03c.123-.62.298-1.218.52-1.78a6.002 6.002 0 012.808 2.81zm-4.708-3.92a9.18 9.18 0 00-.737 1.632 11.18 11.18 0 00-4.06-1.503 6.004 6.004 0 014.797-.129zm-2.03 3.65c.34-.087.693-.15 1.054-.187.164.56.297 1.144.394 1.743-1.066.38-2.062.883-2.97 1.49-.074-.593-.118-1.203-.118-1.823 0-.416.02-.824.057-1.223h1.583zm2.593 1.94c-.114-.658-.26-1.298-.44-1.91 1.082-.36 2.096-.838 3.023-1.417.065.556.102 1.124.102 1.704 0 .438-.023.868-.066 1.29l-2.619.333z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="contact-text">
+                <a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Legal Copyright Bar -->
+    <div class="footer-bottom">
+      <div class="bottom-container">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> Technomantra India. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
