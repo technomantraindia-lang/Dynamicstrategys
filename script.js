@@ -275,6 +275,104 @@ document.addEventListener('DOMContentLoaded', () => {
     workingProcessSection.after(testimonialsSection, valuedClientsSection, faqSection);
   }
 
+  // Interactive services showcase: hover/focus a service name to swap the copy and image.
+  const serviceShowcase = document.querySelector('[data-services-showcase]');
+  if (serviceShowcase) {
+    const serviceImage = serviceShowcase.querySelector('.services-showcase-image');
+    const serviceTitle = serviceShowcase.querySelector('[data-service-showcase-title]');
+    const serviceDescription = serviceShowcase.querySelector('[data-service-showcase-description]');
+    const serviceLink = serviceShowcase.querySelector('[data-service-showcase-link]');
+    const serviceOptions = Array.from(serviceShowcase.querySelectorAll('[data-service-key]'));
+    const serviceData = {
+      mechanical: {
+        title: 'Mechanical Engineering',
+        description: 'Process design, equipment selection and detailed engineering solutions for industrial projects.',
+        image: 'assets/services-generated/mechanical-engineering.png',
+        link: 'pages/service-detail.html?service=mechanical-engineering'
+      },
+      project: {
+        title: 'Project Management',
+        description: 'End-to-end project planning, coordination and execution support for successful delivery.',
+        image: 'assets/services-generated/project-management.png',
+        link: 'pages/service-detail.html?service=project-management'
+      },
+      electrical: {
+        title: 'Electrical Engineering',
+        description: 'Power distribution, electrical systems and infrastructure design.',
+        image: 'assets/services-generated/electrical-engineering.png',
+        link: 'pages/service-detail.html?service=electrical-engineering'
+      },
+      instrumentation: {
+        title: 'Instrumentation & Control',
+        description: 'Process automation, control systems and instrumentation engineering.',
+        image: 'assets/services-generated/instrumentation-control.png',
+        link: 'pages/service-detail.html?service=instrumentation-engineering'
+      },
+      procurement: {
+        title: 'Procurement Support',
+        description: 'Strategic sourcing, vendor management and cost optimization.',
+        image: 'assets/services-generated/procurement-support.png',
+        link: 'pages/service-detail.html?service=procurement-support'
+      },
+      dpr: {
+        title: 'Detailed Project Reports (DPR)',
+        description: 'Feasibility studies, technical and financial analysis, cost estimation and complete DPR for new projects.',
+        image: 'assets/services-generated/project-management.png',
+        link: 'pages/service-detail.html?service=detailed-project-reports'
+      },
+      labour: {
+        title: 'Labour Planning & Sourcing',
+        description: 'Manpower planning, skilled and unskilled labour sourcing, attendance and payroll management.',
+        image: 'assets/about-engineers-hd.jpg',
+        link: 'pages/service-detail.html?service=labour-planning'
+      },
+      logistics: {
+        title: 'Logistics Planning',
+        description: 'Route optimization, truck load planning, freight forwarding and material handling.',
+        image: 'assets/service-consultancy.jpg',
+        link: 'pages/service-detail.html?service=logistics-planning'
+      },
+      manufacturing: {
+        title: 'Manufacturing Consultancy',
+        description: 'Optimized plant layout and process flow, production planning, quality improvement and cost optimization.',
+        image: 'assets/services-generated/industrial-consultancy.png',
+        link: 'pages/service-detail.html?service=manufacturing-consultancy'
+      },
+      consultancy: {
+        title: 'Industrial Consultancy',
+        description: 'Feasibility studies, process optimization and operational improvement.',
+        image: 'assets/services-generated/industrial-consultancy.png',
+        link: 'pages/services.html'
+      }
+    };
+
+    let serviceSwapTimer;
+    const activateService = (key) => {
+      const service = serviceData[key];
+      if (!service) return;
+
+      serviceOptions.forEach((option) => option.classList.toggle('is-active', option.dataset.serviceKey === key));
+      serviceImage?.classList.add('is-changing');
+      window.clearTimeout(serviceSwapTimer);
+      serviceSwapTimer = window.setTimeout(() => {
+        if (serviceImage) {
+          serviceImage.src = service.image;
+          serviceImage.alt = `${service.title} industrial project`; 
+          serviceImage.classList.remove('is-changing');
+        }
+        if (serviceTitle) serviceTitle.textContent = service.title;
+        if (serviceDescription) serviceDescription.textContent = service.description;
+        if (serviceLink) serviceLink.href = service.link;
+      }, 140);
+    };
+
+    serviceOptions.forEach((option) => {
+      option.addEventListener('mouseenter', () => activateService(option.dataset.serviceKey));
+      option.addEventListener('focus', () => activateService(option.dataset.serviceKey));
+      option.addEventListener('click', () => activateService(option.dataset.serviceKey));
+    });
+  }
+
   // Auto-move the client-logo rail from right to left like a marquee carousel.
   const clientLogoRail = document.querySelector('.client-logo-row');
   if (clientLogoRail) {
