@@ -1067,3 +1067,15 @@
   position: relative;
   z-index: 1;
 }
+/* Shared compact section rhythm to match the homepage */
+.reference-services-section { padding: 66px 0 78px !important; }
+.services-approach-section { padding: 60px 0 70px !important; }
+.services-faq-section { padding: 64px 0 72px !important; }
+.cta-banner-section { padding-top: 44px !important; padding-bottom: 54px !important; }
+
+@media (max-width: 680px) {
+  .reference-services-section { padding: 52px 0 64px !important; }
+  .services-approach-section { padding: 50px 0 60px !important; }
+  .services-faq-section { padding: 52px 0 62px !important; }
+  .cta-banner-section { padding-top: 38px !important; padding-bottom: 46px !important; }
+}

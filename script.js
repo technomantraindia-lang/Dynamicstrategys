@@ -373,6 +373,218 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Interactive industries showcase on the About page.
+  const industryShowcase = document.querySelector('[data-industries-showcase]');
+  if (industryShowcase) {
+    const industryImage = industryShowcase.querySelector('.ab-industries-showcase-image');
+    const industryTitle = industryShowcase.querySelector('[data-industry-showcase-title]');
+    const industryDescription = industryShowcase.querySelector('[data-industry-showcase-description]');
+    const industrySubtag = industryShowcase.querySelector('[data-industry-showcase-subtag]');
+    const industryCount = industryShowcase.querySelector('[data-industry-showcase-count]');
+    const industryChips = industryShowcase.querySelector('[data-industry-showcase-chips]');
+    const navContainer = industryShowcase.querySelector('.ab-industries-showcase-nav');
+    const industryOptions = Array.from(industryShowcase.querySelectorAll('[data-industry-key]'));
+
+    const industryData = {
+      pharma: {
+        title: 'Pharmaceuticals, API & Chemicals',
+        subtag: 'Pharma & Biotech',
+        count: '01 / 15',
+        description: 'Regulated facilities, cleanrooms and engineering support for pharmaceutical, bulk drug and specialty chemical manufacturing.',
+        chips: ['Cleanrooms & HVAC', 'cGMP Compliance', 'API Facilities'],
+        image: '../assets/industries/01-pharmaceuticals-api-chemicals.png'
+      },
+      food: {
+        title: 'Food & Beverages',
+        subtag: 'Hygienic Process',
+        count: '02 / 15',
+        description: 'Hygienic process design, utility systems, pasteurization plants and automated high-throughput food packaging lines.',
+        chips: ['Sanitary Piping', 'CIP/SIP Utilities', 'Cold Chain Infrastructure'],
+        image: '../assets/industries/02-food-beverages.png'
+      },
+      fmcg: {
+        title: 'FMCG Manufacturing',
+        subtag: 'High Velocity Lines',
+        count: '03 / 15',
+        description: 'High-speed production lines, automated material handling, utilities and practical plant optimization for consumer goods.',
+        chips: ['Packaging Lines', 'High-Speed Automation', 'Plant Utilities'],
+        image: '../assets/industries/03-fmcg-manufacturing.jpg'
+      },
+      textiles: {
+        title: 'Yarns & Textiles',
+        subtag: 'Textile & Apparel',
+        count: '04 / 15',
+        description: 'End-to-end engineering support for spinning, weaving, wet processing, finishing plants and effluent management.',
+        chips: ['Spinning & Weaving', 'Effluent Treatment', 'Steam & Utilities'],
+        image: '../assets/industries/04-yarns-textiles.jpg'
+      },
+      packaging: {
+        title: 'Packaging & Corrugation',
+        subtag: 'Rigid & Flexible Packaging',
+        count: '05 / 15',
+        description: 'Flexible and rigid packaging plants, high-speed corrugated board manufacturing lines and automated warehousing.',
+        chips: ['Corrugators', 'Extrusion Lines', 'Printing Automation'],
+        image: '../assets/industries/05-packaging-corrugation.jpg'
+      },
+      heavy: {
+        title: 'Fabrication & Heavy Engineering',
+        subtag: 'Heavy Engineering',
+        count: '06 / 15',
+        description: 'Structural fabrication, heavy pressure vessels, heat exchangers, skid assemblies and industrial fabrication facilities.',
+        chips: ['Pressure Vessels', 'Heavy Skids', 'ASME Standards'],
+        image: '../assets/industries/06-fabrication-heavy-engineering.jpg'
+      },
+      automotive: {
+        title: 'Automobile & Auto Ancillary',
+        subtag: 'Automotive & OEM',
+        count: '07 / 15',
+        description: 'Assembly line engineering, robotics integration, stamping plants and Tier-1 component manufacturing facilities.',
+        chips: ['Assembly Lines', 'Paint Shops', 'Robotics Integration'],
+        image: '../assets/industries/07-automobile-auto-ancillary.jpg'
+      },
+      marine: {
+        title: 'Marine & Complex Structures',
+        subtag: 'Offshore & Heavy Civil',
+        count: '08 / 15',
+        description: 'Engineering and management for offshore platforms, shipyard infrastructure, jetty structures and heavy civil marine works.',
+        chips: ['Offshore Structures', 'Jetty & Berths', 'Heavy Foundations'],
+        image: '../assets/industries/08-marine-complex-structures.jpg'
+      },
+      glass: {
+        title: 'Glass & Ceramics',
+        subtag: 'Kiln & High-Temp Plants',
+        count: '09 / 15',
+        description: 'Furnace engineering, kiln optimization, waste heat recovery systems and batch processing for float glass and ceramic plants.',
+        chips: ['Furnace Engineering', 'Waste Heat Recovery', 'Batch Plants'],
+        image: '../assets/industries/09-glass-ceramics.jpg'
+      },
+      paper: {
+        title: 'Pulp & Paper Mills',
+        subtag: 'Continuous Process',
+        count: '10 / 15',
+        description: 'Continuous pulp processing, boiler utility loops, chemical recovery and automated high-speed paper machinery.',
+        chips: ['Pulp Digesters', 'Chemical Recovery', 'Paper Machines'],
+        image: '../assets/industries/10-pulp-paper-mills.jpg'
+      },
+      logistics: {
+        title: 'Logistics & Warehousing',
+        subtag: 'Supply Chain & Fulfillment',
+        count: '11 / 15',
+        description: 'Modern automated distribution centers, racking infrastructure, cold storage engineering and multimodal freight hubs. We also support warehouse layout, material flow, inventory handling and dispatch coordination for faster, more reliable operations.',
+        chips: ['AS/RS Automation', 'Cold Storage', 'Material Flow Planning', 'Dispatch Coordination'],
+        image: '../assets/industries/11-logistics-warehousing.jpg'
+      },
+      energy: {
+        title: 'Renewable Energy',
+        subtag: 'Clean Energy & Storage',
+        count: '12 / 15',
+        description: 'Turnkey engineering and PMC for large-scale utility solar parks, wind farms, substations and battery storage systems.',
+        chips: ['Solar Utility Parks', 'Grid Substations', 'BESS Storage'],
+        image: '../assets/industries/12-renewable-energy.png'
+      },
+      polymers: {
+        title: 'Polymers & Petro-Chemicals',
+        subtag: 'Petrochemical & Polymers',
+        count: '13 / 15',
+        description: 'Polymer synthesis units, resin compounding, plastics extrusion, distillation columns and hazardous fluid utility systems.',
+        chips: ['Resin Synthesis', 'Extrusion Plants', 'Distillation Systems'],
+        image: '../assets/industries/13-polymers-petro-chemicals.png'
+      },
+      semiconductor: {
+        title: 'Semiconductor & Electronics',
+        subtag: 'Ultra-Clean Fabrication',
+        count: '14 / 15',
+        description: 'ISO Class 1 to 5 cleanrooms, high-purity chemical and gas piping systems, ultra-pure water loops and clean utilities.',
+        chips: ['ISO Cleanrooms', 'Ultra-Pure Water', 'High-Purity Gases'],
+        image: '../assets/industries/14-semiconductor-electronics.jpg'
+      },
+      oil: {
+        title: 'Oil & Gas Refineries',
+        subtag: 'Refinery & Midstream',
+        count: '15 / 15',
+        description: 'Engineering, procurement and PMC for crude distillation units, tank farm terminals, blending facilities and pipeline networks.',
+        chips: ['Crude Distillation', 'Tank Terminals', 'Pipeline Networks'],
+        image: '../assets/industries/15-oil-gas-refineries.png'
+      }
+    };
+
+    let industrySwapTimer;
+    const activateIndustry = (key, shouldScrollNav = false) => {
+      const industry = industryData[key];
+      if (!industry) return;
+
+      industryOptions.forEach((option) => {
+        const isMatch = option.dataset.industryKey === key;
+        option.classList.toggle('is-active', isMatch);
+        option.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+      });
+
+      if (industryImage) {
+        industryImage.classList.add('is-changing');
+      }
+
+      window.clearTimeout(industrySwapTimer);
+      industrySwapTimer = window.setTimeout(() => {
+        if (industryImage) {
+          industryImage.src = industry.image;
+          industryImage.alt = `${industry.title} industrial facility`;
+          industryImage.classList.remove('is-changing');
+        }
+        if (industryTitle) industryTitle.textContent = industry.title;
+        if (industryDescription) industryDescription.textContent = industry.description;
+        if (industrySubtag && industry.subtag) industrySubtag.textContent = industry.subtag;
+        if (industryCount && industry.count) industryCount.textContent = industry.count;
+
+        if (industryChips && Array.isArray(industry.chips)) {
+          industryChips.innerHTML = industry.chips
+            .map((chip) => `<span class="showcase-chip">${chip}</span>`)
+            .join('');
+        }
+      }, 130);
+
+      if (shouldScrollNav && navContainer) {
+        const activeOption = industryOptions.find((opt) => opt.dataset.industryKey === key);
+        if (activeOption) {
+          const optTop = activeOption.offsetTop - navContainer.offsetTop;
+          const optBottom = optTop + activeOption.offsetHeight;
+          if (optTop < navContainer.scrollTop) {
+            navContainer.scrollTo({ top: Math.max(0, optTop - 12), behavior: 'smooth' });
+          } else if (optBottom > navContainer.scrollTop + navContainer.clientHeight) {
+            navContainer.scrollTo({ top: optBottom - navContainer.clientHeight + 12, behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
+    industryOptions.forEach((option) => {
+      option.addEventListener('mouseenter', () => activateIndustry(option.dataset.industryKey));
+      option.addEventListener('focus', () => activateIndustry(option.dataset.industryKey, true));
+      option.addEventListener('click', () => activateIndustry(option.dataset.industryKey, true));
+    });
+
+    // Industries View Switcher (Interactive Showcase vs 15-Card Grid)
+    const industriesSection = document.getElementById('industries');
+    const viewButtons = document.querySelectorAll('.ab-view-btn');
+    if (industriesSection && viewButtons.length) {
+      viewButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetView = btn.dataset.viewTarget;
+          viewButtons.forEach((b) => {
+            const isActive = b === btn;
+            b.classList.toggle('is-active', isActive);
+            b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          if (targetView === 'grid') {
+            industriesSection.classList.add('show-grid-view');
+          } else {
+            industriesSection.classList.remove('show-grid-view');
+          }
+        });
+      });
+    }
+  }
+
   // Auto-move the client-logo rail from right to left like a marquee carousel.
   const clientLogoRail = document.querySelector('.client-logo-row');
   if (clientLogoRail) {

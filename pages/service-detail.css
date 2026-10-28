@@ -2357,3 +2357,19 @@ body.service-detail-page {
     justify-content: center;
   }
 }
+/* Shared compact section rhythm to match the homepage */
+.detail-overview-section { padding: 66px 0 74px !important; }
+.detail-services-section { padding: 66px 0 78px !important; }
+.detail-approach-section { padding: 66px 0 78px !important; }
+.detail-why-section { padding: 66px 0 74px !important; }
+.detail-faq-section { padding: 66px 0 76px !important; }
+.detail-cta { padding: 52px 0 60px !important; }
+
+@media (max-width: 680px) {
+  .detail-overview-section { padding: 52px 0 60px !important; }
+  .detail-services-section { padding: 52px 0 64px !important; }
+  .detail-approach-section { padding: 52px 0 64px !important; }
+  .detail-why-section { padding: 52px 0 60px !important; }
+  .detail-faq-section { padding: 52px 0 62px !important; }
+  .detail-cta { padding: 42px 0 48px !important; }
+}
