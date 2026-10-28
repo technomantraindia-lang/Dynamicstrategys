@@ -285,6 +285,27 @@ document.addEventListener('DOMContentLoaded', () => {
       clientLogoRail.appendChild(clone);
     });
 
+    const clientLogoPrev = document.querySelector('.client-logo-arrow-prev');
+    const clientLogoNext = document.querySelector('.client-logo-arrow-next');
+    let manualClientPauseUntil = 0;
+    const moveClientLogos = (direction) => {
+      const firstCard = clientLogoRail.querySelector('.client-logo-card');
+      if (!firstCard) return;
+      const gap = parseFloat(window.getComputedStyle(clientLogoRail).gap) || 0;
+      const step = firstCard.getBoundingClientRect().width + gap;
+      const loopWidth = clientLogoRail.scrollWidth / 2;
+      let nextPosition = clientLogoRail.scrollLeft + direction * step;
+
+      if (loopWidth > 0 && nextPosition < 0) nextPosition += loopWidth;
+      if (loopWidth > 0 && nextPosition >= loopWidth) nextPosition -= loopWidth;
+
+      clientLogoRail.scrollTo({ left: nextPosition, behavior: 'smooth' });
+      manualClientPauseUntil = performance.now() + 2400;
+    };
+
+    clientLogoPrev?.addEventListener('click', () => moveClientLogos(-1));
+    clientLogoNext?.addEventListener('click', () => moveClientLogos(1));
+
     let isDragging = false;
     let dragStartX = 0;
     let dragScrollLeft = 0;
@@ -316,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const elapsed = Math.min(frameTime - previousFrameTime, 64);
       previousFrameTime = frameTime;
 
-      if (!isDragging && !document.hidden) {
+      if (!isDragging && !document.hidden && performance.now() >= manualClientPauseUntil) {
         const moveBy = 42 * (elapsed / 1000);
         clientLogoRail.scrollLeft += moveBy;
         const loopWidth = clientLogoRail.scrollWidth / 2;
