@@ -1085,6 +1085,43 @@ body.service-detail-page {
   position: relative;
 }
 
+/* Keep longer service workflows balanced instead of leaving one card alone
+   on a second line. The 12-column layout also lets the final row of a
+   seven-step process sit neatly in the centre. */
+.detail-approach-list.process-count-6 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.detail-approach-list.process-count-6 .concept-process-card {
+  grid-column: span 4;
+}
+
+.detail-approach-list.process-count-7 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.detail-approach-list.process-count-7 .concept-process-card {
+  grid-column: span 3;
+}
+
+.detail-approach-list.process-count-7 .concept-process-card:nth-child(5) {
+  grid-column: 2 / span 3;
+}
+
+.detail-approach-list.process-count-7 .concept-process-card:nth-child(6) {
+  grid-column: 5 / span 3;
+}
+
+.detail-approach-list.process-count-7 .concept-process-card:nth-child(7) {
+  grid-column: 8 / span 3;
+}
+
+/* Arrows should only appear between cards on the same visual row. */
+.detail-approach-list.process-count-6 .concept-process-card:nth-child(3) .concept-flow-indicator,
+.detail-approach-list.process-count-7 .concept-process-card:nth-child(4) .concept-flow-indicator {
+  display: none;
+}
+
 /* The Individual Process Card */
 .concept-process-card {
   position: relative;
@@ -2227,6 +2264,28 @@ body.service-detail-page {
     gap: 16px;
   }
 
+  .detail-approach-list.process-count-6,
+  .detail-approach-list.process-count-7 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .detail-approach-list.process-count-6 .concept-process-card,
+  .detail-approach-list.process-count-7 .concept-process-card,
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(5),
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(6),
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(7) {
+    grid-column: auto;
+  }
+
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(7) {
+    grid-column: 2;
+  }
+
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(3) .concept-flow-indicator,
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(6) .concept-flow-indicator {
+    display: none;
+  }
+
   .detail-approach-list::before {
     display: none;
   }
@@ -2289,6 +2348,15 @@ body.service-detail-page {
 
   .detail-approach-list {
     grid-template-columns: 1fr;
+  }
+
+  .detail-approach-list.process-count-6,
+  .detail-approach-list.process-count-7 {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-approach-list.process-count-7 .concept-process-card:nth-child(7) {
+    grid-column: auto;
   }
 
   .step-card-content {

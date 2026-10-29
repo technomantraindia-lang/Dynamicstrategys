@@ -343,6 +343,81 @@ const SERVICE_DATA = {
   }
 };
 
+// Working processes transcribed from the service-specific Approach/Methodology
+// points in "List of offerings.xlsx". These intentionally vary by service:
+// the page should explain how that service is actually delivered, not repeat a
+// generic engineering lifecycle for every offering.
+const SERVICE_WORKING_PROCESS = {
+  "electrical-engineering": [
+    ["Understand requirements and assess loads", "We review facility requirements, electrical loads, process dependencies and compliance needs."],
+    ["Design to codes and utility requirements", "We develop safe, practical electrical systems, layouts and calculations around the site requirements."],
+    ["Coordinate across disciplines", "We use digital design tools to coordinate electrical systems with the wider facility and avoid clashes or rework."],
+    ["Prepare procurement specifications", "We prepare material and equipment specifications that make supplier evaluation and purchasing clearer."],
+    ["Support installation and testing", "We provide technical support through installation, testing, commissioning and handover documentation."]
+  ],
+  "instrumentation-engineering": [
+    ["Study process requirements", "We review the process requirements and control philosophy to identify what must be measured, controlled and protected."],
+    ["Select and specify instruments", "We select instruments based on actual process conditions, measurement needs and operating requirements."],
+    ["Prepare control documentation", "We develop loop diagrams, I/O lists and cable schedules for accurate procurement, installation and commissioning."],
+    ["Design SCADA and interlocking", "We create operator-friendly SCADA screens and safe interlocking logic for coordinated process operation."],
+    ["Support FAT, SAT and validation", "We support testing and prepare FAT, SAT and validation documentation for reliable, audit-ready handover."]
+  ],
+  "mechanical-engineering": [
+    ["Review process requirements", "We study the design basis, fluids, operating conditions, capacity requirements and applicable standards."],
+    ["Develop P&IDs and PFDs", "We prepare clear process drawings showing equipment, piping, flow paths and instrumentation details."],
+    ["Select materials", "We evaluate process compatibility, corrosion, temperature and pressure before recommending materials."],
+    ["Design equipment to standards", "We develop equipment designs in line with applicable ASME and Indian Standards."],
+    ["Design supports and anchors", "We plan pipe supports, anchors and expansion loops to control movement and stress."],
+    ["Prepare execution documents", "We deliver AutoCAD drawings, fabrication documents and detailed BOMs for procurement and execution."]
+  ],
+  "procurement-support": [
+    ["Review requirements", "We review purchase requisitions, technical specifications, quantities, budgets and delivery schedules."],
+    ["Prepare and issue RFQs", "We prepare clear RFQs and issue them to suitable, technically capable suppliers."],
+    ["Evaluate quotations", "We compare quotations on technical compliance, pricing, quality, delivery terms and overall suitability."],
+    ["Select vendors and create POs", "We support value-based vendor selection and prepare accurate purchase orders."],
+    ["Follow up orders", "We track supplier commitments and deliveries so materials arrive in line with the project schedule."],
+    ["Process receipt and payment", "We coordinate GRN, invoice verification and payment processing with a clear audit trail."],
+    ["Close and document the cycle", "We complete the purchase cycle and organize records for closure, audit and future reference."]
+  ],
+  "detailed-project-reports": [
+    ["Study the project and collect data", "We understand the objectives, scale, location, product or service and approval or funding requirements."],
+    ["Confirm the required format", "We identify the applicable government or bank DPR format so the report is structured correctly from the start."],
+    ["Define scope and feasibility", "We establish the project scope and assess whether it is technically feasible to design and implement."],
+    ["Prepare costs and financials", "We develop realistic cost estimates and financial analysis with figures that remain consistent with the technical scope."],
+    ["Plan implementation", "We prepare implementation requirements, schedules and milestones for a practical delivery path."],
+    ["Review and submit", "We check completeness, consistency and compliance, then deliver a submission-ready DPR for approval and fund sanction."]
+  ],
+  "labour-planning": [
+    ["Study manpower requirements", "We assess trades, skill mix, workforce numbers, project duration, site conditions and timelines."],
+    ["Source and evaluate workers", "We identify and evaluate suitable skilled and unskilled workers against the project requirement."],
+    ["Deploy against the schedule", "We deploy manpower when needed and adjust workforce levels as project stages and site needs change."],
+    ["Track attendance", "We maintain accurate attendance and workforce records for visibility and payroll processing."],
+    ["Calculate wages and deductions", "We calculate wages, overtime and deductions using the recorded attendance and agreed terms."],
+    ["Process salaries compliantly", "We process salaries on time, support statutory compliance and provide regular workforce reports."]
+  ],
+  "project-management": [
+    ["Define scope and expectations", "We establish project scope, objectives, timelines, responsibilities and procurement strategy."],
+    ["Prepare schedules and budgets", "We create detailed schedules, budgets and project documentation aligned to client objectives."],
+    ["Coordinate stakeholders", "We coordinate consultants, contractors, vendors and regulatory bodies through clear communication channels."],
+    ["Conduct technical assessments", "We support technical reviews and decisions throughout design and execution."],
+    ["Guide site delivery", "We provide ongoing site-level guidance, compliance monitoring and progress visibility through handover."]
+  ],
+  "logistics-planning": [
+    ["Study the shipment", "We review cargo, weight, destination, delivery schedule and special handling requirements."],
+    ["Plan the route", "We identify efficient routes that reduce travel time, distance and fuel cost."],
+    ["Optimize the truck load", "We plan cargo quantity, weight and arrangement for safe transport and better capacity use."],
+    ["Book the forwarder and truck", "We select and book a suitable freight forwarder, arrange transport and prepare logistics documents."],
+    ["Coordinate the shipment", "We stay in contact with the forwarder from dispatch through delivery and track progress."],
+    ["Resolve issues and report", "We address delays or transport issues and provide regular updates until the shipment reaches its destination."]
+  ],
+  "manufacturing-consultancy": [
+    ["Understand the plant", "We visit the facility, review drawings and data, speak with operations and establish a baseline for output, cost and quality."],
+    ["Design the improvements", "We develop practical recommendations for layouts, equipment, planning methods and costs, ranked by impact and effort."],
+    ["Support the rollout", "We assist with procurement, coordinate suppliers and contractors and track implementation against schedule and budget."],
+    ["Review and sustain", "We measure results against the baseline and hand over documentation so the team can continue improving."]
+  ]
+};
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, function (char) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
@@ -631,9 +706,10 @@ function renderService(service) {
         "</div>" +
       "</article>";
     }).join("");
-  }  // 10. Working Process (Strictly 5 Standard Phases across all services)
+  }  // 10. Working Process (service-specific workflow from the workbook)
   const approachListEl = document.getElementById("detail-approach-list");
   if (approachListEl) {
+    approachListEl.className = "detail-approach-list process-count-" + (SERVICE_WORKING_PROCESS[serviceKey] || []).length;
     const stepIcons = [
       "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><line x1='9' y1='13' x2='15' y2='13'/><line x1='9' y1='17' x2='11' y2='17'/><circle cx='16' cy='18' r='2.5'/><line x1='17.8' y1='19.8' x2='20.5' y2='22'/></svg>",
       "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18h6'/><path d='M10 22h4'/><path d='M12 2v2'/><path d='M12 6a6 6 0 0 0-4 10.5V18h8v-1.5A6 6 0 0 0 12 6z'/><path d='M4.9 4.9l1.4 1.4'/><path d='M19.1 4.9l-1.4 1.4'/></svg>",
@@ -642,34 +718,15 @@ function renderService(service) {
       "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/></svg>"
     ];
 
-    const UNIVERSAL_STEPS = [
-      {
-        title: "Requirement Analysis",
-        desc: "We study project parameters, site conditions, load demands, and statutory compliance needs in detail."
-      },
-      {
-        title: "Design & Engineering",
-        desc: "Our specialists develop comprehensive drawings, technical calculations, and optimized engineering schematics."
-      },
-      {
-        title: "Review & Optimization",
-        desc: "Multi-discipline cross-checks, safety evaluations, and simulation analysis ensure robust, clash-free systems."
-      },
-      {
-        title: "Execution Support",
-        desc: "Vendor coordination, technical procurement assistance, and proactive on-site supervision throughout installation."
-      },
-      {
-        title: "Testing & Commissioning",
-        desc: "Rigorous pre-commissioning checks, statutory validation, and complete as-built documentation for site handover."
-      }
-    ];
+    const workingProcess = (SERVICE_WORKING_PROCESS[serviceKey] || []).map(function (step) {
+      return { title: step[0], desc: step[1] };
+    });
 
-    approachListEl.innerHTML = UNIVERSAL_STEPS.map(function (step, index) {
+    approachListEl.innerHTML = workingProcess.map(function (step, index) {
       const numStr = "0" + (index + 1);
       const isBlue = index % 2 === 0;
       const themeClass = isBlue ? "concept-theme-blue" : "concept-theme-orange";
-      const showArrow = index < UNIVERSAL_STEPS.length - 1;
+      const showArrow = index < workingProcess.length - 1;
 
       return "<li class=\"concept-process-card " + themeClass + "\" data-reveal style=\"--reveal-delay: " + (index * 70) + "ms;\">" +
         "<div class=\"concept-card-top-row\">" +
