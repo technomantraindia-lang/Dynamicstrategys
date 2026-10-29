@@ -5,12 +5,12 @@ const SERVICE_DATA = {
     accent: "Engineering",
     image: "../assets/services-generated/electrical-engineering.png",
     cardImages: [
-      "../assets/services-generated/electrical-engineering.png",
-      "../assets/services-generated/instrumentation-control.png",
-      "../assets/services-generated/electrical-engineering.png",
-      "../assets/working-process/engineering-clear.png",
-      "../assets/services-generated/mechanical-engineering.png",
-      "../assets/services-generated/procurement-support.png"
+      "../assets/deliverables/01-power-distribution.jpg",
+      "../assets/deliverables/02-single-line-diagram.jpg",
+      "../assets/deliverables/03-cable-tray-layouts.jpg",
+      "../assets/deliverables/04-lighting-design.jpg",
+      "../assets/deliverables/05-earthing-protection.jpg",
+      "../assets/deliverables/06-procurement-docs.jpg"
     ],
     intro: [
       "End-to-end electrical engineering solutions designed for safe, efficient and reliable operations across industrial and commercial projects.",
@@ -507,7 +507,7 @@ const SERVICE_MEDIA_STATS = {
 
 function renderService(service) {
   document.title = service.title + " | Dynamic Strategys";
-  
+
   const serviceKey = Object.keys(SERVICE_DATA).find(function (key) { return SERVICE_DATA[key] === service; }) || "electrical-engineering";
 
   // 1. Hero Image
@@ -548,7 +548,7 @@ function renderService(service) {
       return "<div class=\"media-label-chip\">" +
         "<span class=\"media-label-icon\">" + chip.icon + "</span>" +
         "<span>" + escapeHtml(chip.label) + "</span>" +
-      "</div>";
+        "</div>";
     }).join("");
   }
 
@@ -573,10 +573,10 @@ function renderService(service) {
   }
   const breadcrumbEl = document.getElementById("detail-breadcrumb-title");
   if (breadcrumbEl) breadcrumbEl.textContent = service.title;
-  
+
   const leadEl = document.getElementById("detail-lead");
   if (leadEl) leadEl.textContent = service.intro[0];
-  
+
   const overviewTitleEl = document.getElementById("detail-overview-title");
   if (overviewTitleEl) {
     if (/Solutions|Reports|Engineering|Consultancy|Management|Planning/i.test(service.title)) {
@@ -585,13 +585,13 @@ function renderService(service) {
       overviewTitleEl.textContent = service.title + " Solutions";
     }
   }
-  
+
   const coverageTitleEl = document.getElementById("coverage-title");
   if (coverageTitleEl) coverageTitleEl.innerHTML = escapeHtml(service.base) + " <span>" + escapeHtml(service.accent) + "</span> Services";
-  
+
   const servicesSubtitleEl = document.getElementById("detail-services-subtitle");
   if (servicesSubtitleEl) servicesSubtitleEl.textContent = "We offer a complete range of " + service.title.toLowerCase() + " services to support your project at every stage.";
-  
+
   const whyServiceTitleEl = document.getElementById("detail-why-service-title");
   if (whyServiceTitleEl) whyServiceTitleEl.textContent = service.base + " Solutions";
 
@@ -613,10 +613,10 @@ function renderService(service) {
       return "<div class=\"detail-feature " + themeClass + "\">" +
         "<span class=\"detail-feature-icon\">" + featureSvgs[index % featureSvgs.length] + "</span>" +
         "<div class=\"detail-feature-copy\">" +
-          "<span class=\"detail-feature-tag\">" + tagText + "</span>" +
-          "<b class=\"detail-feature-title\">" + escapeHtml(feature) + "</b>" +
+        "<span class=\"detail-feature-tag\">" + tagText + "</span>" +
+        "<b class=\"detail-feature-title\">" + escapeHtml(feature) + "</b>" +
         "</div>" +
-      "</div>";
+        "</div>";
     }).join("");
   }
 
@@ -661,10 +661,10 @@ function renderService(service) {
       return "<li class=\"summary-chip " + item.theme + "\">" +
         "<span class=\"summary-icon-squircle\">" + item.icon + "</span>" +
         "<div class=\"summary-chip-text\">" +
-          "<strong>" + escapeHtml(item.title) + "</strong>" +
-          "<small>" + escapeHtml(item.desc) + "</small>" +
+        "<strong>" + escapeHtml(item.title) + "</strong>" +
+        "<small>" + escapeHtml(item.desc) + "</small>" +
         "</div>" +
-      "</li>";
+        "</li>";
     }).join("");
   }
 
@@ -693,15 +693,15 @@ function renderService(service) {
       const numStr = (index + 1 < 10 ? "0" : "") + (index + 1);
       return "<article class=\"detail-service-card\" data-reveal style=\"--reveal-delay: " + (index * 60) + "ms;\">" +
         "<div class=\"service-card-image-box\">" +
-          "<img src=\"" + cardImg + "\" alt=\"" + escapeHtml(item[0]) + "\" loading=\"lazy\" />" +
-          "<span class=\"service-card-num-badge\">" + numStr + "</span>" +
+        "<img src=\"" + cardImg + "\" alt=\"" + escapeHtml(item[0]) + "\" loading=\"lazy\" />" +
+        "<span class=\"service-card-num-badge\">" + numStr + "</span>" +
         "</div>" +
         "<div class=\"service-card-body\">" +
-          "<div class=\"service-card-icon-floating\">" + serviceSvgs[index % serviceSvgs.length] + "</div>" +
-          "<h3>" + escapeHtml(item[0]) + "</h3>" +
-          "<p>" + escapeHtml(item[1]) + "</p>" +
+        "<div class=\"service-card-icon-floating\">" + serviceSvgs[index % serviceSvgs.length] + "</div>" +
+        "<h3>" + escapeHtml(item[0]) + "</h3>" +
+        "<p>" + escapeHtml(item[1]) + "</p>" +
         "</div>" +
-      "</article>";
+        "</article>";
     }).join("");
   }  // 10. Working Process (service-specific workflow from the workbook)
   const approachListEl = document.getElementById("detail-approach-list");
@@ -727,16 +727,16 @@ function renderService(service) {
 
       return "<li class=\"concept-process-card " + themeClass + "\" data-reveal style=\"--reveal-delay: " + (index * 70) + "ms;\">" +
         "<div class=\"concept-card-top-row\">" +
-          "<div class=\"concept-icon-circle\" aria-hidden=\"true\">" + stepIcons[index % stepIcons.length] + "</div>" +
-          "<span class=\"concept-phase-tag\">PHASE " + numStr + "</span>" +
+        "<div class=\"concept-icon-circle\" aria-hidden=\"true\">" + stepIcons[index % stepIcons.length] + "</div>" +
+        "<span class=\"concept-phase-tag\">PHASE " + numStr + "</span>" +
         "</div>" +
         "<div class=\"concept-card-content\">" +
-          "<h3 class=\"concept-card-step-title\">" + escapeHtml(step.title) + "</h3>" +
-          "<p class=\"concept-card-step-desc\">" + escapeHtml(step.desc) + "</p>" +
+        "<h3 class=\"concept-card-step-title\">" + escapeHtml(step.title) + "</h3>" +
+        "<p class=\"concept-card-step-desc\">" + escapeHtml(step.desc) + "</p>" +
         "</div>" +
         "<span class=\"concept-card-bar\" aria-hidden=\"true\"></span>" +
         (showArrow ? "<div class=\"concept-flow-indicator\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 5l7 7-7 7\"/></svg></div>" : "") +
-      "</li>";
+        "</li>";
     }).join("");
   }
 
@@ -753,13 +753,13 @@ function renderService(service) {
       const themeIdx = (index % 4) + 1;
       return "<article class=\"detail-why-card detail-why-theme-" + themeIdx + "\" data-reveal style=\"--reveal-delay: " + (index * 70) + "ms;\">" +
         "<div class=\"why-card-top\">" +
-          "<span class=\"why-icon-circle why-icon-theme-" + themeIdx + "\">" + whySvgs[index % whySvgs.length] + "</span>" +
-          "<span class=\"why-pill-index\">0" + (index + 1) + "</span>" +
+        "<span class=\"why-icon-circle why-icon-theme-" + themeIdx + "\">" + whySvgs[index % whySvgs.length] + "</span>" +
+        "<span class=\"why-pill-index\">0" + (index + 1) + "</span>" +
         "</div>" +
         "<h3>" + escapeHtml(item[0]) + "</h3>" +
         "<p>" + escapeHtml(item[1]) + "</p>" +
         "<span class=\"why-card-accent-bar why-bar-theme-" + themeIdx + "\" aria-hidden=\"true\"></span>" +
-      "</article>";
+        "</article>";
     }).join("");
   }
 
@@ -771,32 +771,32 @@ function renderService(service) {
       const isOpen = index === 0;
       return (
         '<details class="detail-faq-card"' + (isOpen ? ' open' : '') + '>' +
-          '<summary class="detail-faq-summary">' +
-            '<div class="detail-faq-q-group">' +
-              '<span class="detail-faq-num">' + numStr + '</span>' +
-              '<span class="detail-faq-question">' + escapeHtml(item[0]) + '</span>' +
-            '</div>' +
-            '<span class="detail-faq-toggle" aria-hidden="true">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
-                '<polyline points="6 9 12 15 18 9"/>' +
-              '</svg>' +
-            '</span>' +
-          '</summary>' +
-          '<div class="detail-faq-answer">' +
-            '<div class="detail-faq-answer-inner">' +
-              '<p>' + escapeHtml(item[1]) + '</p>' +
-              '<div class="detail-faq-tags">' +
-                '<span class="faq-tag-pill">' +
-                  '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
-                  '<span>Industry Standards Compliant</span>' +
-                '</span>' +
-                '<span class="faq-tag-pill">' +
-                  '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
-                  '<span>Turnkey Engineering Support</span>' +
-                '</span>' +
-              '</div>' +
-            '</div>' +
-          '</div>' +
+        '<summary class="detail-faq-summary">' +
+        '<div class="detail-faq-q-group">' +
+        '<span class="detail-faq-num">' + numStr + '</span>' +
+        '<span class="detail-faq-question">' + escapeHtml(item[0]) + '</span>' +
+        '</div>' +
+        '<span class="detail-faq-toggle" aria-hidden="true">' +
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+        '<polyline points="6 9 12 15 18 9"/>' +
+        '</svg>' +
+        '</span>' +
+        '</summary>' +
+        '<div class="detail-faq-answer">' +
+        '<div class="detail-faq-answer-inner">' +
+        '<p>' + escapeHtml(item[1]) + '</p>' +
+        '<div class="detail-faq-tags">' +
+        '<span class="faq-tag-pill">' +
+        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+        '<span>Industry Standards Compliant</span>' +
+        '</span>' +
+        '<span class="faq-tag-pill">' +
+        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+        '<span>Turnkey Engineering Support</span>' +
+        '</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '</details>'
       );
     }).join("");
