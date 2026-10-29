@@ -2826,3 +2826,749 @@ body.about-page .ab-nav-card-footer { display: none; }
 
   body.about-page .ab-industries-showcase-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Refined mobile sector navigator header. */
+@media (max-width: 680px) {
+  body.about-page .ab-industries-nav-card {
+    width: 100%;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(4, 21, 42, 0.96), rgba(11, 36, 66, 0.94));
+  }
+
+  body.about-page .ab-nav-card-header {
+    min-height: 66px;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  body.about-page .nav-card-title-group {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  body.about-page .nav-card-title-group strong {
+    white-space: nowrap;
+    font-size: 10.5px;
+    letter-spacing: 1.15px;
+  }
+
+  body.about-page .nav-count-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 7px 11px;
+    font-size: 10px;
+    letter-spacing: 0.25px;
+  }
+
+  body.about-page .nav-pulse-dot {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* Clean mobile sector pills: one active item, then centered compact options. */
+@media (max-width: 680px) {
+  body.about-page .ab-industries-nav-card {
+    width: 100%;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  body.about-page .ab-nav-card-header {
+    display: none;
+  }
+
+  body.about-page .ab-industries-showcase-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  body.about-page .ab-industry-showcase-option {
+    width: auto;
+    min-height: 0;
+    flex: 0 1 auto;
+    justify-content: center;
+    padding: 11px 17px;
+    border: 1px solid #d7e6f5;
+    border-radius: 999px;
+    background: #f7fbff !important;
+    color: #0b2548 !important;
+    box-shadow: 0 3px 10px rgba(0, 60, 120, 0.04);
+    text-align: center;
+    transform: none;
+  }
+
+  body.about-page .ab-industry-showcase-option:hover {
+    border-color: #9ecbf1;
+    background: #eef7ff !important;
+    color: #005ec7 !important;
+    transform: translateY(-1px);
+  }
+
+  body.about-page .ab-industry-showcase-option.is-active {
+    flex-basis: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 13px 18px 13px 34px;
+    border-color: #001935 !important;
+    background: linear-gradient(135deg, #001935, #062d55) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 22px rgba(0, 25, 53, 0.2);
+  }
+
+  body.about-page .ab-industry-showcase-option.is-active::before {
+    left: 18px;
+    top: 50%;
+    bottom: auto;
+    width: 7px;
+    height: 7px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #f7941d;
+    box-shadow: 0 0 8px rgba(247, 148, 29, 0.85);
+  }
+
+  body.about-page .ab-industry-showcase-option .opt-num,
+  body.about-page .ab-industry-showcase-option .opt-sub,
+  body.about-page .ab-industry-showcase-option .opt-arrow {
+    display: none !important;
+  }
+
+  body.about-page .ab-industry-showcase-option .opt-text {
+    flex: 0 1 auto;
+  }
+
+  body.about-page .ab-industry-showcase-option .opt-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0b2548;
+  }
+
+  body.about-page .ab-industry-showcase-option.is-active .opt-title {
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
+
+/* Our Purpose mobile cards: tighter proportions and a cleaner image-to-content transition. */
+@media (max-width: 680px) {
+  body.about-page .purpose-section {
+    padding: 42px 0 54px !important;
+  }
+
+  body.about-page .purpose-curved-lines {
+    height: 220px;
+    opacity: 0.65;
+  }
+
+  body.about-page .purpose-header {
+    margin-bottom: 28px;
+    padding-inline: 8px;
+  }
+
+  body.about-page .purpose-eyebrow {
+    gap: 9px;
+    margin-bottom: 12px;
+    font-size: 10.5px;
+    letter-spacing: 2.1px;
+  }
+
+  body.about-page .purpose-eyebrow .eyebrow-line {
+    width: 23px;
+  }
+
+  body.about-page .purpose-title {
+    font-size: clamp(29px, 8vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -0.4px;
+    margin-bottom: 13px;
+  }
+
+  body.about-page .purpose-subtitle {
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  body.about-page .purpose-cards-grid {
+    gap: 18px;
+    max-width: 350px;
+  }
+
+  body.about-page .purpose-card {
+    border-radius: 20px;
+  }
+
+  body.about-page .purpose-card-media {
+    height: 132px;
+    padding: 8px 10px 12px;
+  }
+
+  body.about-page .purpose-media-slant {
+    border-radius: 12px;
+  }
+
+  body.about-page .purpose-badge {
+    bottom: -25px;
+    width: 52px;
+    height: 52px;
+    border-width: 3px;
+  }
+
+  body.about-page .purpose-badge svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  body.about-page .purpose-card-body {
+    padding: 35px 20px 28px;
+  }
+
+  body.about-page .purpose-num-tag {
+    margin-bottom: 9px;
+  }
+
+  body.about-page .num-text {
+    font-size: 34px;
+  }
+
+  body.about-page .num-bar {
+    width: 28px;
+    height: 3px;
+    margin-top: 5px;
+  }
+
+  body.about-page .purpose-card-title {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  body.about-page .purpose-card-desc {
+    font-size: 13.5px;
+    line-height: 1.58;
+  }
+
+  body.about-page .purpose-corner-fold {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  body.about-page .purpose-header {
+    padding-inline: 2px;
+  }
+
+  body.about-page .purpose-card-body {
+    padding-inline: 17px;
+  }
+}
+
+/* Operating Pillars mobile polish: reduce visual weight and remove watermark clutter. */
+@media (max-width: 680px) {
+  body.about-page .ab-beliefs-strip-section {
+    padding: 44px 0 56px !important;
+  }
+
+  body.about-page .ab-beliefs-header {
+    margin-bottom: 26px;
+    padding-inline: 8px;
+  }
+
+  body.about-page .ab-pillar-kicker {
+    gap: 9px;
+    margin-bottom: 9px;
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+  }
+
+  body.about-page .pillar-kicker-bar {
+    width: 23px;
+    height: 2px;
+  }
+
+  body.about-page .ab-beliefs-section-title {
+    font-size: clamp(29px, 8vw, 36px);
+    line-height: 1.12;
+  }
+
+  body.about-page .ab-beliefs-subtitle {
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 11px;
+  }
+
+  body.about-page .ab-beliefs-grid {
+    gap: 12px;
+  }
+
+  body.about-page .ab-belief-card {
+    padding: 20px 16px 18px;
+    border-radius: 20px;
+  }
+
+  body.about-page .belief-card-header {
+    margin-bottom: 15px;
+  }
+
+  body.about-page .ab-belief-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  body.about-page .ab-belief-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.about-page .pillar-tag {
+    padding: 5px 9px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  body.about-page .ab-belief-card h4 {
+    font-size: 16.5px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  body.about-page .ab-belief-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  body.about-page .belief-card-footer {
+    padding-top: 10px;
+  }
+
+  body.about-page .pillar-benefit {
+    gap: 6px;
+    font-size: 11.5px;
+  }
+
+  body.about-page .pillar-watermark {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  body.about-page .ab-belief-card {
+    padding-inline: 14px;
+  }
+
+  body.about-page .ab-belief-card h4 {
+    font-size: 16px;
+  }
+}
+
+/* Final mobile polish: keep the banner title visible and compact the stats card. */
+@media (max-width: 680px) {
+  body.about-page .ab-hero-banner {
+    overflow: hidden;
+    background: #eef6fc;
+  }
+
+  body.about-page .ab-hero-image-wrap {
+    height: 260px;
+    box-shadow: none;
+  }
+
+  body.about-page .ab-hero-img {
+    width: 100%;
+    height: 260px;
+    min-height: 0;
+    max-height: none;
+    object-fit: cover;
+    object-position: 15% center;
+  }
+
+  body.about-page .ab-stats-pill-panel {
+    width: calc(100% - 28px);
+    margin: -28px auto 38px;
+    padding: 14px 10px;
+    border-radius: 22px;
+  }
+
+  body.about-page .ab-stats-pill-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 8px;
+  }
+
+  body.about-page .ab-stat-item {
+    min-width: 0;
+    gap: 8px;
+    padding: 8px 4px;
+  }
+
+  body.about-page .ab-stat-item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 4px);
+    justify-self: center;
+  }
+
+  body.about-page .ab-stat-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  body.about-page .ab-stat-circle svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  body.about-page .ab-stat-number {
+    font-size: 19px;
+    letter-spacing: -0.3px;
+  }
+
+  body.about-page .ab-stat-label {
+    font-size: 10px;
+    line-height: 1.25;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  body.about-page .ab-hero-image-wrap,
+  body.about-page .ab-hero-img {
+    height: 244px;
+  }
+
+  body.about-page .ab-stats-pill-panel {
+    width: calc(100% - 22px);
+    padding-inline: 7px;
+  }
+
+  body.about-page .ab-stat-item {
+    gap: 6px;
+  }
+
+  body.about-page .ab-stat-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  body.about-page .ab-stat-number {
+    font-size: 17px;
+  }
+}
+
+/* Who We Are mobile layout: lighter spacing and shorter feature cards. */
+@media (max-width: 680px) {
+  body.about-page .who-we-are-section {
+    padding-bottom: 42px !important;
+  }
+
+  body.about-page .who-main-box {
+    margin-top: 0;
+    padding: 26px 18px 24px;
+    border-radius: 22px;
+    box-shadow: 0 14px 34px rgba(0, 32, 75, 0.08);
+  }
+
+  body.about-page .who-grid {
+    display: block;
+  }
+
+  body.about-page .who-kicker {
+    gap: 9px;
+    margin-bottom: 14px;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  body.about-page .who-kicker .kicker-line {
+    width: 22px;
+    height: 2px;
+  }
+
+  body.about-page .who-title {
+    font-size: clamp(28px, 8.2vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.55px;
+    margin-bottom: 16px;
+  }
+
+  body.about-page .who-lead-p {
+    font-size: 14.5px;
+    line-height: 1.58;
+    padding-left: 14px;
+    margin-bottom: 20px;
+    border-left-width: 3px;
+  }
+
+  body.about-page .who-feature-cards {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  body.about-page .who-feature-card {
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 15px;
+  }
+
+  body.about-page .who-fc-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+
+  body.about-page .who-fc-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  body.about-page .who-fc-heading {
+    font-size: 13.5px;
+    line-height: 1.22;
+    margin-bottom: 3px;
+  }
+
+  body.about-page .who-fc-text {
+    font-size: 12.5px;
+    line-height: 1.42;
+  }
+}
+
+@media (max-width: 380px) {
+  body.about-page .who-main-box {
+    padding-inline: 15px;
+  }
+
+  body.about-page .who-title {
+    font-size: 28px;
+  }
+
+  body.about-page .who-lead-p {
+    font-size: 14px;
+  }
+
+  body.about-page .who-feature-card {
+    padding-inline: 11px;
+  }
+}
+
+/* Center the mobile introduction while keeping feature cards easy to scan. */
+@media (max-width: 680px) {
+  body.about-page .who-content {
+    align-items: center;
+  }
+
+  body.about-page .who-kicker {
+    justify-content: center;
+    text-align: center;
+  }
+
+  body.about-page .who-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  body.about-page .who-lead-p {
+    width: 100%;
+    max-width: 330px;
+    padding: 13px 0 0;
+    border-left: 0;
+    border-top: 0;
+    text-align: center;
+    position: relative;
+  }
+
+  body.about-page .who-lead-p::before {
+    content: "";
+    display: block;
+    width: 46px;
+    height: 3px;
+    margin: 0 auto 12px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #f7941d, #ff5722);
+  }
+
+  body.about-page .who-feature-cards,
+  body.about-page .who-clients-strip {
+    width: 100%;
+  }
+
+  body.about-page .who-clients-strip {
+    gap: 10px;
+    padding: 15px 13px;
+    border-radius: 18px;
+    text-align: center;
+  }
+
+  body.about-page .who-clients-title {
+    flex-direction: column;
+    gap: 7px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    letter-spacing: 0.35px;
+  }
+
+  body.about-page .who-clients-title svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  body.about-page .who-clients-subtitle {
+    margin-top: 1px;
+    font-size: 10.5px;
+    letter-spacing: 1.2px;
+  }
+
+  body.about-page .who-clients-tags {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  body.about-page .who-client-tag {
+    gap: 7px;
+    padding: 6px 11px;
+    font-size: 11.5px;
+  }
+
+  body.about-page .who-media {
+    margin-top: 10px;
+  }
+
+  body.about-page .who-image-frame {
+    height: 300px;
+    border-radius: 22px;
+  }
+
+  body.about-page .who-image-frame img {
+    object-position: center 45%;
+  }
+}
+
+/* Why Choose Us mobile layout: wider content, centered intro and compact rows. */
+@media (max-width: 680px) {
+  body.about-page .ab-why-section {
+    padding: 38px 0 48px !important;
+  }
+
+  body.about-page .why-master-card {
+    padding: 26px 16px 24px;
+    border-radius: 22px;
+  }
+
+  body.about-page .ab-why-left {
+    align-items: center;
+  }
+
+  body.about-page .ab-why-kicker {
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 1.7px;
+  }
+
+  body.about-page .ab-why-heading {
+    width: 100%;
+    max-width: 320px;
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.45px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  body.about-page .ab-why-heading br {
+    display: none;
+  }
+
+  body.about-page .ab-why-lead {
+    width: 100%;
+    max-width: 310px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  body.about-page .ab-why-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  body.about-page .ab-why-feature-box {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "icon desc";
+    align-items: start;
+    column-gap: 11px;
+    row-gap: 5px;
+    padding: 13px 14px;
+    border-radius: 15px;
+  }
+
+  body.about-page .why-icon-badge {
+    grid-area: icon;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0;
+  }
+
+  body.about-page .why-icon-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  body.about-page .why-card-title {
+    grid-area: title;
+    font-size: 13.5px;
+    line-height: 1.25;
+    margin-bottom: 3px;
+  }
+
+  body.about-page .why-card-desc {
+    grid-area: desc;
+    font-size: 12.5px;
+    line-height: 1.42;
+  }
+
+  body.about-page .ab-why-right {
+    margin-top: 22px;
+  }
+
+  body.about-page .why-showcase-frame {
+    min-height: 270px;
+    height: 270px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  body.about-page .why-master-card {
+    padding-inline: 13px;
+  }
+
+  body.about-page .ab-why-heading {
+    font-size: 28px;
+  }
+
+  body.about-page .ab-why-feature-box {
+    padding-inline: 11px;
+    gap: 9px;
+  }
+}

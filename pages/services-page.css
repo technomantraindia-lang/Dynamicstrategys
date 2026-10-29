@@ -915,19 +915,53 @@
   row-gap: 28px;
 }
 
+.reference-service-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+}
+
 .service-card-image {
-  height: 128px;
+  position: relative;
+  height: 175px;
+  flex: 0 0 175px;
+  overflow: hidden;
 }
 
 .service-card-content {
-  min-height: 142px;
-  padding-top: 2px;
-  padding-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 165px;
+  padding: 16px 22px 20px;
+}
+
+.service-card-content h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.25;
 }
 
 .service-card-content p {
-  min-height: 42px;
-  margin-bottom: 12px;
+  min-height: 48px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.service-card-content a {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .service-card-image {
+    height: 185px;
+    flex-basis: 185px;
+  }
+
+  .service-card-content {
+    min-height: 160px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -944,11 +978,13 @@
   }
 
   .service-card-image {
-    height: 155px;
+    height: 185px;
+    flex-basis: 185px;
   }
 
   .service-card-content {
-    min-height: 145px;
+    min-height: 155px;
+    padding: 16px 18px 20px;
   }
 }
 

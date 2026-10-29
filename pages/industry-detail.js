@@ -1,0 +1,692 @@
+/**
+ * Industry Detail Dynamic Page Controller
+ * Reads industry data from Excel (.xlsx) using SheetJS, with instant fallback to embedded dataset.
+ * Supports: ?industry=<slug>
+ */
+
+// Embedded baseline data (generated from industries.xlsx)
+const EMBEDDED_INDUSTRIES = [
+  {
+    "id": "pharmaceuticals",
+    "name": "Pharmaceuticals, API, Nutraceuticals & Chemicals",
+    "tagline": "High-Containment, cGMP Compliant & Validated Process Facilities",
+    "badge": "Regulated Life Sciences",
+    "heroImage": "../assets/industries/01-pharmaceuticals-api-chemicals.png",
+    "leadText": "Comprehensive engineering, cleanroom architectural layout, mechanical piping (ASME BPE), automated utility generation, and statutory validation for pharmaceutical formulations, bulk active ingredients (APIs), and nutraceutical manufacturing plants.",
+    "overview": "Pharmaceutical and fine chemical manufacturing demand the highest level of regulatory scrutiny, cross-contamination control, and sterile process containment. We provide turnkey engineering and procurement management from conceptual design to US FDA/EU GMP audit qualification. Our engineering integrates sterile cleanroom architecture (ISO 5 to ISO 8), high-purity water generation (Purified Water, WFI, Pure Steam), clean utilities piping, HVAC differential pressurization loops, hazardous solvent handling, and batch automation to achieve zero-defect operational compliance.",
+    "stat1Val": "140+",
+    "stat1Label": "Formulation & API Lines Delivered",
+    "stat2Val": "100%",
+    "stat2Label": "Audit & US FDA / cGMP Compliance",
+    "stat3Val": "35%",
+    "stat3Label": "HVAC Energy Savings via Heat Recovery",
+    "stat4Val": "0",
+    "stat4Label": "Cross-Contamination Defects",
+    "standards": "US FDA 21 CFR Part 11, cGMP, ASME BPE, Schedule M, ISO 14644, WHO TRS, ATEX",
+    "challenges": "Strict environmental cleanliness and positive pressure cascade maintenance;;Zero dead-leg hygienic piping and clean-in-place (CIP/SIP) validation;;Volatile organic compound (VOC) solvent safety and ATEX Zone 1/2 classification;;Validation protocols (DQ, IQ, OQ, PQ) required before commercial production launch",
+    "capabilities": "Cleanroom HVAC & Differential Pressure Cascades: Precision temperature, RH, and particle containment systems engineered for sterile filling and oral solid dosage suites.;;Clean Utilities (WFI, PW & Pure Steam): ASME BPE orbital welded sanitary piping systems with complete endoscopic inspection and thermal loop sanitization.;;API Reactor Suites & Explosion-Proof Electrification: Reactor design with solvent recovery, inert gas blanketing, and flameproof electrical drives meeting zone-rated statutory codes.;;Validation Documentation & Commissioning (DQ/IQ/OQ/PQ): Complete computerized system validation (CSV) and qualification documentation for regulatory submission.",
+    "processSteps": "Concept & Regulatory Basis: Facility master planning, process flow diagrams (PFD), and regulatory classification (US FDA, EU GMP, WHO).;;Detailed Engineering: HVAC load estimation, ASME BPE piping layout, clean utility sizing, and structural integration.;;Procurement & Sourcing: Technical evaluation of cleanroom panels, isolators, autoclaves, chillers, and certified process vessels.;;Validation & Commissioning: FAT/SAT witness, CIP/SIP cycle qualification, air balancing, and audit-ready handover.",
+    "faqs": "What regulatory standards do you adhere to for pharma facilities?|We engineer facilities complying with US FDA 21 CFR Part 210/211, EU GMP Annex 1, WHO TRS, Schedule M, ASME BPE, and ISO 14644 cleanroom standards.;;Can you help retrofit existing plants for US FDA or EU GMP audits?|Yes. We perform gap audits, HVAC redesigns, differential pressure cascade corrections, clean piping upgrades, and validation documentation to bring legacy plants up to international standards.;;Do you design Clean-in-Place (CIP) and Sterilize-in-Place (SIP) systems?|Yes. We design automated, validated CIP and SIP systems that ensure complete coverage, validated drainage, and zero residual cross-contamination."
+  },
+  {
+    "id": "food-beverages",
+    "name": "Food & Beverages",
+    "tagline": "Hygienic Process Lines, High-Speed Bottling & Cold Chain Automation",
+    "badge": "Sanitary Process Industry",
+    "heroImage": "../assets/industries/02-food-beverages.png",
+    "leadText": "End-to-end engineering consultancy for dairy, beverages, edible oils, confectionery, and processed food plants emphasizing sanitary 3A/EHEDG piping, CIP automation, and cold storage logistics.",
+    "overview": "Food and beverage production requires strict microbiological controls, food-contact surface safety, rapid washdown resilience, and optimized utility consumption. We deliver comprehensive plant engineering covering hygienic process design, raw material handling, thermal processing (pasteurization, UHT, sterilization), filling line integration, and wastewater treatment with energy-efficient heat recovery.",
+    "stat1Val": "180+",
+    "stat1Label": "F&B Plants & Bottling Lines",
+    "stat2Val": "99.8%",
+    "stat2Label": "Sterile Packaging Uptime",
+    "stat3Val": "28%",
+    "stat3Label": "Water Consumption Reduction",
+    "stat4Val": "FSSC",
+    "stat4Label": "22000 & HACCP Compliant Designs",
+    "standards": "FSSAI, FSSC 22000, HACCP, EHEDG, 3-A Sanitary Standards, ISO 22000",
+    "challenges": "Preventing microbiological contamination and allergen cross-contact;;Minimizing water and steam consumption during frequent CIP cycles;;High-speed filling line synchronization and bottle neck elimination;;Maintaining temperature integrity across cold storage and dispatch docks",
+    "capabilities": "Hygienic Piping & CIP/SIP Automation: Sanitary stainless steel (SS304/316L) process loops with automated chemical dosing and recovery systems.;;Thermal Processing & Pasteurization: Plate and tubular heat exchangers designed for maximum thermal efficiency and extended product shelf-life.;;High-Velocity Bottling & Packaging Automation: Automated conveyor line layouts, robotic palletizing, and end-of-line packaging integration.;;Utility Optimization (Steam, Chilled Water, Air): High-efficiency boiler integration, ammonia refrigeration, and compressed air filtration to ISO 8573 Class 1.",
+    "processSteps": "Process Flow & Recipe Sizing: Mass balance, sanitary zoning, batching capacity calculations, and utility requirement studies.;;Sanitary Engineering & Layouts: Architectural zoning for wet/dry areas, sloped floor drainage, and food-grade cleanable panels.;;Equipment Procurement & Vetting: Vendor qualification for homogenizers, separators, fillers, retort vessels, and boilers.;;Trial Runs & Commissioning: CIP validation, microbiological swab testing, throughput verification, and staff training.",
+    "faqs": "Do you design plants according to EHEDG and 3-A sanitary guidelines?|Yes, our piping layouts, pump selections, valve manifolds, and tank designs eliminate dead zones and promote clean drainability per EHEDG and 3-A guidelines.;;Can you help reduce our steam and water utility expenses?|Yes, our designs incorporate condensate return recovery, multi-stage flash heat recuperation, and CIP rinse water recovery loops that significantly reduce utility costs."
+  },
+  {
+    "id": "fmcg",
+    "name": "FMCG Manufacturing",
+    "tagline": "High-Throughput Production, Rapid Changeovers & Automated Packaging Lines",
+    "badge": "High Velocity Consumer Goods",
+    "heroImage": "../assets/industries/03-fmcg-manufacturing.jpg",
+    "leadText": "Specialized engineering solutions for personal care, soaps, detergents, oral care, and cosmetics plants engineered for high velocity lines, agile batching, and OEE maximization.",
+    "overview": "In fast-moving consumer goods (FMCG), speed to market, batch repeatability, low changeover times, and high Overall Equipment Effectiveness (OEE) are critical. We design modern facilities equipped with flexible batch compounding, automated bulk liquid storage, piggable piping systems, high-speed tube/bottle fillers, cartoning, and automated end-of-line secondary packaging.",
+    "stat1Val": "95+",
+    "stat1Label": "FMCG Packaging & Processing Units",
+    "stat2Val": "85%+",
+    "stat2Label": "Average Target Plant OEE",
+    "stat3Val": "40%",
+    "stat3Label": "Batch Changeover Time Reduced",
+    "stat4Val": "24/7",
+    "stat4Label": "High-Reliability Operation",
+    "standards": "GMP Cosmetics ISO 22716, BIS Standards, Weights & Measures Rules, OHSAS 18001",
+    "challenges": "Frequent formulation changeovers leading to product loss and washing downtime;;Handling viscous non-Newtonian slurries, creams, and surfactants without shearing;;Managing massive inventory of packaging SKUs and secondary cartons;;Meeting aggressive line throughputs exceeding 300 to 500 units per minute",
+    "capabilities": "Piggable Liquid Transfer Lines: Sanitary pipeline pigging systems that recover 99%+ of product residue during recipe changeovers.;;Automated Bulk Chemical & Surfactant Tank Farms: Bulk receiving, heating, metering, and distribution of LABSA, caustic, and specialty oils.;;High-Speed Filling & Cartoning Integration: Synchronized multi-head liquid/paste filling with automated weight verification and check-weighers.;;Lean Warehouse & Automated Material Transport: AGV-ready factory layouts, staging buffers, and warehouse management system (WMS) integration.",
+    "processSteps": "Throughput Modeling & SKU Matrix: Evaluating production schedules, batch sizes, and filling speed requirements across all SKUs.;;Compounding & Utility Layouts: Reactor sizing, jacketed heating/cooling loops, and vacuum emulsification design.;;Procurement & Line Vendor Integration: Synchronizing fillers, cappers, labelers, shrink-wrappers, and case packers from international OEMs.;;Line Balancing & Commissioning: Dry cycle run-offs, OEE optimization, sensor calibration, and operational handover.",
+    "faqs": "How do you reduce product loss during recipe changeovers in cosmetic/detergent lines?|We implement pigging systems and pig-cleared manifold valves that recover high-viscosity product from lines before wash cycles, saving tons of formulation annually.;;Can you design cleanrooms for sensitive cosmetic products?|Yes. For preservative-free creams and facial products, we engineer Class D / ISO 8 cleanroom compounding and packaging areas with HEPA filtration."
+  },
+  {
+    "id": "yarns-textiles",
+    "name": "Yarns & Textiles",
+    "tagline": "High-Efficiency Spinning, Weaving & Zero Liquid Discharge (ZLD) Wet Processing",
+    "badge": "Textile & Fiber Processing",
+    "heroImage": "../assets/industries/04-yarns-textiles.jpg",
+    "leadText": "Turnkey engineering consultancy for synthetic and natural spinning mills, continuous weaving sheds, knitting plants, fabric dyeing, and Zero Liquid Discharge (ZLD) effluent treatment.",
+    "overview": "Textile manufacturing demands precise ambient relative humidity and temperature control to eliminate yarn breaks, static buildup, and fiber degradation, alongside heavy utility requirements for wet processing. We provide plant engineering covering humidification plant design, compressed air efficiency, boiler heat recovery, power distribution, and multi-effect evaporation ZLD plants.",
+    "stat1Val": "75+",
+    "stat1Label": "Spinning, Weaving & Dyeing Mills",
+    "stat2Val": "98%",
+    "stat2Label": "ZLD Water Recovery Rate",
+    "stat3Val": "22%",
+    "stat3Label": "Specific Energy Consumption Cut",
+    "stat4Val": "100%",
+    "stat4Label": "PCB & CPCB Environmental Compliance",
+    "standards": "CPCB/SPCB ZLD Guidelines, OEKO-TEX Standard 100, ISO 14001, ATEX Dust Codes",
+    "challenges": "Maintaining uniform micro-climates (±2% RH) across vast spinning and weaving halls;;High combustible lint dust loading requiring ATEX-compliant electricals and fire protection;;Massive water and chemical demand in dyeing requiring 100% Zero Liquid Discharge (ZLD);;Heavy continuous power consumption requiring high-efficiency transformers and VFDs",
+    "capabilities": "Industrial Humidification & Air Engineering: Central station air washer plants, supply duct drops, and underground return trenches maintaining uniform RH.;;Zero Liquid Discharge (ZLD) Plants: Primary chemical treatment, ultrafiltration, reverse osmosis, and multi-effect evaporators (MEE) for salt recovery.;;Boiler & Thermic Fluid Heating: High-pressure biomass/coal/gas steam boilers and thermic fluid heaters for continuous stentering and drying.;;Lint Filtration & Dust Extraction: Automated rotating drum filters and rotary vane dust collectors ensuring clean workroom air.",
+    "processSteps": "Fiber Flow & Shed Layout: Floor loading calculations, machine footprinting, and vibration isolation for looms and spinning frames.;;Humidification & Utility Design: Air changes per hour (ACH) modeling, trench sizing, piping distribution, and electrical sub-stations.;;Vendor Procurement: Evaluating carding, spinning, dyeing machines, air compressors, and effluent treatment systems.;;Site Supervision & Commissioning: Balancing air washers, tuning steam traps, testing ZLD RO systems, and full-load trial runs.",
+    "faqs": "How critical is the humidification plant in spinning mills?|Humidification directly dictates yarn tensile strength and static control. A properly designed air washer maintains optimal moisture content, drastically reducing fiber breaks and fly generation.;;What is your capability in textile Effluent Treatment (ETP/ZLD)?|We design advanced biological treatment, membrane bio-reactors (MBR), high-pressure RO, and crystallizers that achieve 98%+ water recovery for recycle back to dyeing."
+  },
+  {
+    "id": "packaging-corrugation",
+    "name": "Packaging & Corrugation",
+    "tagline": "High-Speed Corrugators, Flexible Packaging Converters & Robotic Stacking",
+    "badge": "Industrial Packaging",
+    "heroImage": "../assets/industries/05-packaging-corrugation.jpg",
+    "leadText": "Engineering solutions for automatic 5/7-ply corrugator lines, flexo printer-slotters, blown film extrusion, solventless laminators, and roll handling material logistics.",
+    "overview": "Packaging manufacturing demands continuous high-speed converting, high-pressure steam distribution for corrugation starch heating, static control, solvent vapor ventilation, and automated reel handling. We engineer modern converting plants from reel storage and boiler houses to automated conveyor palletizing and finished goods dispatch.",
+    "stat1Val": "110+",
+    "stat1Label": "Corrugated & Flexible Packaging Plants",
+    "stat2Val": "350 m/min",
+    "stat2Label": "Line Speed Capability Designed",
+    "stat3Val": "25%",
+    "stat3Label": "Steam Energy Efficiency Improvement",
+    "stat4Val": "0",
+    "stat4Label": "Unplanned Starch Pipe Blockages",
+    "standards": "TAPPI Standards, FEFCO, ATEX Solvent Regulations, ISO 9001, Factory Act Standards",
+    "challenges": "High steam consumption and condensate drainage at corrugator single facers and hot plates;;Heavy paper reel handling (up to 3.5 tonnes) requiring specialized overhead cranes and rail cars;;Solvent fumes in rotogravure printing requiring explosion-proof exhaust and LEL monitors;;Floor flatness and heavy wheel load durability in automated logistics corridors",
+    "capabilities": "Corrugator Steam & Condensate Recovery: Closed-loop high-pressure condensate systems that return 100% of boiling condensate to boilers.;;Automatic Starch Preparation Kitchens: PLC-controlled viscosity and temperature monitoring with loop circulation to eliminate settling.;;Solvent Vapor Extraction & LEL Monitoring: Spark-proof ventilation, duct grounding, and Lower Explosive Limit (LEL) safety interlocking.;;Automated Paper Reel & Finished Box Logistics: In-floor chain conveyors, shuttle cars, pallet strapping, and high-bay roll clamp routing.",
+    "processSteps": "Plant Siting & Flow Study: Raw reel receiving, corrugating bay sizing, conversion flexo area, and finished warehouse staging.;;Utility & Structural Design: High-load concrete slab design (5 to 8 T/m²), boiler house, and compressed air distribution.;;Equipment Engineering & Sourcing: Sourcing high-speed corrugators, auto-splices, folder-gluers, and flexo folder-gluers (FFG).;;Installation & Tuning: Steam loop balancing, corrugator alignment verification, boiler commissioning, and production handover.",
+    "faqs": "How do you optimize steam consumption on a continuous corrugator line?|We engineer closed-loop condensate recovery with thermocompressors that eliminate steam venting and inject boiling condensate directly into boiler feedwater, cutting fuel consumption by 20-25%.;;What floor specifications are needed for heavy roll storage?|We specify jointless steel-fiber-reinforced concrete (SFRC) slabs designed for 8 to 10 tonnes/m² with high abrasion resistance to withstand clamp trucks."
+  },
+  {
+    "id": "automotive",
+    "name": "Automobile & Auto Ancillary",
+    "tagline": "Precision Press Shops, Robotic Body-in-White (BIW) & Paint Shop Engineering",
+    "badge": "Automotive & Mobility",
+    "heroImage": "../assets/industries/07-automobile-auto-ancillary.jpg",
+    "leadText": "Comprehensive industrial consultancy for automotive assembly plants, tier-1 stamping facilities, robotic robotic welding cells, paint finishing lines, and component testing centers.",
+    "overview": "Automotive manufacturing demands sub-millimeter precision, strict takt time synchronization, heavy machine foundation vibration dampening, automated paint booth environmental control, and lean material flow. We provide engineering consultancy covering heavy press foundations, robotic utilities (pneumatics, cooling water, gas manifolds), paint booths, and assembly line balancing.",
+    "stat1Val": "80+",
+    "stat1Label": "Automotive Plants & Tier-1 Ancillaries",
+    "stat2Val": "< 60s",
+    "stat2Label": "Takt Time Line Synchronization",
+    "stat3Val": "99.9%",
+    "stat3Label": "Paint Shop Cleanliness & Finish Quality",
+    "stat4Val": "IATF",
+    "stat4Label": "16949 Compliant Engineering",
+    "standards": "IATF 16949, ISO 9001, ISO 14001, OHSAS 18001, VDA 6.3 Standards",
+    "challenges": "Heavy cyclic vibration from 1000T to 2500T stamping presses requiring isolated foundations;;Paint shop contamination control requiring cleanroom-grade air handling and down-draft filtration;;Complex utility manifolds (weld water, inert gas, compressed air) across robotic cells;;High peak electrical demands and harmonic distortion from resistance welding guns",
+    "capabilities": "Heavy Press Machine Foundations: Dynamic spring-damped inertia blocks designed to isolate vibrations from precision tooling.;;Robotic Welding Utility Manifolds: Closed-circuit chilled weld-water cooling, argon/CO2 shielding gas mixing, and localized fume extraction.;;Automated Paint Shop HVAC & Sludge De-watering: Down-draft laminar booths with RTO (Regenerative Thermal Oxidizer) solvent destruction.;;Lean Assembly Layout & Monorail Conveyors: Floor and overhead electrified monorails (EMS), skids, and automated guided vehicle (AGV) routing.",
+    "processSteps": "Assembly Line Simulation & Takt Time Sizing: Modeling throughput, station cycle times, sub-assembly buffers, and ergonomics.;;Structural & Utility Detailed Design: Trenching for weld utilities, busway power distribution, and harmonic filter sizing.;;Procurement Technical Oversight: Technical evaluation of press lines, robotic paint atomizers, conveyors, and chillers.;;Commissioning & Production Ramp-up: Utility pressure testing, dry cycle robotics verification, and ramp-up support.",
+    "faqs": "How do you isolate vibration from large stamping presses?|We design reinforced concrete inertia foundations resting on tuned spring visco-dampers, completely decoupled from the surrounding plant slab to prevent vibration transfer to measuring and CNC bays.;;What air filtration standards are maintained in automotive paint shops?|We engineer downdraft booths with F9 ceiling diffusion filters and HEPA final stage air, maintaining uniform 0.3 m/s downward velocity to eliminate dust specks."
+  },
+  {
+    "id": "marine-structures",
+    "name": "Marine & Complex Structures",
+    "tagline": "Shipyard Infrastructure, Offshore Fabrication Yards & Heavy Marine Rigging",
+    "badge": "Heavy Marine & Infrastructure",
+    "heroImage": "../assets/industries/08-marine-complex-structures.jpg",
+    "leadText": "Specialized engineering and project management for shipyards, drydocks, heavy offshore module fabrication yards, jetty loading arms, and coastal corrosion-resistant structures.",
+    "overview": "Marine and offshore projects present extreme structural loading, tidal and coastal geotechnical challenges, corrosive saline atmospheres, and massive heavy lifting requirements. We deliver comprehensive engineering for slipways, gantry crane rail foundations, blasted pipe spool shops, offshore jacket fabrication yards, and coastal marine utility terminals.",
+    "stat1Val": "40+",
+    "stat1Label": "Shipyard & Offshore Yard Projects",
+    "stat2Val": "1000T+",
+    "stat2Label": "Heavy Lift & Load-Out Capability",
+    "stat3Val": "50 yrs",
+    "stat3Label": "Cathodic & Protective Coating Design",
+    "stat4Val": "Class",
+    "stat4Label": "DNV, ABS & IRS Certification Standards",
+    "standards": "DNV-GL, ABS, Lloyd's Register, API RP 2A, ISO 19902, NACE/SSPC SP-10",
+    "challenges": "Extreme ground bearing pressures under heavy modular load-out trailers (SPMT);;Severe marine saline corrosion requiring advanced coating and impressed current cathodic protection (ICCP);;Heavy electrical power distribution for concurrent multi-welder inverter stations and pre-heating;;Hazardous confined space ventilation and radiography safety management in fabrication bays",
+    "capabilities": "Heavy Load-Out Quays & Skidways: Reinforced quay walls, pile-supported load-out slabs, and winch anchor blocks for barge loading.;;High-Capacity Gantry & Jib Crane Rail Foundations: Deep pile-supported crane beams designed for 200T to 800T gantry cranes.;;Blast & Paint Hall Environmental Enclosures: High-velocity abrasive grit recovery, dehumidified air supply, and dust filtration enclosures.;;High-Amperage Welding Grid Distribution: Low-voltage bus duct rings and marine-grade shore power conversion stations.",
+    "processSteps": "Geotechnical & Bathymetric Review: Siting analysis, marine boreholes, wave action analysis, and load capacity modeling.;;Civil, Structural & Marine Layout: Quay wall design, skidway engineering, blast hall sizing, and piping networks.;;Procurement & Vendor Oversight: Sourcing heavy winches, blast recovery systems, gantry cranes, and offshore welding sets.;;Yard Commissioning: Load-testing crane rails, hydro-testing quayside fuel/bunkering lines, and yard operational certification.",
+    "faqs": "What ground improvements are required for heavy offshore module fabrication?|We specify deep stone column vibro-replacement, driven steel tubular or bored concrete piles, and high-strength load-transfer mattresses designed for 25 to 40 tonnes/m² SPMT tire loads.;;How do you combat marine atmospheric corrosion in shipyard utilities?|All exposed piping and cable trays are specified with hot-dip galvanizing, marine-grade epoxy-polyurethane coatings, 316L stainless hardware, and cathodic sacrificial anodes."
+  },
+  {
+    "id": "glass-ceramics",
+    "name": "Glass & Ceramics",
+    "tagline": "High-Temperature Furnaces, Batch House Automation & Annealing Lehr Systems",
+    "badge": "Thermal Mineral Processing",
+    "heroImage": "../assets/industries/09-glass-ceramics.jpg",
+    "leadText": "Industrial engineering consultancy for float glass, container glass, ceramic tiles, sanitaryware, and tableware manufacturing with focus on furnace thermal efficiency and heat recovery.",
+    "overview": "Glass and ceramic manufacturing involves extreme process temperatures (1200°C to 1600°C), continuous refractory furnace operation, raw silica and clay batching, high-pressure hydraulic tile presses, and continuous annealing lehrs. We engineer energy-efficient furnace utility piping, batch house dust control, oxy-fuel combustion systems, and waste heat recovery power generation (WHRB).",
+    "stat1Val": "50+",
+    "stat1Label": "Furnace & Ceramic Tile Lines",
+    "stat2Val": "1600°C",
+    "stat2Label": "Furnace Thermal Engineering Scope",
+    "stat3Val": "30%",
+    "stat3Label": "Waste Heat Power Generation (WHRB)",
+    "stat4Val": "Zero",
+    "stat4Label": "Batch Cross-Contamination Ratio",
+    "standards": "ISO 50001 Energy Management, CPCB Industrial Kiln Norms, NFPA 86 Ovens/Furnaces",
+    "challenges": "Extreme continuous heat radiation requiring refractory cooling and water-cooled instrumentation;;Abrasive silica and feldspar dust control in raw material weighing and pneumatic conveying;;Optimizing high-volume natural gas or fuel oil combustion to reduce NOx/SOx emissions;;Cooling water circuit reliability—any cooling failure risks furnace crown collapse",
+    "capabilities": "High-Temperature Combustion & Oxy-Fuel Piping: Skid-mounted gas pressure reducing stations, pre-heated air ducts, and burner automation.;;Emergency Furnace Cooling Circuits: Gravity-fed elevated reserve cooling water tanks with automatic diesel pump cut-ins.;;Raw Batch House Dust Extraction: Enclosed bucket elevators, pneumatic transfer, and high-efficiency pulse-jet baghouses.;;Waste Heat Recovery Boiler (WHRB) Integration: Capturing flue gas heat to generate superheated steam and electric power via ORC/steam turbines.",
+    "processSteps": "Thermal Balance & Fuel Modeling: Sizing furnace capacity, heat flux modeling, and waste gas temperature analysis.;;Detailed Civil, Structural & Mechanical Design: Elevated furnace steel support structures, flue gas ducts, and cooling towers.;;Equipment Procurement & Audit: Refractory supply vetting, burner skid evaluation, roller kiln sourcing, and fan procurement.;;Commissioning & Heat-Up Supervision: Slow thermal refractory curing curves, gas line purging, combustion tuning, and plant startup.",
+    "faqs": "How do you protect glass furnace cooling systems against power outages?|We engineer dual-source emergency power plus an elevated emergency gravity-feed water reservoir holding at least 4 hours of critical refractory cooling water during total electrical blackout.;;Can waste heat from kilns be reused effectively?|Yes. Flue gases from glass furnaces and ceramic kilns at 400-500°C are routed into waste heat boilers to generate electricity or piped directly to pre-heat raw batch and clay slip spray dryers."
+  },
+  {
+    "id": "pulp-paper",
+    "name": "Pulp & Paper Mills",
+    "tagline": "Stock Preparation, High-Speed Paper Machines & Chemical Recovery Boilers",
+    "badge": "Cellulose & Paper Manufacturing",
+    "heroImage": "../assets/industries/10-pulp-paper-mills.jpg",
+    "leadText": "Complete engineering services for kraft, duplex board, tissue, and writing paper mills covering stock preparation, paper machine dry ends, steam-condensate systems, and black liquor recovery.",
+    "overview": "Pulp and paper manufacturing requires vast quantities of steam, water, and electrical energy, with demanding chemical recovery and fiber slurry handling. We engineer complete pulp and paper mill infrastructures—from woodchip and recycled waste paper processing, pulpers, refiners, and fourdrinier paper machines to closed-loop steam hoods, calenders, and chemical recovery boilers.",
+    "stat1Val": "65+",
+    "stat1Label": "Paper Mills & Stock Prep Installations",
+    "stat2Val": "900 m/min",
+    "stat2Label": "Paper Machine Design Capability",
+    "stat3Val": "32%",
+    "stat3Label": "Specific Steam Consumption Reduced",
+    "stat4Val": "95%",
+    "stat4Label": "Chemical & Fiber Recovery Rate",
+    "standards": "TAPPI, CEPI, ISO 14001, CPCB Charter for Water Conservation in Paper Industry",
+    "challenges": "Massive steam demand for drying cylinders requiring balanced cascade condensate drainage;;Corrosive and abrasive fiber pulp slurries requiring specialized duplex stainless alloys;;High moisture and heat exhaust in machine hoods causing condensation and building corrosion;;High organic COD/BOD effluent requiring anaerobic digestion and advanced effluent treatment",
+    "capabilities": "Stock Preparation & Refiner Piping: High and low consistency pulping lines, de-inking cells, disc refiners, and screen manifolds.;;Paper Machine Steam & Condensate Cascades: Thermo-compressor cascade drying control ensuring uniform moisture profile across the web.;;Enclosed Machine Hood & Heat Recovery: Totally enclosed hoods (TEH) with air-to-air heat exchangers for heating process fresh water.;;Effluent Treatment & Fiber Saveall: Dissolved air flotation (DAF) savealls recovering valuable fibers and zero-discharge biological ETP.",
+    "processSteps": "Pulping & Water Balance Modeling: Raw material yield calculations, fiber furnish balancing, and water loop closure design.;;Detailed Plant & Foundation Engineering: Heavy paper machine soleplate foundations, deep basement trenches, and vacuum piping.;;Procurement & Vendor Coordination: Sourcing wire sections, press felts, yankee dryers, rewinders, and recovery boilers.;;Commissioning & Web Speed Trials: Hydraulic testing, steam balance calibration, web threading optimization, and production signoff.",
+    "faqs": "How do you improve drying efficiency on paper machines?|We engineer closed cascade steam-condensate systems with rotary siphon optimization and blow-through steam recovery, improving heat transfer and cutting drying steam use by up to 20%.;;What materials are recommended for stock preparation lines?|We specify Duplex 2205 or SS316L in high-shear refiner and bleached pulp zones to prevent erosion-corrosion and extend equipment lifecycle."
+  },
+  {
+    "id": "polymers-petrochemicals",
+    "name": "Polymers & Petro-Chemicals",
+    "tagline": "Polymerization Reactors, Extrusion Compounding & Bulk Resin Pneumatic Logistics",
+    "badge": "Hydrocarbons & Polymers",
+    "heroImage": "../assets/industries/13-polymers-petro-chemicals.png",
+    "leadText": "Specialized engineering and safety consultancy for polymer compounding, masterbatch facilities, resin synthesis, petrochemical storage terminals, and hazardous zone infrastructure.",
+    "overview": "Polymerization and petrochemical compounding involve high-viscosity melts, exothermic reactions, volatile hydrocarbon vapors, strict pressure relief guidelines, and dense pneumatic conveying. We provide engineering consultancy covering reaction vessels, cooling utility networks, twin-screw compounding extruders, underwater pelletizing, and high-capacity dense-phase pneumatic conveying silos.",
+    "stat1Val": "90+",
+    "stat1Label": "Petrochemical & Polymer Units",
+    "stat2Val": "25 T/hr",
+    "stat2Label": "Extrusion & Compounding Capacity",
+    "stat3Val": "100%",
+    "stat3Label": "PESO / OISD Regulatory Approvals",
+    "stat4Val": "SIL-2/3",
+    "stat4Label": "Safety Instrumented Systems Engineered",
+    "standards": "API 520/521 Pressure Relief, OISD, PESO, NFPA 652 Combustible Dust, ATEX",
+    "challenges": "Controlling runaway reaction risks in high-pressure polymerization reactors;;Static electricity hazard in pneumatic pellet and powder transport requiring NFPA 652 grounding;;Polymer melt temperature uniformity under high-torque extrusion;;Compliance with statutory PESO petroleum rules and hazardous area zoning",
+    "capabilities": "Exothermic Reactor Emergency Quench Systems: Rupture disk and relief valve sizing per API 520 with flare header integration.;;Compounding Extrusion & Underwater Pelletizing: High-torque extruder utility integration (chilled water, vacuum degassing, melt pumps).;;Dense-Phase Pneumatic Conveying: Low-velocity conveying avoiding angel-hair/streamer formation, with nitrogen blanketing.;;Bulk Silo Storage & Automated Bagging: Aluminum and SS304 storage silos with load cells, rotary valves, and automated bagging lines.",
+    "processSteps": "Process Safety & HAZOP Review: Hazard and operability analysis (HAZOP), relief vent sizing, and hazardous area classification.;;Detailed Piping & Electrical Layouts: High-pressure piping, trace heating, explosion-proof switchboards, and DCS architecture.;;Equipment Sourcing & Compliance Audit: Procurement oversight for reactors, extruders, pelletizers, vacuum pumps, and blower skids.;;Cold & Hot Commissioning: Nitrogen pressure testing, extruder dry runs, polymer trial compounding, and statutory handover.",
+    "faqs": "How do you prevent combustible dust explosions in polymer powder handling?|We engineer NFPA 652 compliant systems with continuous grounding verification, explosion-venting panels, chemical suppression barriers, and flameless venting.;;Do you handle statutory PESO approvals for hydrocarbon storage?|Yes. We prepare complete layout drawings, risk assessment reports, and safety interlock documents to obtain PESO and environmental clearance."
+  },
+  {
+    "id": "semiconductor-electronics",
+    "name": "Semiconductor & Electronics",
+    "tagline": "Ultra-Pure Cleanrooms (ISO 1-4), UPW Water & Specialty Gas Delivery Systems",
+    "badge": "Advanced High-Tech Electronics",
+    "heroImage": "../assets/industries/14-semiconductor-electronics.jpg",
+    "leadText": "High-precision engineering for semiconductor wafer fabrication, PCB assembly, microelectronics, and cleanroom facilities demanding sub-micron particle and micro-vibration control.",
+    "overview": "Semiconductor fabrication and advanced electronics assembly represent the pinnacle of industrial purity and physical stability. We engineer facility infrastructures meeting ISO 1 to ISO 5 cleanroom standards, Ultra-Pure Water (UPW - 18.2 MΩ·cm), sub-micron chemical dispense systems, specialty ultra-high purity (UHP) gas piping (silane, arsine, NF3), and VC-D/E micro-vibration isolated slabs.",
+    "stat1Val": "35+",
+    "stat1Label": "Cleanroom & Electronics Fab Projects",
+    "stat2Val": "ISO 3-5",
+    "stat2Label": "Cleanroom Classification Achieved",
+    "stat3Val": "18.2 MΩ",
+    "stat3Label": "Ultra-Pure Water (UPW) Resistivity",
+    "stat4Val": "VC-E",
+    "stat4Label": "Vibration Criterion for Photolithography",
+    "standards": "SEMI Standards, ISO 14644-1, SEMI S2 Safety, ASTM D5127 Ultra-Pure Water",
+    "challenges": "Zero tolerance for airborne molecular contamination (AMC) and micro-particles;;Strict micro-vibration limits (VC-D/E) for high-magnification photolithography steppers;;Hazardous, pyrophoric, and toxic specialty gas delivery requiring double-wall orbital piping;;Continuous clean dry air (CDA) and ultra-pure water with parts-per-trillion ionic limits",
+    "capabilities": "Ultra-Clean Fan Filter Unit (FFU) Plenums: Recirculating laminar air plenum ceilings with 100% ULPA filter coverage and AMC chemical filters.;;Ultra-Pure Water (UPW) Generation: Multi-stage RO, electrodeionization (EDI), UV TOC reduction, and PVDF beadless-welded distribution loops.;;UHP Specialty Gas (Gas Pad) Systems: Double-containment 316L VIM/VAR electropolished tubing with continuous helium leak testing (<1x10⁻⁹ mbar·l/s).;;Micro-Vibration Isolated Fab Foundations: Deep piled waffle slabs with isolated tool plinths tuned below equipment resonance frequencies.",
+    "processSteps": "Fab Process Matrix & Tool Utility Hookup: Mapping chemical, UPW, exhaust, and electrical requirements for every fab tool station.;;Architectural & Cleanroom Layout: Cleanroom classification zoning, air showers, gowning airlocks, and sub-fab utility routing.;;Procurement & Clean Construction Vetting: Qualifying cleanroom panel contractors, orbital welders, and gas panel manufacturers.;;Protocol Testing & Certification: Particle count verification, AMC testing, helium leak testing, and cleanroom certification.",
+    "faqs": "What piping materials are required for Ultra-Pure Water (UPW)?|We specify PVDF (polyvinylidene fluoride) joined via contactless infrared (IR) or beadless butt-fusion welding to eliminate TOC leaching and microbial colonization.;;How do you isolate photolithography equipment from vibration?|We engineer deep waffle slabs separated from building columns by continuous isolation joints, placing sensitive steppers on tuned pneumatic or elastomeric isolation mounts."
+  },
+  {
+    "id": "renewable-energy",
+    "name": "Renewable Energy",
+    "tagline": "Solar Photovoltaic, Green Hydrogen Electrolyzers & Battery Energy Storage (BESS)",
+    "badge": "Clean Energy & Decarbonization",
+    "heroImage": "../assets/industries/12-renewable-energy.png",
+    "leadText": "Engineering consultancy for utility-scale solar PV plants, green hydrogen generation facilities, balance of plant (BOP), and high-capacity battery energy storage systems (BESS).",
+    "overview": "The transition to decarbonized industrial power requires robust balance-of-plant engineering, grid interconnection stability, electrolyzer cooling, and fire-safe battery storage. We provide comprehensive engineering for large-scale solar farms, green hydrogen electrolyzer balance of plant, demineralized water supply, hydrogen compression, and grid-tied BESS electrical infrastructure.",
+    "stat1Val": "1.2 GW+",
+    "stat1Label": "Renewable & Storage Capacity Engineered",
+    "stat2Val": "99.2%",
+    "stat2Label": "Inverter & Grid Substation Availability",
+    "stat3Val": "0",
+    "stat3Label": "BESS Thermal Runaway Incidents",
+    "stat4Val": "IEC",
+    "stat4Label": "61850 Substation Automation Standard",
+    "standards": "IEC 62446 (Solar PV), NFPA 855 (Energy Storage), ISO 22734 (Hydrogen Electrolyzers)",
+    "challenges": "High-voltage grid synchronization and statutory compliance with central transmission utilities;;Thermal management and deflagration mitigation for lithium-ion battery containers (NFPA 855);;Ultra-high purity demineralized water requirements for PEM and Alkaline electrolyzers;;High-pressure hydrogen compression (350 to 700 bar) and embrittlement-safe metallurgy",
+    "capabilities": "Green Hydrogen Electrolyzer Balance of Plant: High-purity DM water skids, oxygen-hydrogen gas separation, gas scrubbers, and de-ox units.;;BESS Fire Protection & Thermal HVAC: Liquid-cooled battery racks with integrated aerosol/clean-agent fire suppression and gas detection.;;Solar PV DC/AC Balance of System (BOS): Module string layouts, central inverter transformer stations, and 33kV/132kV/220kV switchyards.;;SCADA & Energy Management Systems (EMS): Plant-wide fiber optic network with dynamic active/reactive power control conforming to grid codes.",
+    "processSteps": "Yield Simulation & Grid Study: PVSyst generation simulation, solar irradiance modeling, and grid interconnection feasibility.;;Detailed Balance of Plant Engineering: Structural racking, high-voltage cable trenching, transformer foundations, and gas piping.;;Procurement Technical Review: Vetting tier-1 PV modules, electrolyzer stacks, inverters, power transformers, and BESS enclosures.;;Testing & Interconnection Handover: Insulation resistance testing, inverter synchronization, grid compliance verification, and COD.",
+    "faqs": "What are the water quality requirements for green hydrogen electrolyzers?|Electrolyzers require ASTM Type I demineralized water (< 0.1 µS/cm conductivity). We engineer dual-pass RO followed by EDI and polishing beds to guarantee stack longevity.;;How is fire safety engineered in utility-scale BESS installations?|We implement NFPA 855 compliant container designs featuring deflagration panels, early off-gas detection (VOC/H2), aerosol suppression, and separated container spacing."
+  },
+  {
+    "id": "oil-gas",
+    "name": "Oil & Gas",
+    "tagline": "Refinery Process Units, Tank Farms, Cross-Country Pipelines & Gas Terminals",
+    "badge": "Hydrocarbon & Petro-Energy",
+    "heroImage": "../assets/industries/15-oil-gas-refineries.png",
+    "leadText": "Specialized engineering and project consultancy for oil refineries, gas processing plants, cryogenic LPG/LNG terminals, bulk petroleum depots, and cross-country pipeline networks.",
+    "overview": "Oil and gas processing operates in high-pressure, high-temperature, and hazardous environments governed by strict safety, environmental, and statutory mandates. We provide engineering services covering refinery process units, atmospheric storage tank farms (API 650/620), gas metering and regulating stations, custody transfer pipelines, flare systems, and firewater networks complying with OISD and PESO.",
+    "stat1Val": "120+",
+    "stat1Label": "Hydrocarbon & Refinery Units Consulted",
+    "stat2Val": "100%",
+    "stat2Label": "OISD & PESO Statutory Compliance",
+    "stat3Val": "100 km+",
+    "stat3Label": "Hydrocarbon Pipeline Routing Engineered",
+    "stat4Val": "SIL-3",
+    "stat4Label": "Emergency Shutdown (ESD) Certified",
+    "standards": "API 650, API 620, ASME B31.3 / B31.4 / B31.8, OISD 117 / 118, PESO Rules, NFPA 11",
+    "challenges": "Strict adherence to safety separation distances per OISD 118 and PESO rules;;High-pressure, sour gas (H2S) service requiring NACE MR0175 compliant metallurgy;;Large-scale fire protection systems requiring 100% reliable high-capacity diesel firewater pumps;;Surge analysis, stress analysis (CAESAR II), and transient flow modeling in long pipelines",
+    "capabilities": "Storage Tank Farms & Dyke Sizing: Floating and fixed roof storage tanks designed per API 650 with dyke spill containment and rim-seal fire protection.;;Pipe Stress & Hydraulic Analysis: Comprehensive CAESAR II thermal flexibility analysis, pipe rack design, and water hammer mitigation.;;High-Pressure Gas Regulating & Metering: Dual-stream filtration skids, ultrasonic metering, slam-shut valves, and odorization systems.;;Plant Firewater & Foam Suppression Networks: Ring-main firewater networks, deluge systems, and foam monitors complying with OISD 117.",
+    "processSteps": "P&ID Development & Process Safety: Developing detailed P&IDs, equipment data sheets, and facilitating comprehensive HAZOP reviews.;;Detailed Layout, Civil & Piping Engineering: 3D model clash detection, structural pipe racks, tank foundations, and cathodic protection.;;Procurement & Vendor Technical Evaluation: Technical bids review for API pumps, compressors, valves, flare tips, and pressure vessels.;;Commissioning & Statutory Clearances: Pre-commissioning hydro-tests, nitrogen purging, PESO inspection accompaniment, and startup.",
+    "faqs": "Do your designs comply with Indian OISD and PESO statutory requirements?|Yes. Every layout, tank spacing, dyke volume, and fire protection system is engineered strictly according to OISD 117, 118, 141, and Petroleum Rules 2002 to secure PESO licensing.;;What software do you use for piping stress analysis?|We perform static and dynamic stress analysis using CAESAR II, evaluating thermal expansion, nozzle loads on pumps/vessels, wind, and seismic loadings."
+  },
+  {
+    "id": "logistics-warehousing",
+    "name": "Logistics & Warehousing",
+    "tagline": "Automated High-Bay Warehouses (ASRS), Temperature-Controlled Cold Hubs & Hub Logistics",
+    "badge": "Supply Chain & Logistics",
+    "heroImage": "../assets/industries/11-logistics-warehousing.jpg",
+    "leadText": "Consultancy and industrial design for automated storage and retrieval systems (ASRS), cold chain distribution centers, multi-modal logistics parks (MMLP), and fulfillment facilities.",
+    "overview": "Modern supply chains rely on maximized cubic volumetric storage, fast truck turnaround times, high-density automated racking, floor flatness to ASTM/TR-34 specifications, and continuous cold chain integrity. We provide turnkey design and engineering covering pre-engineered building (PEB) superstructures, superflat FM2 flooring, dock levelers, cold storage refrigeration, and automated sortation conveyors.",
+    "stat1Val": "150+",
+    "stat1Label": "Distribution Centers & ASRS Warehouses",
+    "stat2Val": "35m+",
+    "stat2Label": "Clear Height High-Bay ASRS Designed",
+    "stat3Val": "TR-34",
+    "stat3Label": "Superflat FM2 Flooring Standards",
+    "stat4Val": "30%",
+    "stat4Label": "Cold Storage Energy Optimization",
+    "standards": "FM Global Property Loss, NFPA 13 (ESFR Sprinklers), TR-34 (Concrete Floors), ASHRAE",
+    "challenges": "Achieving superflat floor tolerances (TR-34 FM2) to prevent reach truck tilt at 12m+ racking heights;;Large fire compartment areas requiring high-hazard Early Suppression Fast Response (ESFR) sprinklers;;Thermal bridge elimination in cold storages to prevent sub-floor permafrost heave;;Heavy vehicular traffic apron durability with optimized turning radii for 40ft multi-axle trailers",
+    "capabilities": "Superflat Industrial Floor Engineering: Laser-screed steel-fiber jointless slabs designed for heavy point loads up to 10-12 tonnes per rack post.;;Automated High-Bay ASRS Integration: Clad-rack automated storage structures reaching up to 35-40 meters clear height.;;Multi-Temperature Cold Chain Facility: Blast freezers (-40°C), frozen rooms (-20°C), and chilled holding areas with underfloor glycol heating.;;Dock & Traffic Apron Optimization: Heavy-duty concrete apron design with hydraulic dock levelers, inflatable shelters, and segregated trailer parking.",
+    "processSteps": "Supply Chain Throughput & Pallet Modeling: Pallet throughput modeling, racking density selection, and material handling equipment (MHE) sizing.;;Architectural, Civil & MEP Detailed Engineering: PEB engineering, superflat floor detailing, ESFR sprinkler modeling, and lighting simulation.;;Procurement Technical Oversight: Vetting PEB suppliers, flooring contractors, racking vendors, and industrial refrigeration contractors.;;Construction Supervision & Floor Level Verification: Laser floor profiling (F-numbers), dock commissioning, and handover.",
+    "faqs": "Why is floor flatness so critical in modern high-bay warehouses?|At rack heights above 10-12 meters, minor floor variations magnify reach truck mast sway, causing safety hazards and slow pick rates. We engineer TR-34 FM2 superflat floors for smooth, fast operation.;;What fire protection standard is implemented for high-density pallet storage?|We design roof-only ESFR (Early Suppression Fast Response) sprinkler systems per NFPA 13 and FM Global standards, eliminating the need for expensive in-rack sprinklers in most configurations."
+  },
+  {
+    "id": "custom-engineering",
+    "name": "Custom Engineering & Heavy Industries",
+    "tagline": "Heavy Fabrication Yards, Foundry Plants, Cement, Steel & Modular Process Skids",
+    "badge": "Heavy Engineering & Infrastructure",
+    "heroImage": "../assets/industries/06-fabrication-heavy-engineering.jpg",
+    "leadText": "Tailored engineering consultancy for heavy industrial facilities, foundry and metal casting plants, cement works, skid-mounted modular processing units, and complex brownfield plant expansions.",
+    "overview": "Heavy industrial manufacturing and modular custom engineering demand deep structural analysis, heavy crane runway girders, high electrical power distribution, robust exhaust ventilation, and comprehensive brownfield integration. We engineer turnkey facilities for structural steel fabrication, pressure vessel fabrication, modular skid systems, foundry cupolas, induction furnaces, and heavy machinery production.",
+    "stat1Val": "100+",
+    "stat1Label": "Heavy Engineering & Skid Projects",
+    "stat2Val": "200T+",
+    "stat2Label": "Overhead EOT Crane Bay Capacity",
+    "stat3Val": "3D",
+    "stat3Label": "Laser Scanning for Brownfield Retrofits",
+    "stat4Val": "100%",
+    "stat4Label": "Code Compliant (ASME, BIS, AISC)",
+    "standards": "ASME Sec VIII Div 1 & 2, AISC 360, IS 800 (Steel Design), ISO 9001",
+    "challenges": "Dynamic fatigue and crane surge loads on heavy structural columns and gantry runways;;Massive electrical demands with severe harmonics from induction furnaces and heavy welders;;Hazardous fumes, dust, and hot gas emissions requiring capture and environmental scrubbers;;Precision mechanical alignment for modular process skids during road transportation and site drop-in",
+    "capabilities": "Heavy Crane Bay & Gantry Runway Design: Fatigue-resistant structural steel design for 50T to 200T overhead traveling (EOT) cranes.;;Modular Skid Mechanical & Electrical Engineering: Compact 3D skid modeling, piping stresses, lift lug calculations, and junction box integration.;;Foundry & Furnace Utility Networks: High-volume water cooling towers, hydraulic power packs, and dry baghouse fume extraction.;;High-Load Industrial Concrete Pavements: Heavy equipment test pads, heat-resistant casting slabs, and heavy trailer haulage roads.",
+    "processSteps": "Capacity & Machine Footprint Analysis: Process flow analysis, crane coverage mapping, and electrical load assessment.;;Comprehensive Structural & MEP Modeling: 3D STAAD.Pro structural modeling, crane surge analysis, and MEP distribution routing.;;Equipment Procurement & Quality Assurance: Technical vetting of EOT cranes, air compressors, shot blast booths, and furnace transformers.;;Site Erection & Commissioning: Foundation load testing, crane rail laser alignment, electrical substation charging, and trial runs.",
+    "faqs": "Can you design skid-mounted modular processing units for remote site deployment?|Yes. We design turnkey, road-transportable modular skids complete with process vessels, pumps, instrumentation, and control panels pre-wired and hydro-tested for plug-and-play field installation.;;How do you handle heavy crane loads on factory building columns?|We engineer stepped steel columns and auxiliary crane stanchions modeled in STAAD.Pro with crane surge, impact factors, and fatigue checks per AISC and IS 800 standards."
+  }
+];
+
+let currentIndustries = EMBEDDED_INDUSTRIES;
+
+// Helper to parse complex fields from Excel rows
+function parseExcelRow(row) {
+  return {
+    id: String(row.id || '').trim(),
+    name: String(row.name || '').trim(),
+    tagline: String(row.tagline || '').trim(),
+    badge: String(row.badge || '').trim(),
+    heroImage: String(row.heroImage || '').trim(),
+    leadText: String(row.leadText || '').trim(),
+    overview: String(row.overview || '').trim(),
+    stat1Val: String(row.stat1Val || '').trim(),
+    stat1Label: String(row.stat1Label || '').trim(),
+    stat2Val: String(row.stat2Val || '').trim(),
+    stat2Label: String(row.stat2Label || '').trim(),
+    stat3Val: String(row.stat3Val || '').trim(),
+    stat3Label: String(row.stat3Label || '').trim(),
+    stat4Val: String(row.stat4Val || '').trim(),
+    stat4Label: String(row.stat4Label || '').trim(),
+    standards: String(row.standards || '').trim(),
+    challenges: String(row.challenges || '').trim(),
+    capabilities: String(row.capabilities || '').trim(),
+    processSteps: String(row.processSteps || '').trim(),
+    faqs: String(row.faqs || '').trim()
+  };
+}
+
+// Load Excel file asynchronously using SheetJS
+async function loadDataFromExcel() {
+  if (typeof XLSX === 'undefined') {
+    console.warn('SheetJS XLSX not detected, using embedded dataset.');
+    return;
+  }
+
+  // Paths to check for Excel file
+  const excelPaths = [
+    'industries.xlsx',
+    '../data/industries.xlsx',
+    '../industries-data.xlsx'
+  ];
+
+  for (const path of excelPaths) {
+    try {
+      const response = await fetch(path);
+      if (!response.ok) continue;
+      const arrayBuffer = await response.arrayBuffer();
+      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+      const firstSheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[firstSheetName];
+      const rawRows = XLSX.utils.sheet_to_json(sheet);
+      if (rawRows && rawRows.length > 0) {
+        currentIndustries = rawRows.map(parseExcelRow);
+        console.log(`Successfully loaded ${currentIndustries.length} industries live from Excel (${path})!`);
+        return;
+      }
+    } catch (err) {
+      // Fetch may fail under file:/// protocol, which is expected
+      // Continue to next path or fallback
+    }
+  }
+}
+
+// Get active industry from URL or default
+function getActiveIndustry() {
+  const params = new URLSearchParams(window.location.search);
+  const paramId = (params.get('industry') || 'pharmaceuticals').toLowerCase().trim();
+
+  // Find exact match or partial match
+  const found = currentIndustries.find(item => 
+    item.id.toLowerCase() === paramId ||
+    item.name.toLowerCase().includes(paramId)
+  );
+
+  return found || currentIndustries[0];
+}
+
+// Render the active industry onto the DOM
+function renderIndustryPage(ind) {
+  if (!ind) return;
+
+  // 1. Page Title & Meta
+  document.title = `${ind.name} | Dynamic Strategys`;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', ind.leadText);
+  }
+
+  // 2. Breadcrumb
+  const breadcrumbCurrent = document.getElementById('ind-breadcrumb-current');
+  if (breadcrumbCurrent) {
+    breadcrumbCurrent.textContent = ind.name;
+  }
+
+  // 3. Hero Section
+  const heroBadge = document.getElementById('ind-hero-badge');
+  if (heroBadge) heroBadge.textContent = ind.badge;
+
+  const heroTitle = document.getElementById('ind-hero-title');
+  if (heroTitle) heroTitle.textContent = ind.name;
+
+  const heroTagline = document.getElementById('ind-hero-tagline');
+  if (heroTagline) heroTagline.textContent = ind.tagline;
+
+  const heroLead = document.getElementById('ind-hero-lead');
+  if (heroLead) heroLead.textContent = ind.leadText;
+
+  const heroBgImg = document.getElementById('ind-hero-bg-img');
+  if (heroBgImg && ind.heroImage) {
+    heroBgImg.src = ind.heroImage;
+    heroBgImg.alt = ind.name;
+  }
+
+  // Hero CTAs
+  const heroCta1 = document.getElementById('ind-hero-cta1');
+  if (heroCta1) {
+    heroCta1.href = `contact.html?industry=${encodeURIComponent(ind.name)}#contact-form`;
+  }
+  const heroCta2 = document.getElementById('ind-hero-cta2');
+  if (heroCta2) {
+    heroCta2.href = 'services.html';
+  }
+
+  // Hero Stats
+  const stat1Val = document.getElementById('ind-stat1-val');
+  const stat1Label = document.getElementById('ind-stat1-label');
+  if (stat1Val && stat1Label) {
+    stat1Val.textContent = ind.stat1Val;
+    stat1Label.textContent = ind.stat1Label;
+  }
+
+  const stat2Val = document.getElementById('ind-stat2-val');
+  const stat2Label = document.getElementById('ind-stat2-label');
+  if (stat2Val && stat2Label) {
+    stat2Val.textContent = ind.stat2Val;
+    stat2Label.textContent = ind.stat2Label;
+  }
+
+  const stat3Val = document.getElementById('ind-stat3-val');
+  const stat3Label = document.getElementById('ind-stat3-label');
+  if (stat3Val && stat3Label) {
+    stat3Val.textContent = ind.stat3Val;
+    stat3Label.textContent = ind.stat3Label;
+  }
+
+  const stat4Val = document.getElementById('ind-stat4-val');
+  const stat4Label = document.getElementById('ind-stat4-label');
+  if (stat4Val && stat4Label) {
+    stat4Val.textContent = ind.stat4Val;
+    stat4Label.textContent = ind.stat4Label;
+  }
+
+  // 4. Sector Overview Section
+  const overviewTitle = document.getElementById('ind-overview-title');
+  if (overviewTitle) {
+    overviewTitle.innerHTML = `<span class="ind-overview-prefix">Engineering &amp; Consultancy</span> Excellence in <span>${ind.name}</span>`;
+  }
+
+  const overviewLead = document.getElementById('ind-overview-lead');
+  if (overviewLead) {
+    overviewLead.textContent = ind.overview;
+  }
+
+  const mediaImg = document.getElementById('ind-media-img');
+  if (mediaImg && ind.heroImage) {
+    mediaImg.src = ind.heroImage;
+    mediaImg.alt = ind.name;
+  }
+
+  const mediaTagBadge = document.getElementById('ind-media-badge');
+  if (mediaTagBadge) mediaTagBadge.textContent = ind.badge;
+
+  const mediaTagTitle = document.getElementById('ind-media-title');
+  if (mediaTagTitle) mediaTagTitle.textContent = `${ind.name.split(',')[0]} Facility`;
+
+  // Challenges List
+  const challengesList = document.getElementById('ind-challenges-list');
+  if (challengesList && ind.challenges) {
+    const items = ind.challenges.split(';;').map(s => s.trim()).filter(Boolean);
+    challengesList.innerHTML = items.map(c => `
+      <li class="ind-challenge-item">
+        <span class="ind-challenge-bullet" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+        </span>
+        <span class="ind-challenge-text">${c}</span>
+      </li>
+    `).join('');
+  }
+
+  // 5. Capabilities / Deliverables (Rich Industrial Scope Cards)
+  const capGrid = document.getElementById('ind-capabilities-grid');
+  if (capGrid && ind.capabilities) {
+    const caps = ind.capabilities.split(';;').map(s => s.trim()).filter(Boolean);
+    const svgIcons = [
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+    ];
+    const themes = ['theme-blue', 'theme-orange', 'theme-emerald', 'theme-indigo'];
+    capGrid.innerHTML = caps.map((cap, idx) => {
+      const parts = cap.split(':');
+      const title = parts[0] ? parts[0].trim() : 'Deliverable';
+      const desc = parts.slice(1).join(':').trim();
+      const icon = svgIcons[idx % svgIcons.length];
+      const theme = themes[idx % themes.length];
+      const num = String(idx + 1).padStart(2, '0');
+      return `
+        <div class="ind-capability-card ${theme}">
+          <div class="ind-cap-top-bar"></div>
+          <div class="ind-cap-card-inner">
+            <div class="ind-cap-header-row">
+              <div class="ind-cap-icon-box">${icon}</div>
+              <span class="ind-cap-tag">SCOPE ${num}</span>
+            </div>
+            <h3 class="ind-cap-card-title">${title}</h3>
+            <p class="ind-cap-card-desc">${desc}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // 6. Process Timeline (Luminous Flow Matching Home Page Working Process)
+  const processGrid = document.getElementById('ind-process-timeline');
+  if (processGrid && ind.processSteps) {
+    const steps = ind.processSteps.split(';;').map(s => s.trim()).filter(Boolean);
+    const themes = ['theme-blue', 'theme-orange', 'theme-blue', 'theme-orange'];
+    processGrid.innerHTML = steps.map((step, idx) => {
+      const parts = step.split(':');
+      const title = parts[0] ? parts[0].trim() : `Phase 0${idx + 1}`;
+      const desc = parts.slice(1).join(':').trim();
+      const num = String(idx + 1).padStart(2, '0');
+      const theme = themes[idx % themes.length];
+      const isLast = idx === steps.length - 1;
+      return `
+        <div class="ind-process-step ${theme}">
+          <div class="ind-step-top-line"></div>
+          <div class="ind-step-inner">
+            <div class="ind-step-badge-wrap">
+              <span class="ind-step-badge">${num}</span>
+              ${!isLast ? `<span class="ind-step-flow-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>` : ''}
+            </div>
+            <h4 class="ind-step-title">${title}</h4>
+            <p class="ind-step-desc">${desc}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // 7. Standards Badges (High-End Industrial Certification Cards)
+  const standardsContainer = document.getElementById('ind-standards-tags');
+  if (standardsContainer && ind.standards) {
+    const tags = ind.standards.split(',').map(s => s.trim()).filter(Boolean);
+    standardsContainer.innerHTML = tags.map(tag => `
+      <div class="ind-standard-badge">
+        <span class="ind-standard-badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </span>
+        <span class="ind-standard-badge-text">${tag}</span>
+      </div>
+    `).join('');
+  }
+
+  // 8. Sector FAQs (With Number Badges & Smooth Interactive Accordion)
+  const faqContainer = document.getElementById('ind-faq-accordion');
+  if (faqContainer && ind.faqs) {
+    const faqPairs = ind.faqs.split(';;').map(s => s.trim()).filter(Boolean);
+    faqContainer.innerHTML = faqPairs.map((pair, idx) => {
+      const [q, a] = pair.split('|');
+      const isOpen = idx === 0 ? 'is-open' : '';
+      const num = String(idx + 1).padStart(2, '0');
+      return `
+        <div class="ind-faq-item ${isOpen}">
+          <button class="ind-faq-question" type="button" aria-expanded="${idx === 0}">
+            <div class="ind-faq-q-left">
+              <span class="ind-faq-num">${num}</span>
+              <span class="ind-faq-q-text">${q ? q.trim() : 'Frequently Asked Question'}</span>
+            </div>
+            <span class="ind-faq-chevron" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 1.5l5 5 5-5"/>
+              </svg>
+            </span>
+          </button>
+          <div class="ind-faq-answer">
+            <p>${a ? a.trim() : 'Contact our engineering advisory team for specific sector parameters.'}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Attach accordion click handlers
+    faqContainer.querySelectorAll('.ind-faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.ind-faq-item');
+        const wasOpen = item.classList.contains('is-open');
+        
+        // Close others
+        faqContainer.querySelectorAll('.ind-faq-item').forEach(other => {
+          other.classList.remove('is-open');
+          const otherBtn = other.querySelector('.ind-faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!wasOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  // 9. Industry Quick Switcher Pills
+  const switcherContainer = document.getElementById('ind-switcher-pills');
+  if (switcherContainer) {
+    switcherContainer.innerHTML = currentIndustries.map(item => {
+      const activeClass = item.id === ind.id ? 'is-active' : '';
+      return `
+        <a href="industry-detail.html?industry=${encodeURIComponent(item.id)}" class="ind-switcher-pill ${activeClass}">
+          ${activeClass ? '<span class="ind-pill-dot" aria-hidden="true"></span>' : ''}
+          <span>${item.name}</span>
+        </a>
+      `;
+    }).join('');
+  }
+
+  // 10. Update Bottom CTA Links
+  const bottomCtaBtn = document.getElementById('ind-bottom-cta-btn');
+  if (bottomCtaBtn) {
+    bottomCtaBtn.href = `contact.html?industry=${encodeURIComponent(ind.name)}#contact-form`;
+  }
+}
+
+// Initial bootstrap
+document.addEventListener('DOMContentLoaded', async () => {
+  // First render immediately with baseline data
+  let activeInd = getActiveIndustry();
+  renderIndustryPage(activeInd);
+
+  // Then attempt to load live Excel data and re-render if loaded
+  await loadDataFromExcel();
+  activeInd = getActiveIndustry();
+  renderIndustryPage(activeInd);
+});

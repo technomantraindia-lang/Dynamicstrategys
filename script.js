@@ -8,20 +8,76 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
 
   if (toggleBtn && navMenu) {
+    const closeMobileDropdowns = () => {
+      navMenu.querySelectorAll('.has-dropdown.is-open').forEach((item) => {
+        item.classList.remove('is-open');
+        item.querySelector('.nav-link-dropdown')?.setAttribute('aria-expanded', 'false');
+      });
+    };
+
     toggleBtn.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
       navMenu.classList.toggle('is-active');
+      if (isExpanded) closeMobileDropdowns();
     });
 
     // Close menu when clicking any nav link
     navMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
+        if (link.classList.contains('nav-link-dropdown') && window.matchMedia('(max-width: 980px)').matches) return;
         toggleBtn.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('is-active');
       });
     });
+
+    // On mobile, dropdown links expand their submenu instead of navigating away.
+    navMenu.querySelectorAll('.has-dropdown > .nav-link-dropdown').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        if (!window.matchMedia('(max-width: 980px)').matches) return;
+        event.preventDefault();
+
+        const parent = trigger.closest('.has-dropdown');
+        const willOpen = !parent.classList.contains('is-open');
+
+        navMenu.querySelectorAll('.has-dropdown.is-open').forEach((item) => {
+          if (item !== parent) {
+            item.classList.remove('is-open');
+            item.querySelector('.nav-link-dropdown')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        parent.classList.toggle('is-open', willOpen);
+        trigger.setAttribute('aria-expanded', String(willOpen));
+      });
+    });
   }
+
+  // Populate every Industries dropdown from the complete Excel-based sector
+  // directory so every page links directly to that industry's detail page.
+  const industryMenuItems = [
+    ['pharmaceuticals', 'Pharmaceuticals, API & Chemicals'],
+    ['food-beverages', 'Food & Beverages'],
+    ['fmcg', 'FMCG Manufacturing'],
+    ['yarns-textiles', 'Yarns & Textiles'],
+    ['packaging-corrugation', 'Packaging & Corrugation'],
+    ['custom-engineering', 'Fabrication & Heavy Engineering'],
+    ['automotive', 'Automobile & Auto Ancillary'],
+    ['marine-structures', 'Marine & Complex Structures'],
+    ['glass-ceramics', 'Glass & Ceramics'],
+    ['pulp-paper', 'Pulp & Paper Mills'],
+    ['logistics-warehousing', 'Logistics & Warehousing'],
+    ['renewable-energy', 'Renewable Energy'],
+    ['polymers-petrochemicals', 'Polymers & Petro-Chemicals'],
+    ['semiconductor-electronics', 'Semiconductor & Electronics'],
+    ['oil-gas', 'Oil & Gas']
+  ];
+  const isPagesDir = window.location.pathname.includes('/pages/');
+  const detailBasePath = isPagesDir ? 'industry-detail.html' : 'pages/industry-detail.html';
+  document.querySelectorAll('ul[aria-label="Industries dropdown"]').forEach((menu) => {
+    menu.classList.add('industries-dropdown');
+    menu.innerHTML = industryMenuItems.map(([slug, title]) => `<li><a href="${detailBasePath}?industry=${encodeURIComponent(slug)}">${title}</a></li>`).join('');
+  });
 
   // 2. Video Play / Pause & Slow Playback Speed Control
   const bgVideo = document.getElementById('bgVideo');
@@ -230,6 +286,30 @@ document.addEventListener('DOMContentLoaded', () => {
         restartTestimonialAutoplay();
       });
     });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    testimonialTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    testimonialTrack.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          moveTestimonials(1);
+        } else {
+          moveTestimonials(-1);
+        }
+        restartTestimonialAutoplay();
+      }
+    }, { passive: true });
 
     testimonialTrack.addEventListener('mouseenter', () => window.clearInterval(testimonialAutoplay));
     testimonialTrack.addEventListener('mouseleave', restartTestimonialAutoplay);
@@ -642,24 +722,25 @@ document.addEventListener('DOMContentLoaded', () => {
     clientLogoRail.addEventListener('pointercancel', stopDragging);
     clientLogoRail.addEventListener('pointerleave', stopDragging);
 
-    let previousFrameTime = performance.now();
-    const autoMove = (frameTime) => {
-      const elapsed = Math.min(frameTime - previousFrameTime, 64);
-      previousFrameTime = frameTime;
+    const autoMoveClientLogos = () => {
+      if (isDragging || document.hidden || performance.now() < manualClientPauseUntil) return;
 
-      if (!isDragging && !document.hidden && performance.now() >= manualClientPauseUntil) {
-        const moveBy = 42 * (elapsed / 1000);
-        clientLogoRail.scrollLeft += moveBy;
-        const loopWidth = clientLogoRail.scrollWidth / 2;
-        if (loopWidth > 0 && clientLogoRail.scrollLeft >= loopWidth) {
-          clientLogoRail.scrollLeft -= loopWidth;
-        }
+      const firstCard = clientLogoRail.querySelector('.client-logo-card');
+      if (!firstCard) return;
+
+      const gap = parseFloat(window.getComputedStyle(clientLogoRail).gap) || 0;
+      const step = firstCard.getBoundingClientRect().width + gap;
+      const loopWidth = clientLogoRail.scrollWidth / 2;
+      const nextPosition = clientLogoRail.scrollLeft + step;
+
+      if (loopWidth > 0 && nextPosition >= loopWidth) {
+        clientLogoRail.scrollLeft = 0;
+      } else {
+        clientLogoRail.scrollTo({ left: nextPosition, behavior: 'smooth' });
       }
-
-      window.requestAnimationFrame(autoMove);
     };
 
-    window.requestAnimationFrame(autoMove);
+    window.setInterval(autoMoveClientLogos, 2200);
   }
 
   // Dynamic calculation for Working Process ("From Concept to Completion") dotted connector lines
@@ -780,9 +861,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const enquiryModal = document.getElementById('enquiryModal');
   const openEnquiryBtns = document.querySelectorAll('.header-btn-touch, .mobile-btn-touch, .open-enquiry-modal, a[href="#enquiryModal"]');
 
+  const getServiceEnquiryName = () => {
+    if (!document.body.classList.contains('service-detail-page')) return '';
+    const titleElement = document.getElementById('detail-overview-title') || document.getElementById('detail-title');
+    const title = titleElement ? titleElement.textContent.trim() : '';
+    return title && title !== 'Engineering Solutions' && title !== 'Service Detail' ? title : '';
+  };
+
+  const prefillServiceEnquiry = () => {
+    const serviceName = getServiceEnquiryName();
+    if (!serviceName || !enquiryModal) return;
+
+    const projectType = enquiryModal.querySelector('#eqProjectType');
+    if (projectType) {
+      const normalizedServiceName = serviceName.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+      const matchingOption = Array.from(projectType.options).find((option) => {
+        const normalizedOption = option.textContent.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+        return normalizedOption === normalizedServiceName;
+      });
+
+      if (matchingOption) {
+        projectType.value = matchingOption.value;
+      } else {
+        const autoOption = projectType.querySelector('option[data-service-context="true"]');
+        if (autoOption) autoOption.remove();
+
+        const serviceOption = document.createElement('option');
+        serviceOption.value = 'service-' + normalizedServiceName.replace(/\s+/g, '-');
+        serviceOption.textContent = serviceName;
+        serviceOption.dataset.serviceContext = 'true';
+        projectType.insertBefore(serviceOption, projectType.options[1] || null);
+        projectType.value = serviceOption.value;
+      }
+    }
+
+    const requirements = enquiryModal.querySelector('#eqRequirements');
+    if (requirements && (!requirements.value.trim() || requirements.dataset.serviceContext === 'true')) {
+      requirements.value = 'Service requested: ' + serviceName + '\n\n';
+      requirements.dataset.serviceContext = 'true';
+    }
+  };
+
   const openEnquiry = (e) => {
     if (e) e.preventDefault();
     if (!enquiryModal) return;
+    prefillServiceEnquiry();
     enquiryModal.classList.add('is-active');
     enquiryModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Technomantra India for engineering consultancy, project management, and industrial turnkey solutions." />
-  <title>Contact Us | Technomantra India</title>
+  <meta name="description" content="Contact Dynamic Strategys for engineering consultancy, project management, and industrial turnkey solutions." />
+  <title>Contact Us | Dynamic Strategys</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=2.9" />
   <link rel="stylesheet" href="../process-section.css" />
   <link rel="stylesheet" href="contact-page.css" />
 </head>
@@ -19,8 +19,8 @@
   <header class="site-header" id="home">
     <div class="header-container">
       <div class="header-left">
-        <a class="brand" href="../index.html#home" aria-label="Technomantra India - Home">
-          <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+        <a class="brand" href="../index.html#home" aria-label="Dynamic Strategys - Home">
+          <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Dynamic Strategys logo" /></span>
         </a>
       </div>
 
@@ -46,18 +46,28 @@
             </ul>
           </li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link nav-link-dropdown" href="../index.html#industries" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link nav-link-dropdown" href="industries.html" aria-haspopup="true" aria-expanded="false">
               <span>Industries</span>
               <svg class="chevron-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4" /></svg>
             </a>
-            <ul class="dropdown-list" aria-label="Industries dropdown">
-              <li><a href="../index.html#industries">Oil &amp; Gas / Petrochemicals</a></li>
-              <li><a href="../index.html#industries">Energy &amp; Renewable Power</a></li>
-              <li><a href="../index.html#industries">Heavy Industrial Manufacturing</a></li>
-              <li><a href="../index.html#industries">Infrastructure &amp; Civil Engineering</a></li>
+            <ul class="dropdown-list industries-dropdown" aria-label="Industries dropdown">
+              <li><a href="industry-detail.html?industry=pharmaceuticals">Pharmaceuticals, API &amp; Chemicals</a></li>
+              <li><a href="industry-detail.html?industry=food-beverages">Food &amp; Beverages</a></li>
+              <li><a href="industry-detail.html?industry=fmcg">FMCG Manufacturing</a></li>
+              <li><a href="industry-detail.html?industry=yarns-textiles">Yarns &amp; Textiles</a></li>
+              <li><a href="industry-detail.html?industry=packaging-corrugation">Packaging &amp; Corrugation</a></li>
+              <li><a href="industry-detail.html?industry=custom-engineering">Fabrication &amp; Heavy Engineering</a></li>
+              <li><a href="industry-detail.html?industry=automotive">Automobile &amp; Auto Ancillary</a></li>
+              <li><a href="industry-detail.html?industry=marine-structures">Marine &amp; Complex Structures</a></li>
+              <li><a href="industry-detail.html?industry=glass-ceramics">Glass &amp; Ceramics</a></li>
+              <li><a href="industry-detail.html?industry=pulp-paper">Pulp &amp; Paper Mills</a></li>
+              <li><a href="industry-detail.html?industry=logistics-warehousing">Logistics &amp; Warehousing</a></li>
+              <li><a href="industry-detail.html?industry=renewable-energy">Renewable Energy</a></li>
+              <li><a href="industry-detail.html?industry=polymers-petrochemicals">Polymers &amp; Petro-Chemicals</a></li>
+              <li><a href="industry-detail.html?industry=semiconductor-electronics">Semiconductor &amp; Electronics</a></li>
+              <li><a href="industry-detail.html?industry=oil-gas">Oil &amp; Gas</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact Us</a></li>
         </ul>
 
@@ -85,11 +95,11 @@
     <!-- Hero Banner with High-Resolution Visual Presentation -->
     <section class="contact-hero-banner" aria-label="Contact Us Banner">
       <div class="hero-image-wrap">
-        <img class="contact-banner-img" src="../assets/bannera/contact.png" alt="Contact Us - Technomantra India" />
+        <img class="contact-banner-img" src="../assets/bannera/contact.png" alt="Contact Us - Dynamic Strategys" />
         <div class="banner-gradient-overlay" aria-hidden="true"></div>
       </div>
       <div class="contact-hero-caption visually-hidden">
-        <h1>Contact Us - Technomantra India</h1>
+        <h1>Contact Us - Dynamic Strategys</h1>
         <p>Get in touch with our engineering and consultancy experts for your industrial projects.</p>
       </div>
     </section>
@@ -170,42 +180,21 @@
                     </svg>
                     <select id="service" name="service" required>
                       <option value="" disabled selected>Select an engineering service...</option>
-                      <option value="Engineering Consultancy">Engineering Consultancy</option>
-                      <option value="Project Management">Project Management</option>
+                      <option value="Electrical Engineering">Electrical Engineering</option>
+                      <option value="Instrumentation & Control">Instrumentation &amp; Control</option>
+                      <option value="Mechanical Engineering">Mechanical Engineering</option>
                       <option value="Procurement Support">Procurement Support</option>
+                      <option value="Detailed Project Reports (DPR)">Detailed Project Reports (DPR)</option>
+                      <option value="Project Management">Project Management</option>
+                      <option value="Logistics Planning">Logistics Planning</option>
                       <option value="Manufacturing Consultancy">Manufacturing Consultancy</option>
-                      <option value="Logistics & Supply Chain">Logistics &amp; Supply Chain</option>
-                      <option value="Project Execution">Project Execution &amp; EPC</option>
-                      <option value="Business Process Optimization">Business Process Optimization</option>
-                      <option value="Technical Advisory">Technical Advisory &amp; Audits</option>
+                      <option value="Labour Planning & Sourcing">Labour Planning &amp; Sourcing</option>
+                      <option value="Integrated Engineering & EPC Execution">Integrated Engineering &amp; EPC Execution</option>
                       <option value="Other Inquiries">General / Other Inquiries</option>
                     </select>
                     <span class="custom-select-arrow" aria-hidden="true">
                       <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4" /></svg>
                     </span>
-                  </div>
-                </div>
-
-                <!-- Project Urgency Selection Pills -->
-                <div class="field-group full-width">
-                  <label class="field-sublabel">Project Timeline / Urgency</label>
-                  <div class="timeline-pills-group" role="radiogroup" aria-label="Project Timeline">
-                    <label class="timeline-pill">
-                      <input type="radio" name="timeline" value="immediate" checked />
-                      <span>⚡ Immediate (1–4 Weeks)</span>
-                    </label>
-                    <label class="timeline-pill">
-                      <input type="radio" name="timeline" value="medium" />
-                      <span>📅 1–3 Months</span>
-                    </label>
-                    <label class="timeline-pill">
-                      <input type="radio" name="timeline" value="planning" />
-                      <span>💡 Planning &amp; Feasibility</span>
-                    </label>
-                    <label class="timeline-pill">
-                      <input type="radio" name="timeline" value="tender" />
-                      <span>🏢 EPC / Tender RFP</span>
-                    </label>
                   </div>
                 </div>
 
@@ -364,7 +353,7 @@
                   </div>
                   <div class="cell-content">
                     <strong class="cell-label">Direct Email</strong>
-                    <a class="cell-value cell-link" href="mailto:info@companyname.com">info@companyname.com</a>
+                    <a class="cell-value cell-link" href="mailto:info@dynamicstrategys.com">info@dynamicstrategys.com</a>
                   </div>
                 </div>
               </div>
@@ -441,7 +430,7 @@
           <div class="map-frame-pane">
             <div class="map-frame-inner">
               <iframe
-                title="Google Map showing Technomantra India office in Jaipur, Rajasthan"
+                title="Google Map showing Dynamic Strategys office in Jaipur, Rajasthan"
                 src="https://www.google.com/maps?q=Plot%20No.%20123%2C%20Industrial%20Area%2C%20Jaipur%2C%20Rajasthan%2C%20India&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -478,8 +467,8 @@
       <div class="footer-backdrop" aria-hidden="true"></div>
       <div class="footer-container">
         <div class="footer-col col-about">
-          <a class="brand brand-footer" href="../index.html#home" aria-label="Technomantra India - Home">
-            <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Technomantra India logo" /></span>
+          <a class="brand brand-footer" href="../index.html#home" aria-label="Dynamic Strategys - Home">
+            <span class="brand-symbol"><img class="brand-image" src="../assets/logo.png" alt="Dynamic Strategys logo" /></span>
           </a>
           <p class="about-text">An engineering and management consultancy providing integrated solutions across engineering, project management, procurement and project execution. We help businesses transform ideas into sustainable, efficient and successful projects.</p>
         </div>
@@ -491,7 +480,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="../index.html#services">Our Services</a></li>
             <li><a href="../index.html#working-process">Working Process</a></li>
-            <li><a href="../index.html#industries">Industries</a></li>
+            <li><a href="industries.html">Industries</a></li>
             <li><a href="../index.html#projects">Projects</a></li>
             <li><a href="../index.html#knowledge">Knowledge Center</a></li>
             <li><a href="contact.html">Contact Us</a></li>
@@ -525,11 +514,11 @@
             </li>
             <li class="contact-item">
               <span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg></span>
-              <span class="contact-text"><a href="mailto:info@companyname.com">info@companyname.com</a></span>
+              <span class="contact-text"><a href="mailto:info@dynamicstrategys.com">info@dynamicstrategys.com</a></span>
             </li>
             <li class="contact-item">
               <span class="contact-icon-circle" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 7.027a6.002 6.002 0 018.73-2.905c-.287.49-.624.962-1.009 1.408a11.164 11.164 0 00-4.08 1.497H4.332zm-1.07 4.148A6.027 6.027 0 013.04 10c0-.348.03-.688.087-1.018l2.678.966c-.035.344-.055.694-.055 1.052 0 .425.029.84.084 1.243l-2.572-1.095zm1.758 2.656l2.39-1.018a11.17 11.17 0 003.58 1.954 6.003 6.003 0 01-5.97-1.936zm8.647-1.472a11.196 11.196 0 00-3.155-1.745 9.176 9.176 0 00.32-1.614l3.19.988a6.022 6.022 0 01-.355 2.371zm1.264-3.523l-3.328-1.03c.123-.62.298-1.218.52-1.78a6.002 6.002 0 012.808 2.81zm-4.708-3.92a9.18 9.18 0 00-.737 1.632 11.18 11.18 0 00-4.06-1.503 6.004 6.004 0 014.797-.129zm-2.03 3.65c.34-.087.693-.15 1.054-.187.164.56.297 1.144.394 1.743-1.066.38-2.062.883-2.97 1.49-.074-.593-.118-1.203-.118-1.823 0-.416.02-.824.057-1.223h1.583zm2.593 1.94c-.114-.658-.26-1.298-.44-1.91 1.082-.36 2.096-.838 3.023-1.417.065.556.102 1.124.102 1.704 0 .438-.023.868-.066 1.29l-2.619.333z" clip-rule="evenodd" /></svg></span>
-              <span class="contact-text"><a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a></span>
+              <span class="contact-text"><a href="https://www.dynamicstrategys.com" target="_blank" rel="noopener">www.dynamicstrategys.com</a></span>
             </li>
           </ul>
         </div>
@@ -537,7 +526,7 @@
     </div>
     <div class="footer-bottom">
       <div class="bottom-container">
-        <p class="copyright-text">&copy; <span id="current-year">2026</span> Technomantra India. All Rights Reserved.</p>
+        <p class="copyright-text">&copy; <span id="current-year">2026</span> Dynamic Strategys. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
@@ -801,8 +790,35 @@
     </div>
   </div>
 
-  <script src="../script.js"></script>
+  <script src="../script.js?v=1.1"></script>
   <script>
+    // Auto-select service or industry from URL query parameters
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceParam = urlParams.get('service');
+      const serviceSelect = document.getElementById('service');
+      if (serviceParam && serviceSelect) {
+        const cleanParam = serviceParam.toLowerCase().replace(/[^a-z0-9]/g, '');
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          const opt = serviceSelect.options[i];
+          const cleanOpt = opt.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+          if (cleanOpt && (cleanOpt.includes(cleanParam) || cleanParam.includes(cleanOpt))) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      const industryParam = urlParams.get('industry');
+      if (industryParam) {
+        const msgField = document.getElementById('message');
+        if (msgField && !msgField.value) {
+          msgField.placeholder = "Inquiry regarding " + industryParam + " facility scope, engineering deliverables, and project specifications...";
+        }
+      }
+    } catch (e) {
+      console.warn('URL param parse error:', e);
+    }
+
     // Contact Form submission handling with animated feedback
     const contactForm = document.getElementById('contactForm');
     const contactSuccess = document.getElementById('contactSuccess');

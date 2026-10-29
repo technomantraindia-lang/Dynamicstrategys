@@ -506,7 +506,7 @@ const SERVICE_MEDIA_STATS = {
 };
 
 function renderService(service) {
-  document.title = service.title + " | Technomantra India";
+  document.title = service.title + " | Dynamic Strategys";
   
   const serviceKey = Object.keys(SERVICE_DATA).find(function (key) { return SERVICE_DATA[key] === service; }) || "electrical-engineering";
 
@@ -687,6 +687,7 @@ function renderService(service) {
       "../assets/working-process/commissioning-clear.png",
       "../assets/services-generated/procurement-support.png"
     ];
+    servicesEl.className = "detail-service-grid count-" + service.services.length;
     servicesEl.innerHTML = service.services.map(function (item, index) {
       const cardImg = (service.cardImages && service.cardImages[index]) || fallbackImages[index % fallbackImages.length];
       const numStr = (index + 1 < 10 ? "0" : "") + (index + 1);
@@ -699,10 +700,6 @@ function renderService(service) {
           "<div class=\"service-card-icon-floating\">" + serviceSvgs[index % serviceSvgs.length] + "</div>" +
           "<h3>" + escapeHtml(item[0]) + "</h3>" +
           "<p>" + escapeHtml(item[1]) + "</p>" +
-          "<div class=\"service-card-footer\">" +
-            "<span class=\"service-card-action-text\">Engineering Scope</span>" +
-            "<span class=\"service-card-arrow-btn\"><svg viewBox=\"0 0 14 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"><path d=\"M1 6h11M7.5 1.5L12 6l-4.5 4.5\"/></svg></span>" +
-          "</div>" +
         "</div>" +
       "</article>";
     }).join("");

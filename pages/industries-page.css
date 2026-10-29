@@ -1,0 +1,1158 @@
+/* ============================================================================
+   Industries Directory Page - Dynamic Strategys
+   Harmonized with Home Page Corporate Backgrounds & Design Language
+   ============================================================================ */
+
+:root {
+  --ind-navy-deep: #03172c;
+  --ind-navy-dark: #071e38;
+  --ind-navy-header: #0a223f;
+  --ind-blue: #0072ea;
+  --ind-blue-hover: #005bb5;
+  --ind-blue-light: #e8f3fc;
+  --ind-cyan: #00b4ff;
+  --ind-orange: #f7941d;
+  --ind-green: #10b981;
+  --ind-purple: #8b5cf6;
+  --ind-text-main: #071e38;
+  --ind-text-muted: #556f8a;
+  --ind-text-dim: #7f97b4;
+  --ind-border: #dce7f5;
+  --ind-border-hover: #0072ea;
+  --ind-bg: #f8fafc;
+  --ind-card-bg: #ffffff;
+  --font-brand: "Montserrat", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+/* Base resets & typography for industries page */
+body.industries-page {
+  background-color: var(--ind-bg);
+  color: var(--ind-text-main);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+body.industries-page * {
+  box-sizing: border-box;
+}
+
+.industries-shell {
+  width: min(100% - 48px, 1260px);
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   0. Header Enquire Pill Button
+   ============================================================================ */
+.btn-enquire-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ind-blue);
+  color: #ffffff !important;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-brand);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 114, 234, 0.28);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-enquire-pill:hover {
+  background: var(--ind-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 114, 234, 0.4);
+  color: #ffffff !important;
+}
+
+.btn-enquire-pill .arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.btn-enquire-pill:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ============================================================================
+   1. HERO BANNER (Engineering insight for 15 industries.)
+   ============================================================================ */
+.industries-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #021224;
+  color: #ffffff;
+  padding: 110px 0 100px;
+}
+
+.industries-hero-image {
+  position: absolute;
+  inset: 0;
+  background: url("../assets/industries/15-oil-gas-refineries.png") center 30% / cover no-repeat;
+  filter: brightness(0.92) contrast(1.05);
+  transform: scale(1.01);
+  z-index: 0;
+}
+
+.industries-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 14, 28, 0.45) 0%, transparent 22%),
+    linear-gradient(90deg, rgba(2, 15, 30, 0.94) 0%, rgba(2, 18, 36, 0.88) 32%, rgba(3, 24, 48, 0.52) 62%, rgba(3, 24, 48, 0.12) 100%),
+    linear-gradient(0deg, rgba(2, 14, 28, 0.65) 0%, transparent 28%);
+  z-index: 1;
+}
+
+.industries-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 78% 25%, rgba(247, 148, 29, 0.22), transparent 36%),
+              radial-gradient(circle at 18% 85%, rgba(0, 114, 234, 0.22), transparent 44%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.industries-hero-shell {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+  width: min(100% - 48px, 1260px);
+  margin: 0 auto;
+}
+
+.industries-hero-left {
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.industries-hero-eyebrow {
+  color: #82c8ff;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.industries-hero h1 {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: clamp(36px, 4.2vw, 56px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+  margin: 0 0 20px;
+  max-width: 780px;
+}
+
+.industries-hero h1 .hero-line-1 {
+  display: block;
+  white-space: nowrap;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
+.industries-hero h1 .hero-line-2 {
+  display: block;
+  margin-top: 4px;
+}
+
+.industries-hero h1 .highlight-cyan,
+.industries-hero h1 .highlight-sky {
+  color: #00b4ff;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
+.industries-hero-lead {
+  color: #c4d7ec;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.68;
+  margin: 0 0 34px;
+  max-width: 620px;
+}
+
+.industries-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-btn-blue,
+.industries-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ind-blue);
+  color: #ffffff !important;
+  padding: 13.5px 28px;
+  border-radius: 9999px;
+  font-family: var(--font-brand);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 114, 234, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.25s ease;
+}
+
+.hero-btn-blue:hover,
+.industries-hero-cta:hover {
+  background: var(--ind-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 114, 234, 0.48);
+  color: #ffffff !important;
+}
+
+.hero-btn-blue .btn-arrow,
+.industries-hero-cta .cta-arrow {
+  transition: transform 0.2s ease;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.hero-btn-blue:hover .btn-arrow,
+.industries-hero-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================================
+   2. 15 INDUSTRIES WE SERVE (Home Page Styled Clean Atmospheric Directory)
+   ============================================================================ */
+.industry-directory {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(247, 148, 29, 0.07) 0%, transparent 35%),
+    radial-gradient(circle at 8% 90%, rgba(0, 114, 234, 0.09) 0%, transparent 40%),
+    linear-gradient(180deg, #f7faff 0%, #edf5fc 50%, #f7faff 100%);
+  padding: 85px 0 105px;
+  position: relative;
+}
+
+.industry-directory-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.industry-directory-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--ind-blue);
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.industry-directory-kicker .kicker-dash {
+  width: 28px;
+  height: 2.5px;
+  background: var(--ind-blue);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.industry-directory-header h2 {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.8px;
+  color: var(--ind-navy-dark);
+  margin: 0 0 16px;
+}
+
+.industry-directory-header h2 .highlight-orange {
+  color: var(--ind-orange, #f7941d);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
+.industry-directory-header p {
+  color: var(--ind-text-muted);
+  font-size: 16px;
+  line-height: 1.68;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* 3-Column x 5-Row Clean Cards Grid */
+.industry-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ============================================================================
+   Signature Dual-Gradient Border & Elevation (Exact Home Page / Testimonial Match)
+   ============================================================================ */
+.industry-box-card {
+  min-height: 100%;
+  border: 2px solid transparent !important;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #0868bd 0%, #0868bd 56%, #f7941d 100%) border-box !important;
+  box-shadow: 0 14px 30px rgba(0, 43, 103, 0.10) !important;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s ease;
+  position: relative;
+}
+
+.industry-box-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent !important;
+  box-shadow: 0 22px 44px rgba(0, 43, 103, 0.18) !important;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #0072ea 0%, #0072ea 50%, #f7941d 100%) border-box !important;
+}
+
+.industry-box-media {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background: #0a1f38;
+  border-radius: 18px 18px 0 0;
+}
+
+.industry-box-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.industry-box-card:hover .industry-box-media img {
+  transform: scale(1.05);
+}
+
+/* Floating Badge on Thumbnail (Exact Home Page 3px White Border & Elevation) */
+.industry-box-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 7px 16px rgba(0, 43, 103, 0.25);
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.industry-box-card:hover .industry-box-badge {
+  transform: scale(1.08);
+}
+
+.industry-box-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.badge-blue {
+  background: var(--ind-blue);
+}
+
+.badge-orange {
+  background: var(--ind-orange);
+}
+
+.badge-green {
+  background: var(--ind-green);
+}
+
+.badge-purple {
+  background: var(--ind-purple);
+}
+
+/* Card Content Body */
+.industry-box-content {
+  padding: 24px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.industry-box-content h3 {
+  font-family: var(--font-brand);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.34;
+  color: var(--ind-navy-dark);
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.industry-box-content p {
+  color: var(--ind-text-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.industry-box-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ind-blue) !important;
+  font-family: var(--font-brand);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.industry-box-link .link-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.industry-box-card:hover .industry-box-link {
+  color: var(--ind-blue-hover) !important;
+}
+
+.industry-box-card:hover .industry-box-link .link-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================================
+   4. WHY CHOOSE US (Modern High-End 6-Card Section with Refinery Visual)
+   ============================================================================ */
+.industry-lifecycle {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(200, 230, 255, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 95% 85%, rgba(255, 238, 222, 0.4) 0%, transparent 40%),
+    linear-gradient(135deg, #eaf4fb 0%, #f6faff 35%, #ffffff 65%, #f1f7fd 100%);
+  color: var(--ind-navy-dark, #072244);
+  padding: 85px 0 95px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #dceaf7;
+  border-bottom: 1px solid #dceaf7;
+}
+
+.industry-lifecycle::before {
+  display: none;
+}
+
+/* Bottom-left ambient refinery sunset graphic */
+.industry-lifecycle-visual-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 460px;
+  height: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.industry-lifecycle-visual-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.industry-lifecycle-visual-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent 0%, rgba(234, 244, 251, 0.4) 40%, rgba(246, 250, 255, 0.95) 80%, #f6faff 100%),
+    linear-gradient(to top, transparent 0%, rgba(234, 244, 251, 0.3) 35%, rgba(246, 250, 255, 0.92) 75%, #f6faff 100%);
+}
+
+.industry-lifecycle-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 44px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.lifecycle-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #0072ea;
+  font-family: var(--font-brand, 'Inter', sans-serif);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.lifecycle-kicker .kicker-dash {
+  width: 22px;
+  height: 2px;
+  background: #0072ea;
+  display: inline-block;
+  border-radius: 99px;
+}
+
+.industry-lifecycle-heading h2 {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: clamp(34px, 3.6vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #072244;
+  margin: 0 0 16px;
+  letter-spacing: -0.8px;
+}
+
+.industry-lifecycle-heading h2 .highlight-blue-italic,
+.industry-lifecycle-heading h2 .highlight-orange,
+.industry-lifecycle-heading h2 span {
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  color: #f7941d !important;
+  letter-spacing: -0.3px;
+}
+
+.industry-lifecycle-heading p {
+  color: #4f6682;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0 0 28px;
+  max-width: 320px;
+}
+
+.lifecycle-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0072ea;
+  color: #ffffff !important;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  font-family: var(--font-brand, 'Inter', sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 114, 234, 0.38);
+  transition: all 0.3s ease;
+}
+
+.lifecycle-pill-btn:hover {
+  background: #005fcc;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 114, 234, 0.48);
+  color: #ffffff !important;
+}
+
+.lifecycle-pill-btn .arrow {
+  transition: transform 0.25s ease;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.lifecycle-pill-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* 3-Column x 2-Row Modern Grid */
+.industry-lifecycle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.lifecycle-item {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 0%, var(--card-glow, rgba(0, 114, 234, 0.08)) 0%, transparent 60%),
+    #ffffff;
+  border: 1px solid rgba(215, 230, 246, 0.7);
+  border-radius: 20px;
+  padding: 24px 22px 20px;
+  box-shadow: 0 10px 28px rgba(3, 35, 75, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 236px;
+  z-index: 1;
+}
+
+.lifecycle-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-accent);
+  box-shadow: 0 18px 40px rgba(3, 35, 75, 0.12);
+}
+
+/* Left Accent Stripe */
+.lifecycle-item::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 4px;
+  height: 48px;
+  border-radius: 0 4px 4px 0;
+  background: var(--card-accent);
+  transition: height 0.3s ease;
+}
+
+.lifecycle-item:hover::before {
+  height: 64px;
+}
+
+/* Card 1: Blue */
+.lifecycle-item.card-blue {
+  --card-accent: #0072ea;
+  --card-glow: rgba(0, 114, 234, 0.08);
+  --badge-bg: #eaf3ff;
+  --btn-bg: #eaf3ff;
+  --btn-color: #0072ea;
+}
+
+/* Card 2: Purple */
+.lifecycle-item.card-purple {
+  --card-accent: #7c5cfc;
+  --card-glow: rgba(124, 92, 252, 0.08);
+  --badge-bg: #f4f0ff;
+  --btn-bg: #f4f0ff;
+  --btn-color: #7c5cfc;
+}
+
+/* Card 3: Green */
+.lifecycle-item.card-green {
+  --card-accent: #10b981;
+  --card-glow: rgba(16, 185, 129, 0.08);
+  --badge-bg: #e8faf1;
+  --btn-bg: #e8faf1;
+  --btn-color: #10b981;
+}
+
+/* Card 4: Orange */
+.lifecycle-item.card-orange {
+  --card-accent: #f7941d;
+  --card-glow: rgba(247, 148, 29, 0.08);
+  --badge-bg: #fff4e8;
+  --btn-bg: #fff4e8;
+  --btn-color: #f7941d;
+}
+
+/* Card 5: Blue Alt */
+.lifecycle-item.card-blue-alt {
+  --card-accent: #0072ea;
+  --card-glow: rgba(0, 114, 234, 0.08);
+  --badge-bg: #eaf3ff;
+  --btn-bg: #eaf3ff;
+  --btn-color: #0072ea;
+}
+
+/* Card 6: Cyan */
+.lifecycle-item.card-cyan {
+  --card-accent: #06b6d4;
+  --card-glow: rgba(6, 182, 212, 0.08);
+  --badge-bg: #e6fafb;
+  --btn-bg: #e6fafb;
+  --btn-color: #06b6d4;
+}
+
+.lifecycle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: var(--badge-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--card-accent);
+  margin-bottom: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.lifecycle-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.lifecycle-item:hover .lifecycle-icon {
+  transform: scale(1.05);
+}
+
+.lifecycle-item h3 {
+  font-family: var(--font-brand, 'Inter', sans-serif);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #072244;
+  margin: 0 0 8px;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+
+.lifecycle-item p {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.lifecycle-card-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  margin-top: auto;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.lifecycle-item:hover .lifecycle-card-arrow {
+  transform: translateX(4px);
+  background: var(--card-accent);
+  color: #ffffff;
+}
+
+@media (max-width: 1240px) {
+  .industry-lifecycle-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .industry-lifecycle-heading p {
+    max-width: 580px;
+  }
+
+  .industry-lifecycle-visual-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .industry-lifecycle-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .industry-lifecycle-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .industry-lifecycle {
+    padding: 60px 0 70px;
+  }
+}
+
+/* ============================================================================
+   5. CTA BANNER (Home Page Style Alignment)
+   ============================================================================ */
+.cta-banner-section {
+  background: linear-gradient(180deg, #f3f5f7 0%, #ffffff 100%) !important;
+  padding: 60px 24px 70px !important;
+}
+
+/* ============================================================================
+   6. RESPONSIVE DESIGN (Media Queries)
+   ============================================================================ */
+@media (max-width: 1100px) {
+  .industries-shell,
+  .industries-hero-shell {
+    width: min(100% - 40px, 1100px);
+  }
+
+  .industry-directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .industry-lifecycle-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-shell,
+  .industries-hero-shell {
+    width: min(100% - 32px, 100%);
+  }
+
+  .industries-hero {
+    padding: 75px 0 65px;
+    min-height: auto;
+  }
+
+  .industries-hero-shell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .industry-directory {
+    padding: 60px 0 70px;
+  }
+
+  .industry-directory-header {
+    margin-bottom: 36px;
+  }
+
+  .industry-directory-header h2 br {
+    display: none;
+  }
+
+  .industry-directory-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .industry-lifecycle {
+    padding: 70px 0;
+  }
+
+  .industry-lifecycle-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn-blue,
+  .industries-hero-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Final mobile hero polish: keep every line and CTA inside the viewport. */
+@media (max-width: 680px) {
+  .industries-hero {
+    min-height: 480px;
+    padding: 62px 0 54px;
+    align-items: center;
+  }
+
+  .industries-hero-image {
+    background-position: 68% center;
+  }
+
+  .industries-hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 14, 28, 0.52) 0%, rgba(2, 14, 28, 0.18) 36%, rgba(2, 14, 28, 0.78) 100%),
+      linear-gradient(90deg, rgba(2, 15, 30, 0.86) 0%, rgba(2, 18, 36, 0.58) 58%, rgba(3, 24, 48, 0.2) 100%);
+  }
+
+  .industries-hero-shell {
+    width: min(100% - 32px, 100%);
+    display: block;
+  }
+
+  .industries-hero-left {
+    width: 100%;
+    max-width: none;
+    align-items: flex-start;
+  }
+
+  .industries-hero-eyebrow {
+    max-width: 100%;
+    margin-bottom: 14px;
+    font-size: 9.5px;
+    letter-spacing: 1.8px;
+    line-height: 1.45;
+  }
+
+  .industries-hero h1 {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    font-size: clamp(31px, 8.8vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.55px;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .industries-hero h1 .hero-line-1 {
+    white-space: normal;
+  }
+
+  .industries-hero h1 .hero-line-2 {
+    margin-top: 2px;
+  }
+
+  .industries-hero-lead {
+    max-width: 330px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .industries-hero-actions {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .hero-btn-blue,
+  .industries-hero-cta {
+    width: min(100%, 280px);
+    min-height: 48px;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Match the homepage mobile header proportions on the industries page. */
+@media (max-width: 680px) {
+  body.industries-page .header-container {
+    height: 76px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  body.industries-page .header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  body.industries-page .brand {
+    max-width: 100%;
+  }
+
+  body.industries-page .site-header .brand-symbol {
+    width: 160px;
+    height: 50px;
+    flex: 0 0 160px;
+  }
+
+  body.industries-page .header-right {
+    flex: 0 0 auto;
+    gap: 0;
+  }
+
+  body.industries-page .btn-enquire-pill {
+    display: none;
+  }
+
+  body.industries-page .nav-toggle {
+    width: 36px;
+    height: 40px;
+    padding: 7px;
+  }
+
+  body.industries-page .hamburger-bar {
+    width: 22px;
+  }
+}
+
+/* Industries directory intro: balanced mobile type scale and spacing. */
+@media (max-width: 680px) {
+  body.industries-page .industry-directory {
+    padding: 48px 0 62px;
+  }
+
+  body.industries-page .industry-directory-header {
+    max-width: 350px;
+    margin-bottom: 30px;
+    padding-inline: 4px;
+  }
+
+  body.industries-page .industry-directory-kicker {
+    gap: 8px;
+    margin-bottom: 11px;
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+  }
+
+  body.industries-page .industry-directory-kicker .kicker-dash {
+    width: 23px;
+    height: 2px;
+  }
+
+  body.industries-page .industry-directory-header h2 {
+    max-width: 340px;
+    font-size: clamp(29px, 8.2vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.55px;
+    margin-bottom: 13px;
+  }
+
+  body.industries-page .industry-directory-header p {
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+/* Why Choose Us mobile composition: centered intro and tighter feature cards. */
+@media (max-width: 680px) {
+  body.industries-page .industry-lifecycle {
+    padding: 46px 0 58px;
+  }
+
+  body.industries-page .industry-lifecycle-layout {
+    gap: 24px;
+  }
+
+  body.industries-page .industry-lifecycle-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  body.industries-page .lifecycle-kicker {
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+  }
+
+  body.industries-page .lifecycle-kicker .kicker-dash {
+    width: 22px;
+    height: 2px;
+  }
+
+  body.industries-page .industry-lifecycle-heading h2 {
+    max-width: 330px;
+    font-size: clamp(29px, 8.2vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 13px;
+  }
+
+  body.industries-page .industry-lifecycle-heading p {
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  body.industries-page .lifecycle-pill-btn {
+    min-height: 46px;
+    padding: 12px 20px;
+    font-size: 12.5px;
+  }
+
+  body.industries-page .industry-lifecycle-grid {
+    gap: 12px;
+  }
+
+  body.industries-page .lifecycle-item {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "icon desc";
+    column-gap: 12px;
+    row-gap: 5px;
+    min-height: 0;
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  body.industries-page .lifecycle-item::before {
+    top: 16px;
+    height: 44px;
+    width: 3px;
+  }
+
+  body.industries-page .lifecycle-icon {
+    grid-area: icon;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    margin-bottom: 0;
+    align-self: start;
+  }
+
+  body.industries-page .lifecycle-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.industries-page .lifecycle-item h3 {
+    grid-area: title;
+    font-size: 15.5px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  body.industries-page .lifecycle-item p {
+    grid-area: desc;
+    font-size: 13px;
+    line-height: 1.48;
+    margin: 0;
+    align-self: start;
+  }
+}
+
+@media (max-width: 380px) {
+  body.industries-page .lifecycle-item {
+    padding-inline: 16px;
+  }
+}

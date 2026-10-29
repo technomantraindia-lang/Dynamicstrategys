@@ -38,9 +38,10 @@ body.service-detail-page {
 
 .service-detail-page .site-header {
   position: relative;
-  z-index: 30;
+  z-index: 50;
   background: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .detail-main {
@@ -807,6 +808,27 @@ body.service-detail-page {
   margin-top: 52px;
 }
 
+/* 5 Deliverables Layout: Row 1 has 3 cards, Row 2 has 2 cards perfectly centered with equal left/right space */
+.detail-service-grid.count-5,
+.detail-service-grid:has(.detail-service-card:nth-child(5):last-child) {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.detail-service-grid.count-5 .detail-service-card,
+.detail-service-grid:has(.detail-service-card:nth-child(5):last-child) .detail-service-card {
+  grid-column: span 2;
+}
+
+.detail-service-grid.count-5 .detail-service-card:nth-child(4),
+.detail-service-grid:has(.detail-service-card:nth-child(5):last-child) .detail-service-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.detail-service-grid.count-5 .detail-service-card:nth-child(5),
+.detail-service-grid:has(.detail-service-card:nth-child(5):last-child) .detail-service-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
 .detail-service-card {
   background: #ffffff;
   border: 1.5px solid rgba(0, 114, 234, 0.38);
@@ -924,20 +946,20 @@ body.service-detail-page {
   color: var(--primary-blue);
 }
 
+.service-card-body {
+  padding: 32px 28px 28px;
+}
+
 .service-card-body p {
   font-size: 13.5px;
   line-height: 1.6;
   color: #4e6783;
-  margin: 0 0 18px;
+  margin: 0;
   flex: 1;
 }
 
 .service-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid #eef4fb;
+  display: none !important;
 }
 
 .service-card-action-text {
@@ -2255,8 +2277,21 @@ body.service-detail-page {
     gap: 42px;
   }
 
-  .detail-service-grid {
+  .detail-service-grid,
+  .detail-service-grid.count-5 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-service-grid.count-5 .detail-service-card,
+  .detail-service-grid.count-5 .detail-service-card:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .detail-service-grid.count-5 .detail-service-card:nth-child(5) {
+    grid-column: 1 / span 2;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .detail-approach-list {
@@ -2341,9 +2376,16 @@ body.service-detail-page {
   }
 
   .detail-service-grid,
+  .detail-service-grid.count-5,
   .detail-why-grid,
   .detail-summary-list {
     grid-template-columns: 1fr;
+  }
+
+  .detail-service-grid.count-5 .detail-service-card:nth-child(5) {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
   }
 
   .detail-approach-list {
@@ -2440,4 +2482,444 @@ body.service-detail-page {
   .detail-why-section { padding: 52px 0 60px !important; }
   .detail-faq-section { padding: 52px 0 62px !important; }
   .detail-cta { padding: 42px 0 48px !important; }
+}
+
+/* Hide the service feature strip on mobile for a cleaner detail-page flow. */
+@media (max-width: 768px) {
+  .detail-feature-strip {
+    display: none !important;
+  }
+}
+
+/* Service detail hero mobile polish. */
+@media (max-width: 680px) {
+  .detail-hero {
+    min-height: 350px;
+    align-items: center;
+  }
+
+  .detail-hero-image img {
+    object-position: 58% center;
+    opacity: 0.28;
+  }
+
+  .detail-hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(0, 18, 48, 0.9) 0%, rgba(2, 34, 76, 0.82) 54%, rgba(0, 15, 38, 0.94) 100%),
+      linear-gradient(90deg, rgba(0, 18, 48, 0.92), rgba(1, 24, 58, 0.72));
+  }
+
+  .detail-hero-container {
+    width: calc(100% - 32px);
+    padding: 32px 0 38px;
+  }
+
+  .detail-hero-content {
+    max-width: 100%;
+  }
+
+  .detail-breadcrumb {
+    max-width: 100%;
+    gap: 8px;
+    padding: 6px 12px;
+    margin-bottom: 17px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .detail-hero h1 {
+    max-width: 320px;
+    font-size: clamp(32px, 9vw, 38px);
+    line-height: 1.05;
+    letter-spacing: -0.9px;
+    margin-bottom: 15px;
+  }
+
+  .detail-hero-lead {
+    max-width: 330px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+}
+
+/* Service overview mobile polish. */
+@media (max-width: 680px) {
+  .detail-overview-section {
+    padding: 44px 0 54px !important;
+  }
+
+  .detail-overview-text {
+    padding-left: 0;
+  }
+
+  .detail-overview-text .detail-section-kicker {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 9px;
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+  }
+
+  .detail-overview-text h2 {
+    max-width: 340px;
+    margin: 10px auto 16px;
+    font-size: clamp(28px, 8vw, 35px);
+    line-height: 1.1;
+    letter-spacing: -0.45px;
+    text-align: center;
+  }
+
+  .detail-copy-card {
+    margin-bottom: 18px;
+  }
+
+  .detail-copy-card p,
+  .detail-copy-card p:first-child {
+    max-width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14.5px;
+    line-height: 1.58;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .detail-summary-card {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+
+  .detail-summary-list {
+    gap: 10px;
+  }
+
+  .summary-chip {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 11px 13px;
+    border-radius: 14px;
+  }
+
+  .summary-icon-squircle {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+
+  .summary-icon-squircle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .summary-chip-text strong {
+    font-size: 13px;
+    line-height: 1.25;
+    margin-bottom: 3px;
+  }
+
+  .summary-chip-text small {
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+}
+
+/* Why Choose Us mobile polish. */
+@media (max-width: 680px) {
+  .detail-why-section {
+    padding: 44px 0 54px !important;
+  }
+
+  .detail-why-header {
+    max-width: 350px;
+    margin-bottom: 26px;
+  }
+
+  .detail-why-header .concept-eyebrow {
+    margin-bottom: 11px;
+  }
+
+  .detail-why-h2 {
+    max-width: 340px;
+    margin: 0 auto 13px;
+    font-size: clamp(28px, 8vw, 35px);
+    line-height: 1.08;
+    letter-spacing: -0.45px;
+  }
+
+  .detail-why-lead {
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.52;
+  }
+
+  .detail-why-layout {
+    gap: 24px;
+  }
+
+  .detail-why-grid {
+    gap: 12px;
+  }
+
+  .detail-why-card {
+    padding: 16px 15px 15px;
+    border-radius: 16px;
+  }
+
+  .why-card-top {
+    margin-bottom: 11px;
+  }
+
+  .why-icon-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 11px;
+  }
+
+  .why-icon-circle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .why-pill-index {
+    padding: 4px 9px;
+    font-size: 11px;
+    border-radius: 7px;
+  }
+
+  .detail-why-card h3 {
+    font-size: 15.5px;
+    line-height: 1.25;
+    margin-bottom: 5px;
+  }
+
+  .detail-why-card p {
+    font-size: 12.5px;
+    line-height: 1.45;
+    margin-bottom: 11px;
+  }
+
+  .why-card-accent-bar {
+    width: 28px;
+    height: 3px;
+  }
+}
+
+/* Mobile why-cards: remove the index and place the title beside the icon. */
+@media (max-width: 680px) {
+  .detail-why-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "icon desc"
+      "bar bar";
+    column-gap: 10px;
+    row-gap: 4px;
+  }
+
+  .why-card-top {
+    display: contents;
+  }
+
+  .why-icon-circle {
+    grid-area: icon;
+    align-self: start;
+  }
+
+  .why-pill-index {
+    display: none !important;
+  }
+
+  .detail-why-card h3 {
+    grid-area: title;
+    align-self: center;
+    margin: 0;
+  }
+
+  .detail-why-card p {
+    grid-area: desc;
+    margin: 0 0 7px;
+  }
+
+  .why-card-accent-bar {
+    grid-area: bar;
+    margin-top: 1px;
+  }
+}
+
+/* Keep deliverable cards readable on narrow screens. */
+@media (max-width: 680px) {
+  .detail-services-section {
+    padding: 44px 0 54px !important;
+  }
+
+  .detail-services-section .detail-section-heading {
+    max-width: 350px;
+    margin: 0 auto 28px;
+  }
+
+  .detail-services-section .detail-section-kicker {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 9px;
+    font-size: 10.5px;
+    letter-spacing: 1.8px;
+  }
+
+  .detail-services-section .detail-section-heading h2 {
+    max-width: 350px;
+    margin: 10px auto 13px;
+    font-size: clamp(29px, 8vw, 36px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+  }
+
+  .detail-services-section .detail-section-heading p {
+    max-width: 335px;
+    margin: 0 auto;
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .detail-service-grid,
+  .detail-service-grid.count-5,
+  .detail-service-grid:has(.detail-service-card:nth-child(5):last-child) {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .detail-service-grid .detail-service-card,
+  .detail-service-grid.count-5 .detail-service-card,
+  .detail-service-grid:has(.detail-service-card:nth-child(5):last-child) .detail-service-card {
+    grid-column: auto !important;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .service-card-image-box {
+    height: 190px;
+  }
+
+  .service-card-body {
+    padding: 36px 20px 22px;
+  }
+
+  .service-card-body h3 {
+    font-size: 18px;
+    line-height: 1.28;
+    margin-bottom: 8px;
+  }
+
+  .service-card-body p {
+    font-size: 14px;
+    line-height: 1.58;
+  }
+}
+
+/* Compact, balanced overview chips on mobile. */
+@media (max-width: 680px) {
+  .detail-overview-media-labels {
+    width: min(100%, 342px);
+    margin: 14px auto 0;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .media-label-chip {
+    min-height: 50px;
+    box-sizing: border-box;
+    padding: 9px 12px;
+    gap: 10px;
+    border-radius: 13px;
+    background: linear-gradient(110deg, #ffffff 0%, #f8fbff 100%);
+    border-color: rgba(0, 114, 234, 0.16);
+    box-shadow: 0 5px 14px rgba(0, 60, 120, 0.06);
+    font-size: 13px;
+  }
+
+  .media-label-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    background: #edf6ff;
+  }
+
+  .media-label-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* Soften FAQ typography on mobile without losing the hierarchy. */
+@media (max-width: 680px) {
+  .detail-faq-question,
+  .detail-faq-card[open] .detail-faq-question {
+    font-weight: 600;
+  }
+
+  .detail-faq-num {
+    font-weight: 700;
+  }
+
+  .faq-tag-pill {
+    font-weight: 600;
+  }
+}
+
+/* Service overview enquiry CTA. */
+.detail-overview-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  margin-top: 4px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7941d 0%, #ff6e00 100%);
+  color: #ffffff;
+  font-family: var(--font-brand, "Montserrat", sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 9px 20px rgba(247, 148, 29, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.detail-overview-cta:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff9f2e 0%, #ff5e00 100%);
+  box-shadow: 0 13px 26px rgba(247, 148, 29, 0.34);
+  transform: translateY(-2px);
+}
+
+.detail-overview-cta svg {
+  width: 15px;
+  height: 13px;
+  transition: transform 0.25s ease;
+}
+
+.detail-overview-cta:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 680px) {
+  .detail-overview-cta {
+    display: flex;
+    width: min(100%, 300px);
+    margin: 18px auto 0;
+    min-height: 44px;
+    padding: 11px 18px;
+    font-size: 12px;
+  }
 }
