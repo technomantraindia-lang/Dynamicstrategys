@@ -48,6 +48,13 @@ const SERVICE_DATA = {
     base: "Instrumentation",
     accent: "Engineering",
     image: "../assets/services-generated/instrumentation-control.png",
+    cardImages: [
+      "../assets/deliverables/instrumentation/01-scada-screen-design.jpg",
+      "../assets/deliverables/instrumentation/02-instrument-selection.jpg",
+      "../assets/deliverables/instrumentation/03-loop-diagrams-io.jpg",
+      "../assets/deliverables/instrumentation/04-interlocking-design.jpg",
+      "../assets/deliverables/instrumentation/05-calibration-validation.jpg"
+    ],
     intro: [
       "We provide instrumentation engineering consultancy for industrial and process facilities, covering instrument selection, control documentation, operator interfaces and validation.",
       "From SCADA screens and loop diagrams to interlocking logic and FAT/SAT support, every deliverable is prepared around your process requirements and industry standards. The result is a control system that is safe to operate, easy to maintain and ready for audits."
