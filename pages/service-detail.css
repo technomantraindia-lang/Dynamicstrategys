@@ -1107,6 +1107,21 @@ body.service-detail-page {
   position: relative;
 }
 
+.detail-approach-list.process-count-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.detail-approach-list.process-count-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.detail-approach-list.process-count-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
 /* Keep longer service workflows balanced instead of leaving one card alone
    on a second line. The 12-column layout also lets the final row of a
    seven-step process sit neatly in the centre. */
@@ -1323,6 +1338,10 @@ body.service-detail-page {
   .detail-approach-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+  }
+  .detail-approach-list.process-count-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
   .concept-flow-indicator {
     display: none;
@@ -2299,6 +2318,11 @@ body.service-detail-page {
     gap: 16px;
   }
 
+  .detail-approach-list.process-count-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
   .detail-approach-list.process-count-6,
   .detail-approach-list.process-count-7 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2392,6 +2416,7 @@ body.service-detail-page {
     grid-template-columns: 1fr;
   }
 
+  .detail-approach-list.process-count-4,
   .detail-approach-list.process-count-6,
   .detail-approach-list.process-count-7 {
     grid-template-columns: 1fr;

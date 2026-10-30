@@ -53,7 +53,7 @@ const SERVICE_DATA = {
       "../assets/deliverables/instrumentation/02-instrument-selection.jpg",
       "../assets/deliverables/instrumentation/03-loop-diagrams-io.jpg",
       "../assets/deliverables/instrumentation/04-interlocking-design.jpg",
-      "../assets/deliverables/instrumentation/05-calibration-validation.jpg"
+      "../assets/deliverables/instrumentation/05-calibration-validation.png"
     ],
     intro: [
       "We provide instrumentation engineering consultancy for industrial and process facilities, covering instrument selection, control documentation, operator interfaces and validation.",
@@ -91,6 +91,14 @@ const SERVICE_DATA = {
     base: "Mechanical",
     accent: "Engineering",
     image: "../assets/services-generated/mechanical-engineering.png",
+    cardImages: [
+      "../assets/deliverables/mechanical/01-pid-pfd-preparation.jpg",
+      "../assets/deliverables/mechanical/02-equipment-design-drafting.jpg",
+      "../assets/deliverables/mechanical/03-support-anchor-design.jpg",
+      "../assets/deliverables/mechanical/04-bill-of-materials.jpg",
+      "../assets/deliverables/mechanical/05-material-selection.jpg",
+      "../assets/deliverables/mechanical/06-hvac-load-ducting.jpg"
+    ],
     intro: [
       "We provide mechanical engineering consultancy for industrial and process facilities, covering process drawings, equipment design, piping supports, material selection and HVAC planning.",
       "Every deliverable is prepared around process requirements and applicable ASME and Indian Standards. From P&IDs and PFDs to equipment drafting, BOMs and ducting layouts, we create documentation that fabricators, procurement teams and site engineers can use without confusion.",
@@ -130,6 +138,14 @@ const SERVICE_DATA = {
     base: "Procurement",
     accent: "Support",
     image: "../assets/services-generated/procurement-support.png",
+    cardImages: [
+      "../assets/deliverables/procurement/01-requirement-specification-review.jpg",
+      "../assets/deliverables/procurement/02-rfq-preparation.jpg",
+      "../assets/deliverables/procurement/03-quotation-evaluation.jpg",
+      "../assets/deliverables/procurement/04-vendor-selection-po-creation.jpg",
+      "../assets/deliverables/procurement/05-order-follow-up.jpg",
+      "../assets/deliverables/procurement/06-complete-p2p-cycle.jpg"
+    ],
     intro: [
       "We provide procurement support for industrial and process projects, helping you buy the right equipment and materials at the right price, on time and in line with technical requirements.",
       "Our team handles both the technical and commercial sides of procurement. From evaluating supplier quotations to managing the complete Procure-to-Pay cycle, we bring structure and transparency to every purchase.",
@@ -165,6 +181,14 @@ const SERVICE_DATA = {
     base: "Detailed Project",
     accent: "Reports",
     image: "../assets/services-generated/project-management.png",
+    cardImages: [
+      "../assets/deliverables/dpr/01-project-requirement-study.jpg",
+      "../assets/deliverables/dpr/02-technical-feasibility.jpg",
+      "../assets/deliverables/dpr/03-cost-estimation.jpg",
+      "../assets/deliverables/dpr/04-financial-analysis.jpg",
+      "../assets/deliverables/dpr/05-implementation-planning.jpg",
+      "../assets/deliverables/dpr/06-submission-ready-dpr.jpg"
+    ],
     intro: [
       "We prepare comprehensive Detailed Project Reports (DPRs) for industrial, process and commercial projects, showing that your project is technically sound, financially viable and ready for approval.",
       "Our reports cover project scope, technical feasibility, cost estimation, financial analysis, implementation planning and project requirements.",
@@ -204,6 +228,14 @@ const SERVICE_DATA = {
     base: "Labour Planning",
     accent: "& Sourcing",
     image: "../assets/about-engineers-hd.jpg",
+    cardImages: [
+      "../assets/deliverables/labour/01-manpower-requirement-study.jpg",
+      "../assets/deliverables/labour/02-skilled-unskilled-sourcing.jpg",
+      "../assets/deliverables/labour/03-workforce-deployment.jpg",
+      "../assets/deliverables/labour/04-attendance-management.jpg",
+      "../assets/deliverables/labour/05-payroll-processing.jpg",
+      "../assets/deliverables/labour/06-compliance-reporting.jpg"
+    ],
     intro: [
       "Industrial and construction projects often lose time when manpower, attendance, wages and statutory requirements are not managed together.",
       "We identify, evaluate and deploy skilled and unskilled manpower as per project requirements and timelines. We also manage attendance, wages, overtime, deductions and statutory compliance.",
@@ -243,6 +275,14 @@ const SERVICE_DATA = {
     base: "Project",
     accent: "Management",
     image: "../assets/services-generated/project-management.png",
+    cardImages: [
+      "../assets/deliverables/project-management/01-project-planning-strategy.jpg",
+      "../assets/deliverables/project-management/02-schedules-budgets.jpg",
+      "../assets/deliverables/project-management/03-stakeholder-coordination.jpg",
+      "../assets/deliverables/project-management/04-technical-assessments.jpg",
+      "../assets/deliverables/project-management/05-procurement-tracking.jpg",
+      "../assets/deliverables/project-management/06-site-guidance-handover.jpg"
+    ],
     intro: [
       "We provide project management services for industrial and process projects, helping you plan, schedule and deliver work on time and within budget.",
       "Our approach combines structured planning with proven tools, so every project has clear timelines, defined responsibilities and early visibility of risks.",
@@ -278,6 +318,14 @@ const SERVICE_DATA = {
     base: "Logistics",
     accent: "Planning",
     image: "../assets/service-consultancy.jpg",
+    cardImages: [
+      "../assets/deliverables/logistics/01-route-optimization.jpg",
+      "../assets/deliverables/logistics/02-truck-load-planning.jpg",
+      "../assets/deliverables/logistics/03-freight-forwarding.jpg",
+      "../assets/deliverables/logistics/04-transport-truck-booking.jpg",
+      "../assets/deliverables/logistics/05-documentation.jpg",
+      "../assets/deliverables/logistics/06-end-to-end-tracking.jpg"
+    ],
     intro: [
       "For industrial companies, logistics often means comparing freight quotes, booking trucks, chasing updates, sorting documents and fixing delays.",
       "We handle the logistics part end to end: freight forwarder selection, transport arrangement, route planning, truck load optimization, documentation and delivery coordination.",
@@ -317,6 +365,14 @@ const SERVICE_DATA = {
     base: "Manufacturing",
     accent: "Consultancy",
     image: "../assets/services-generated/industrial-consultancy.png",
+    cardImages: [
+      "../assets/deliverables/manufacturing/01-plant-layout-material-flow.jpg",
+      "../assets/deliverables/manufacturing/02-equipment-utilities.jpg",
+      "../assets/deliverables/manufacturing/03-production-material-planning.jpg",
+      "../assets/deliverables/manufacturing/04-quality-standardization.jpg",
+      "../assets/deliverables/manufacturing/05-cost-resource-use.jpg",
+      "../assets/deliverables/manufacturing/06-capacity-expansion-decisions.jpg"
+    ],
     intro: [
       "Rising costs, unplanned stoppages and uneven quality usually build up across the plant: layouts add movement, equipment does not match the load, materials arrive late or schedules do not reflect capacity.",
       "We look at your facility as one connected system. Using engineering, planning and procurement experience, we find where output is being lost and design practical fixes that lift production without disrupting what already works."
